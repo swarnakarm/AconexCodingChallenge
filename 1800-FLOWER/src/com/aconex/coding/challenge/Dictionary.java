@@ -19,7 +19,7 @@ public class Dictionary {
 
 	
 	public static Dictionary getInstance(){
-		if(object!=null){
+		if(object==null){
 			object = new Dictionary();
 		}
 		return object;
@@ -69,7 +69,12 @@ public class Dictionary {
 	
 	public static boolean isStringPatternExistInDictionary(String str){
 		boolean flag = false;
-		words.
+		for(String word:words){
+			if(word.startsWith(str)){
+				flag = true;
+				break;
+			}
+		}
 		return flag;
 	}
 	

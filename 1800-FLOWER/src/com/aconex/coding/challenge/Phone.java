@@ -3,13 +3,13 @@ package com.aconex.coding.challenge;
 
 public class Phone {
 
-	private double number = 0.0;
+	private String number = null;
 	
-	public void initNumber(double number){
+	public void initNumber(String number){
 		this.number = number;
 	}
 	
-	public Double getNumber(){
+	public String getNumber(){
 		return number;
 	}
 	

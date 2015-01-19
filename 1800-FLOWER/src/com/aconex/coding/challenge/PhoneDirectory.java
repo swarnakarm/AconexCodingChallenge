@@ -36,8 +36,17 @@ public class PhoneDirectory {
 			while((line = bfread.readLine())!=null){
 				Phone phone = new Phone();
 				try{
-					phone.initNumber(Double.parseDouble(line));
-					Set<String> set = NumberToAlphaConverter.convertToAlpha(phone);
+					StringBuffer sbuf = new StringBuffer();
+					String str = line.toUpperCase();
+					for(int i=0;i<str.length();i++){
+						char c = str.charAt(i);
+						if(c >= '0' && c <= '9'){
+							sbuf.append(c);
+						}
+					}
+					phone.initNumber(sbuf.toString());
+					System.out.println("Phone Number: "+phone.getNumber());
+					Set<String> set = NumberToAlphaConverter.convertToAlpha(phone.getNumber());
 					if(set.size()>0){
 						System.out.println("Possible Word Conversion-");
 						for(String alpha:set){

@@ -27,7 +27,7 @@ public class Main {
 					//Expected
 				}
 				catch(Exception e){
-					
+					e.printStackTrace();
 				}
 			}
 		}

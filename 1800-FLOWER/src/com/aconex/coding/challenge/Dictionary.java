@@ -35,7 +35,15 @@ public class Dictionary {
 			bfread = new BufferedReader(fread);
 			String line = null;
 			while((line = bfread.readLine())!=null){
-				words.add(line.toUpperCase());
+				StringBuffer sbuf = new StringBuffer();
+				String str = line.toUpperCase();
+				for(int i=0;i<str.length();i++){
+					char c = str.charAt(i);
+					if(c >= 'A' && c <= 'Z'){
+						sbuf.append(c);
+					}
+				}
+				words.add(sbuf.toString());
 			}
 		}catch(Exception e){
 			e.printStackTrace();

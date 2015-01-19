@@ -1,6 +1,5 @@
 package com.aconex.coding.challenge;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,9 +11,6 @@ public class NumberToAlphaConverter {
 static Map<String,ArrayList<String>> numberEncodingMap = new HashMap<String,ArrayList<String>>();
 	
 	static {
-		ArrayList<String> decimalEncoding = new ArrayList<String>();
-		decimalEncoding.add("-");
-		numberEncodingMap.put(".",decimalEncoding);
 		ArrayList<String> digit2Encoding = new ArrayList<String>();
 		digit2Encoding.add("A");
 		digit2Encoding.add("B");
@@ -116,30 +112,29 @@ static Map<String,ArrayList<String>> numberEncodingMap = new HashMap<String,Arra
 				}
 			}
 		}
+//		if(newSet.size()>0){
+//			System.out.println("AlphaToDigitConverter--");
+//			for(String atr:newSet){
+//				System.out.println(atr);
+//			}
+//		}
 		return newSet;
 	}
 	
 	private static Set<String> addToSet(Set<String> convertedSet,ArrayList<String> arr, String digit,boolean isFirstIndex){
 		Set<String> newConvertedSet = new HashSet<String>();
-		if(digit.equals(".")){
-			for(String encodedStr : convertedSet){
-				int lastDigitPos = findLastDigitPosition(encodedStr);
-				String str = encodedStr.substring(lastDigitPos+1);
-				if(Dictionary.isStringExistInDictionary(str)){
-					newConvertedSet.add(encodedStr.concat("-"));
-				}
-			}
-		}
-		else if(convertedSet.size()>0){
+		if(convertedSet.size()>0){
 			for(String convertedStr : convertedSet){
-				int lastDigitPos = findLastDigitPosition(convertedStr);
+				final int lastDigitPos = findLastDigitPosition(convertedStr);
 				String str = convertedStr.substring(lastDigitPos+1);
 				for(String encodedStr : arr){
-					String temp = str.concat(encodedStr);
+					final String temp = str.concat(encodedStr);
 					if(Dictionary.isStringPatternExistInDictionary(temp)){
 						newConvertedSet.add(convertedStr.concat(encodedStr));
-					}else{
-						if(Dictionary.isStringExistInDictionary(str)&&lastDigitPos!=convertedStr.length()-1){
+					}
+					else{
+						if(Dictionary.isStringExistInDictionary(str) && (lastDigitPos!=convertedStr.length()-1))
+						{
 							newConvertedSet.add(convertedStr.concat(digit));
 						}
 						Set<String> tempSet = replaceStringWithDigit(temp);
@@ -147,10 +142,21 @@ static Map<String,ArrayList<String>> numberEncodingMap = new HashMap<String,Arra
 							for(String tempStr:tempSet){
 								char firstLetter = tempStr.charAt(0);
 								if(!(firstLetter >= '0' && firstLetter<='9') || lastDigitPos == -1){
-									if(lastDigitPos == -1){
-										newConvertedSet.add(tempStr);
+									newConvertedSet.add(tempStr);
+								}
+							}
+						}
+					}
+					if(lastDigitPos!=-1){
+						ArrayList<String> arr1 = numberEncodingMap.get(String.valueOf(convertedStr.charAt(lastDigitPos)));
+						if(arr1!=null){
+							for(String strL : arr1){
+								String tempStr = strL+temp;
+								if(Dictionary.isStringPatternExistInDictionary(tempStr)){
+									if(lastDigitPos != 0){
+										newConvertedSet.add(convertedStr.substring(0,lastDigitPos).concat("-").concat(tempStr));
 									}else{
-										newConvertedSet.add(convertedStr.substring(0,lastDigitPos).concat(tempStr));
+										newConvertedSet.add(tempStr);
 									}
 								}
 							}
@@ -167,25 +173,44 @@ static Map<String,ArrayList<String>> numberEncodingMap = new HashMap<String,Arra
 	}
 	
 	
-	public static Set<String> convertToAlpha(Phone phone){
+	public static Set<String> convertToAlpha(final String number){
 		Set<String> convertedSet = new HashSet<String>();
-		try{ 
-			DecimalFormat df = new DecimalFormat("#");
-	        df.setMaximumFractionDigits(128);
-			String numberInString = df.format(phone.getNumber());
-			System.out.println("Number Sent For Conversion: "+numberInString);
-			for(int index = 0;index<numberInString.length();index++){
-				char digit = numberInString.charAt(index);
-				if(numberEncodingMap.containsKey(String.valueOf(digit))){
-					ArrayList<String> arr = numberEncodingMap.get(String.valueOf(digit));
-					convertedSet = addToSet(convertedSet,arr,String.valueOf(digit),index==0);
-					if(convertedSet.size()==0){
-						break;
+		boolean isFirst = true;
+		for(int index = 0;index<number.length();index++){
+			char digit = number.charAt(index);
+			if(numberEncodingMap.containsKey(String.valueOf(digit)) || digit == '1'){
+				if(digit == '1'){
+					Set<String> newConvertedSet = new HashSet<String>();
+					if(isFirst){
+						newConvertedSet.add("1");
+					}else{
+						for(String convertedStr:convertedSet){
+							final int lastDigitPos = findLastDigitPosition(convertedStr);
+							if(lastDigitPos != convertedStr.length()-1){
+								String str = convertedStr.substring(lastDigitPos+1);
+								if(Dictionary.isStringExistInDictionary(str)){
+									newConvertedSet.add(convertedStr.concat("1"));
+								}
+							}
+						}
 					}
+					convertedSet.clear();
+					for(String str : newConvertedSet){
+						convertedSet.add(str);
+					}
+				}else{
+					ArrayList<String> arr = numberEncodingMap.get(String.valueOf(digit));
+					convertedSet = addToSet(convertedSet,arr,String.valueOf(digit),isFirst);
 				}
+				if(convertedSet.size()==0){
+					break;
+				}
+				isFirst = false;
+//				System.out.println("Iteratation -- "+(index+1));
+//				for(String c:convertedSet){
+//					System.out.println(c);
+//				}
 			}
-		}catch(Exception e){
-			e.printStackTrace();
 		}
 		return convertedSet;
 	}

@@ -45,15 +45,7 @@ public class PhoneDirectory {
 			String line = null;
 			while((line = bfread.readLine())!=null){
 				Phone phone = new Phone();
-				StringBuffer sbuf = new StringBuffer();
-				String str = line.toUpperCase();
-				for(int i=0;i<str.length();i++){
-					char c = str.charAt(i);
-					if(c >= '0' && c <= '9'){
-						sbuf.append(c);
-					}
-				}
-				phone.initNumber(sbuf.toString());
+				phone.initNumber(ResultFormatter.formatPhoneNumber(line));
 				phoneList.add(phone);
 			}
 		}catch(Exception e){

@@ -2,15 +2,24 @@ package com.aconex.coding.challenge;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
+/**
+ * Main class - starting point.
+ * @author Manish S
+ *
+ */
 public class Main {
 
-//	private  static final String DICTIONARY_FILE_PATH = "DictionaryFilePath";
-	
+	/**
+	 * Reads dictionary path.
+	 * Dictionary path to be provided as argument
+	 * Main -d DICTION_FILE_PATH
+	 * Its mandatory to provided dictionary path
+	 * @param args
+	 * @return
+	 */
 	public static String readDictionaryPath(String args[]){
 		String dictionaryPath = null;
 		for(int index=0;index<args.length;index++){
@@ -30,8 +39,13 @@ public class Main {
 		return dictionaryPath;
 	}
 	
-	
-	public static String readPhonePath(String args[],String dictionaryPath){
+	/**
+	 * Method reads the Phone Directory Path either from stdin or Command line argument.
+	 * @param args
+	 * @param dictionaryPath
+	 * @return
+	 */
+	public static String readPhoneDirPath(String args[],String dictionaryPath){
 		String phoneDirectoryPath = null;
 		InputStreamReader isr = null;
 		BufferedReader bfread = null;
@@ -71,6 +85,12 @@ public class Main {
 		
 	}
 	
+	/**
+	 * Starting Point - Initializes Dictionary and Phone Directory
+	 * Runs the converter to convert phone number to corresponding 
+	 * set of combination of multiple words available in dictionary.
+	 * @param args
+	 */
 	public static void main(String args[]){
 		String dictionaryPath = readDictionaryPath(args);
 		if(dictionaryPath==null){
@@ -80,13 +100,13 @@ public class Main {
 			System.exit(1);
 		}
 		
-		String phoneDirectoryPath = readPhonePath(args, dictionaryPath);
+		String phoneDirectoryPath = readPhoneDirPath(args, dictionaryPath);
 		
 		Dictionary dictionary = Dictionary.getInstance();
 		dictionary.init(dictionaryPath);
 		PhoneDirectory dir = new PhoneDirectory();
 		dir.init(phoneDirectoryPath);
-		Map<String,Set<String>> resultDir = dir.readDirectoryAndCovertNumbertoAlpha();
+		Map<String,Set<String>> resultDir = dir.readDirectoryAndCovertAllPhoneNumbertoAlpha();
 		Set<Entry<String,Set<String>>> entrySet = resultDir.entrySet();
 		for(Entry<String,Set<String>> e : entrySet){
 			String phoneNumber = e.getKey();

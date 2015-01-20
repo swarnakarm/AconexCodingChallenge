@@ -5,7 +5,15 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
+/**
+ * 
+ * @author Manish S
+ * This class NumberToAlphaConverter is used to convert the
+ * phone number with the combination of multiple word available in dictionary.
+ * The result for the number can be multiple set of words where each word can be comprised of multiple word from dictionary
+ * e.g 6264743299 is the phone number provided and in Dictionary we have [MANISH, MAMISH, MAOISH, DAZZ]
+ * result is MANISH-DAZZ, MAMISH-DAZZ, MAOISH-DAZZ
+ */
 public class NumberToAlphaConverter {
 
 static Map<String,ArrayList<String>> numberEncodingMap = new HashMap<String,ArrayList<String>>();
@@ -55,7 +63,11 @@ static Map<String,ArrayList<String>> numberEncodingMap = new HashMap<String,Arra
 		numberEncodingMap.put("9",digit9Encoding);
 	}
 	
-	
+	/**
+	 * Method is used to find the last digit position from the converString.
+	 * @param convertedString
+	 * @return
+	 */
 	private static int findLastDigitPosition(String convertedString){
 		int pos = -1;
 		char digit0 = '0';
@@ -72,6 +84,11 @@ static Map<String,ArrayList<String>> numberEncodingMap = new HashMap<String,Arra
 		
 	}
 	
+	/**
+	 * Method is used to convert alpha character to its corresponding digit.
+	 * @param alpha
+	 * @return
+	 */
 	private static String alphaToDigit(char alpha){
 		if(alpha>='A'&&alpha<='C'){
 			return "2";
@@ -92,7 +109,12 @@ static Map<String,ArrayList<String>> numberEncodingMap = new HashMap<String,Arra
 		}
 	}
 	
-	
+	/**
+	 * Method is used to convert each character of the string at a time and check the prefix and postfix string 
+	 * available in dictionary. If the prefix and postfix matches the string is 1 of the result word and will be added in Set.
+	 * @param str
+	 * @return
+	 */
 	private static Set<String> replaceWithDigitAndCheckInDictionary(String str){
 		Set<String> newResultSet = new HashSet<String>();
 		for(int i=0;i<str.length()-1;i++){
@@ -115,6 +137,17 @@ static Map<String,ArrayList<String>> numberEncodingMap = new HashMap<String,Arra
 		return newResultSet;
 	}
 	
+	
+	/**
+	 * Every encodedString from encodeStringArr is to be appended with resultWord available in resultSet.
+	 * If the newEncodedString or its pattern matches with the words available in dictionary 
+	 * then the newEncodedString is added to newResultSet which returned. 
+	 * @param resultSet
+	 * @param encodedStringArr
+	 * @param digit
+	 * @param isFirstIndex
+	 * @return
+	 */
 	private static Set<String> getResultSetAfterAddingEncodedString(Set<String> resultSet,ArrayList<String> encodedStringArr, String digit,boolean isFirstIndex){
 		Set<String> newResultSet = new HashSet<String>();
 		if(resultSet.size()>0){
@@ -166,7 +199,13 @@ static Map<String,ArrayList<String>> numberEncodingMap = new HashMap<String,Arra
 		return newResultSet;
 	}
 	
-	
+	/**
+	 * Method is used to convert the Number with all possible combination of word available in dictionary.
+	 * This is the actual method used to convert number to set of combination of available dictionary word.
+	 * And is called for conversion from outside. 
+	 * @param number
+	 * @return
+	 */
 	public static Set<String> convertToAlpha(final String number){
 		Set<String> resultSet = new HashSet<String>();
 		boolean isFirst = true;

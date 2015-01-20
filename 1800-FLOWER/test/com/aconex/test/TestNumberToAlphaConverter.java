@@ -286,7 +286,6 @@ public class TestNumberToAlphaConverter{
 		boolean flag = false;
 		if(result.size()>0){
 			for(String str:result){
-				System.out.println(str);
 				if(!str.equals("DAZZ-ZEN8") && !str.equals("DAZZ9ENT")){
 					flag = true;
 				}

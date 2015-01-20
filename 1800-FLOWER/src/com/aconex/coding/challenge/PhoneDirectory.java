@@ -3,15 +3,16 @@ package com.aconex.coding.challenge;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class PhoneDirectory {
 
 	private String directoryPath = null;
 	
-	public PhoneDirectory(){
-		
-	}
+	public PhoneDirectory(){}
+	
 	
 	public PhoneDirectory(String directoryPath){
 		this.directoryPath = directoryPath;
@@ -21,7 +22,8 @@ public class PhoneDirectory {
 		this.directoryPath = directoryPath;
 	}
 	
-	public void readDirectoryAndCovertNumbertoAlpha(){
+	public Map<String,Set<String>> readDirectoryAndCovertNumbertoAlpha(){
+		Map<String,Set<String>> resultDir = new HashMap<String,Set<String>>();
 		File file = new File(directoryPath);
 		FileReader fread = null;
 		BufferedReader bfread = null;
@@ -45,16 +47,8 @@ public class PhoneDirectory {
 						}
 					}
 					phone.initNumber(sbuf.toString());
-					System.out.println("Phone Number: "+phone.getNumber());
 					Set<String> set = NumberToAlphaConverter.convertToAlpha(phone.getNumber());
-					if(set.size()>0){
-						System.out.println("Possible Word Conversion-");
-						for(String alpha:set){
-							System.out.println(alpha);
-						}
-					}else{
-						System.out.println("No Possible Word Conversion!!!");
-					}
+					resultDir.put(phone.getNumber(), set);
 				}catch(Exception e){
 					//Expected
 				}
@@ -77,6 +71,7 @@ public class PhoneDirectory {
 				}
 			}
 		}
+		return resultDir;
 	}
 	
 	

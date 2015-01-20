@@ -1,0 +1,1930 @@
+<?xml version="1.0" encoding="UTF-8"?><TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1421776346777" TestSessionContainerId="aed169aa-d52b-42a9-8bf6-8c480e03fb04" version="1.0">
+<SrcFileList>
+<SrcFile Content="package com.aconex.coding.challenge;&#13;&#10;&#13;&#10;import java.util.ArrayList;&#13;&#10;import java.util.HashMap;&#13;&#10;import java.util.HashSet;&#13;&#10;import java.util.Map;&#13;&#10;import java.util.Set;&#13;&#10;&#13;&#10;public class NumberToAlphaConverter {&#13;&#10;&#13;&#10;static Map&lt;String,ArrayList&lt;String&gt;&gt; numberEncodingMap = new HashMap&lt;String,ArrayList&lt;String&gt;&gt;();&#13;&#10;&#9;&#13;&#10;&#9;static {&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit2Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit2Encoding.add(&quot;A&quot;);&#13;&#10;&#9;&#9;digit2Encoding.add(&quot;B&quot;);&#13;&#10;&#9;&#9;digit2Encoding.add(&quot;C&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;2&quot;,digit2Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit3Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit3Encoding.add(&quot;D&quot;);&#13;&#10;&#9;&#9;digit3Encoding.add(&quot;E&quot;);&#13;&#10;&#9;&#9;digit3Encoding.add(&quot;F&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;3&quot;,digit3Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit4Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit4Encoding.add(&quot;G&quot;);&#13;&#10;&#9;&#9;digit4Encoding.add(&quot;H&quot;);&#13;&#10;&#9;&#9;digit4Encoding.add(&quot;I&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;4&quot;,digit4Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit5Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit5Encoding.add(&quot;J&quot;);&#13;&#10;&#9;&#9;digit5Encoding.add(&quot;K&quot;);&#13;&#10;&#9;&#9;digit5Encoding.add(&quot;L&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;5&quot;,digit5Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit6Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit6Encoding.add(&quot;M&quot;);&#13;&#10;&#9;&#9;digit6Encoding.add(&quot;N&quot;);&#13;&#10;&#9;&#9;digit6Encoding.add(&quot;O&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;6&quot;,digit6Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit7Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit7Encoding.add(&quot;P&quot;);&#13;&#10;&#9;&#9;digit7Encoding.add(&quot;Q&quot;);&#13;&#10;&#9;&#9;digit7Encoding.add(&quot;R&quot;);&#13;&#10;&#9;&#9;digit7Encoding.add(&quot;S&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;7&quot;,digit7Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit8Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit8Encoding.add(&quot;T&quot;);&#13;&#10;&#9;&#9;digit8Encoding.add(&quot;U&quot;);&#13;&#10;&#9;&#9;digit8Encoding.add(&quot;V&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;8&quot;,digit8Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit9Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit9Encoding.add(&quot;W&quot;);&#13;&#10;&#9;&#9;digit9Encoding.add(&quot;X&quot;);&#13;&#10;&#9;&#9;digit9Encoding.add(&quot;Y&quot;);&#13;&#10;&#9;&#9;digit9Encoding.add(&quot;Z&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;9&quot;,digit9Encoding);&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;&#13;&#10;&#9;private static int findLastDigitPosition(String convertedString){&#13;&#10;&#9;&#9;int pos = -1;&#13;&#10;&#9;&#9;char digit0 = '0';&#13;&#10;&#9;&#9;char digit9 = '9';&#13;&#10;&#9;&#9;for(int index = 0; index&lt;convertedString.length();index++){&#13;&#10;&#9;&#9;&#9;char charAtPos = convertedString.charAt(index);&#13;&#10;&#9;&#9;&#9;if(charAtPos&gt;=digit0 &amp;&amp; charAtPos&lt;=digit9){&#13;&#10;&#9;&#9;&#9;&#9;pos = index;&#13;&#10;&#9;&#9;&#9;}else if(charAtPos == '-'){&#13;&#10;&#9;&#9;&#9;&#9;pos = index;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return pos;&#13;&#10;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;private static String alphaToDigit(char alpha){&#13;&#10;&#9;&#9;if(alpha&gt;='A'&amp;&amp;alpha&lt;='C'){&#13;&#10;&#9;&#9;&#9;return &quot;2&quot;;&#13;&#10;&#9;&#9;}else if(alpha&gt;='D'&amp;&amp;alpha&lt;='F'){&#13;&#10;&#9;&#9;&#9;return &quot;3&quot;;&#13;&#10;&#9;&#9;}else if(alpha&gt;='G'&amp;&amp;alpha&lt;='I'){&#13;&#10;&#9;&#9;&#9;return &quot;4&quot;;&#13;&#10;&#9;&#9;}else if(alpha&gt;='J'&amp;&amp;alpha&lt;='L'){&#13;&#10;&#9;&#9;&#9;return &quot;5&quot;;&#13;&#10;&#9;&#9;}else if(alpha&gt;='M'&amp;&amp;alpha&lt;='O'){&#13;&#10;&#9;&#9;&#9;return &quot;6&quot;;&#13;&#10;&#9;&#9;}else if(alpha&gt;='P'&amp;&amp;alpha&lt;='S'){&#13;&#10;&#9;&#9;&#9;return &quot;7&quot;;&#13;&#10;&#9;&#9;}else if(alpha&gt;='T'&amp;&amp;alpha&lt;='V'){&#13;&#10;&#9;&#9;&#9;return &quot;8&quot;;&#13;&#10;&#9;&#9;}else{&#13;&#10;&#9;&#9;&#9;return &quot;9&quot;;&#13;&#10;&#9;&#9;}&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;&#13;&#10;&#9;private static Set&lt;String&gt; replaceStringWithDigitAndCheckInDictionary(String str){&#13;&#10;&#9;&#9;Set&lt;String&gt; newResultSet = new HashSet&lt;String&gt;();&#13;&#10;&#9;&#9;for(int i=0;i&lt;str.length()-1;i++){&#13;&#10;&#9;&#9;&#9;if(i==0){&#13;&#10;&#9;&#9;&#9;&#9;String stringAfterFirstCharacterAsDigit = str.substring(i+1);&#13;&#10;&#9;&#9;&#9;&#9;if(Dictionary.isStringPatternExistInDictionary(stringAfterFirstCharacterAsDigit)){&#13;&#10;&#9;&#9;&#9;&#9;&#9;newResultSet.add(alphaToDigit(str.charAt(i)).concat(stringAfterFirstCharacterAsDigit));&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;else{&#13;&#10;&#9;&#9;&#9;&#9;String stringBeforeDigit = str.substring(0,i);&#13;&#10;&#9;&#9;&#9;&#9;if(Dictionary.isStringExistInDictionary(stringBeforeDigit)){&#13;&#10;&#9;&#9;&#9;&#9;&#9;String stringAfterDigit = str.substring(i+1);&#13;&#10;&#9;&#9;&#9;&#9;&#9;if(Dictionary.isStringPatternExistInDictionary(stringAfterDigit)){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;newResultSet.add(stringBeforeDigit.concat(alphaToDigit(str.charAt(i))).concat(stringAfterDigit));&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return newResultSet;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;private static Set&lt;String&gt; addToSet(Set&lt;String&gt; resultSet,ArrayList&lt;String&gt; encodedStringArr, String digit,boolean isFirstIndex){&#13;&#10;&#9;&#9;Set&lt;String&gt; newResultSet = new HashSet&lt;String&gt;();&#13;&#10;&#9;&#9;if(resultSet.size()&gt;0){&#13;&#10;&#9;&#9;&#9;for(String resultString : resultSet){&#13;&#10;&#9;&#9;&#9;&#9;final int lastDigitPos = findLastDigitPosition(resultString);&#13;&#10;&#9;&#9;&#9;&#9;String stringAfterLastDigit = resultString.substring(lastDigitPos+1);&#13;&#10;&#9;&#9;&#9;&#9;for(String encodedString : encodedStringArr){&#13;&#10;&#9;&#9;&#9;&#9;&#9;final String newResultString = stringAfterLastDigit.concat(encodedString);&#13;&#10;&#9;&#9;&#9;&#9;&#9;if(Dictionary.isStringPatternExistInDictionary(newResultString)){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;newResultSet.add(resultString.concat(encodedString));&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;else{&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;if(Dictionary.isStringExistInDictionary(stringAfterLastDigit) &amp;&amp; (lastDigitPos!=resultString.length()-1))&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;{&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;newResultSet.add(resultString.concat(digit));&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;Set&lt;String&gt; tempResultSet = replaceStringWithDigitAndCheckInDictionary(newResultString);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;if(tempResultSet.size()&gt;0){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;for(String tempStr:tempResultSet){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;char firstLetter = tempStr.charAt(0);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;if(!(firstLetter &gt;= '0' &amp;&amp; firstLetter&lt;='9') || lastDigitPos == -1){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;newResultSet.add(tempStr);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;if(lastDigitPos!=-1){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;ArrayList&lt;String&gt; lastDigitEncodedStringArr = numberEncodingMap.get(String.valueOf(resultString.charAt(lastDigitPos)));&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;if(lastDigitEncodedStringArr!=null){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;for(String lastDigitEncodedString : lastDigitEncodedStringArr){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;String resultStringAfterReplacingLastDigitWithString = lastDigitEncodedString.concat(newResultString);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;if(Dictionary.isStringPatternExistInDictionary(resultStringAfterReplacingLastDigitWithString)){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;if(lastDigitPos != 0){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;newResultSet.add(resultString.substring(0,lastDigitPos).concat(&quot;-&quot;).concat(resultStringAfterReplacingLastDigitWithString));&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}else{&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;newResultSet.add(resultStringAfterReplacingLastDigitWithString);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}else if(isFirstIndex){&#13;&#10;&#9;&#9;&#9;for(String encodedString : encodedStringArr){&#13;&#10;&#9;&#9;&#9;&#9;newResultSet.add(encodedString);&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return newResultSet;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;&#13;&#10;&#9;public static Set&lt;String&gt; convertToAlpha(final String number){&#13;&#10;&#9;&#9;Set&lt;String&gt; resultSet = new HashSet&lt;String&gt;();&#13;&#10;&#9;&#9;boolean isFirst = true;&#13;&#10;&#9;&#9;for(int index = 0;index&lt;number.length();index++){&#13;&#10;&#9;&#9;&#9;char digit = number.charAt(index);&#13;&#10;&#9;&#9;&#9;if(numberEncodingMap.containsKey(String.valueOf(digit)) || digit == '1'){&#13;&#10;&#9;&#9;&#9;&#9;if(digit == '1'){&#13;&#10;&#9;&#9;&#9;&#9;&#9;Set&lt;String&gt; newConvertedSet = new HashSet&lt;String&gt;();&#13;&#10;&#9;&#9;&#9;&#9;&#9;if(isFirst){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;newConvertedSet.add(&quot;1&quot;);&#13;&#10;&#9;&#9;&#9;&#9;&#9;}else{&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;for(String convertedStr:resultSet){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;final int lastDigitPos = findLastDigitPosition(convertedStr);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;if(lastDigitPos != convertedStr.length()-1){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;String str = convertedStr.substring(lastDigitPos+1);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;if(Dictionary.isStringExistInDictionary(str)){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;newConvertedSet.add(convertedStr.concat(&quot;1&quot;));&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;resultSet.clear();&#13;&#10;&#9;&#9;&#9;&#9;&#9;for(String str : newConvertedSet){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;resultSet.add(str);&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;}else{&#13;&#10;&#9;&#9;&#9;&#9;&#9;ArrayList&lt;String&gt; encodedStringArr = numberEncodingMap.get(String.valueOf(digit));&#13;&#10;&#9;&#9;&#9;&#9;&#9;resultSet = addToSet(resultSet,encodedStringArr,String.valueOf(digit),isFirst);&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;if(resultSet.size()==0){&#13;&#10;&#9;&#9;&#9;&#9;&#9;break;&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;isFirst = false;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return resultSet;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;}&#13;&#10;" Filename="NumberToAlphaConverter.java" Intrnl_Id="1"/>
+</SrcFileList>
+<CritList>
+<CritListEntry Name="org.codecover.model.utils.criteria.LoopCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.BranchCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.ConditionCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.SynchronizedStatementCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.QMOCoverage" PluginName="org.codecover"/>
+<CritListEntry Name="org.codecover.model.utils.criteria.StatementCoverage" PluginName="org.codecover"/>
+</CritList>
+<BoolOpList>
+<BoolOp Arity="1" Intrnl_Id="2" Name="not (!)">
+<BoolAssgnmntBoolMapList>
+<MapEntry BoolAssgnmnt="0" Value="true"/>
+<MapEntry BoolAssgnmnt="1" Value="false"/>
+</BoolAssgnmntBoolMapList>
+</BoolOp>
+<BoolOp Arity="2" Intrnl_Id="3" Name="conditional and (&amp;&amp;)">
+<BoolAssgnmntBoolMapList>
+<MapEntry BoolAssgnmnt="10" Value="false"/>
+<MapEntry BoolAssgnmnt="02" Value="false"/>
+<MapEntry BoolAssgnmnt="11" Value="true"/>
+</BoolAssgnmntBoolMapList>
+</BoolOp>
+<BoolOp Arity="2" Intrnl_Id="4" Name="conditional or (||)">
+<BoolAssgnmntBoolMapList>
+<MapEntry BoolAssgnmnt="01" Value="true"/>
+<MapEntry BoolAssgnmnt="00" Value="false"/>
+<MapEntry BoolAssgnmnt="12" Value="true"/>
+</BoolAssgnmntBoolMapList>
+</BoolOp>
+</BoolOpList>
+<HierarchyLvlTypeList>
+<HierarchyLvlType EnglishName="package" IntrnlName="package" Intrnl_Id="5"/>
+<HierarchyLvlType EnglishName="class" IntrnlName="class" Intrnl_Id="6"/>
+<HierarchyLvlType EnglishName="method" IntrnlName="method" Intrnl_Id="7"/>
+<HierarchyLvlType EnglishName="default package" IntrnlName="default package" Intrnl_Id="8"/>
+</HierarchyLvlTypeList>
+<MASTRoot>
+<HierarchyLvl HierarchyLvlId="671" HierarchyLvlTypeId="8" Intrnl_Id="9" Name="default package">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="670" HierarchyLvlTypeId="5" Intrnl_Id="10" Name="com">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="669" HierarchyLvlTypeId="5" Intrnl_Id="11" Name="aconex">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="668" HierarchyLvlTypeId="5" Intrnl_Id="12" Name="coding">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="667" HierarchyLvlTypeId="5" Intrnl_Id="13" Name="challenge">
+<Header/>
+<LocList/>
+<HierarchyLvl HierarchyLvlId="666" HierarchyLvlTypeId="6" Intrnl_Id="14" Name="NumberToAlphaConverter">
+<Header>
+<Loc EndOffset="206" SrcFileId="1" StartOffset="171"/>
+</Header>
+<LocList>
+<Loc EndOffset="7112" SrcFileId="1" StartOffset="171"/>
+</LocList>
+<StmntSeq Intrnl_Id="15">
+<LocList>
+<Loc EndOffset="309" SrcFileId="1" StartOffset="212"/>
+<Loc EndOffset="386" SrcFileId="1" StartOffset="327"/>
+<Loc EndOffset="414" SrcFileId="1" StartOffset="390"/>
+<Loc EndOffset="442" SrcFileId="1" StartOffset="418"/>
+<Loc EndOffset="470" SrcFileId="1" StartOffset="446"/>
+<Loc EndOffset="516" SrcFileId="1" StartOffset="474"/>
+<Loc EndOffset="579" SrcFileId="1" StartOffset="520"/>
+<Loc EndOffset="607" SrcFileId="1" StartOffset="583"/>
+<Loc EndOffset="635" SrcFileId="1" StartOffset="611"/>
+<Loc EndOffset="663" SrcFileId="1" StartOffset="639"/>
+<Loc EndOffset="709" SrcFileId="1" StartOffset="667"/>
+<Loc EndOffset="772" SrcFileId="1" StartOffset="713"/>
+<Loc EndOffset="800" SrcFileId="1" StartOffset="776"/>
+<Loc EndOffset="828" SrcFileId="1" StartOffset="804"/>
+<Loc EndOffset="856" SrcFileId="1" StartOffset="832"/>
+<Loc EndOffset="902" SrcFileId="1" StartOffset="860"/>
+<Loc EndOffset="965" SrcFileId="1" StartOffset="906"/>
+<Loc EndOffset="993" SrcFileId="1" StartOffset="969"/>
+<Loc EndOffset="1021" SrcFileId="1" StartOffset="997"/>
+<Loc EndOffset="1049" SrcFileId="1" StartOffset="1025"/>
+<Loc EndOffset="1095" SrcFileId="1" StartOffset="1053"/>
+<Loc EndOffset="1158" SrcFileId="1" StartOffset="1099"/>
+<Loc EndOffset="1186" SrcFileId="1" StartOffset="1162"/>
+<Loc EndOffset="1214" SrcFileId="1" StartOffset="1190"/>
+<Loc EndOffset="1242" SrcFileId="1" StartOffset="1218"/>
+<Loc EndOffset="1288" SrcFileId="1" StartOffset="1246"/>
+<Loc EndOffset="1351" SrcFileId="1" StartOffset="1292"/>
+<Loc EndOffset="1379" SrcFileId="1" StartOffset="1355"/>
+<Loc EndOffset="1407" SrcFileId="1" StartOffset="1383"/>
+<Loc EndOffset="1435" SrcFileId="1" StartOffset="1411"/>
+<Loc EndOffset="1463" SrcFileId="1" StartOffset="1439"/>
+<Loc EndOffset="1509" SrcFileId="1" StartOffset="1467"/>
+<Loc EndOffset="1572" SrcFileId="1" StartOffset="1513"/>
+<Loc EndOffset="1600" SrcFileId="1" StartOffset="1576"/>
+<Loc EndOffset="1628" SrcFileId="1" StartOffset="1604"/>
+<Loc EndOffset="1656" SrcFileId="1" StartOffset="1632"/>
+<Loc EndOffset="1702" SrcFileId="1" StartOffset="1660"/>
+<Loc EndOffset="1765" SrcFileId="1" StartOffset="1706"/>
+<Loc EndOffset="1793" SrcFileId="1" StartOffset="1769"/>
+<Loc EndOffset="1821" SrcFileId="1" StartOffset="1797"/>
+<Loc EndOffset="1849" SrcFileId="1" StartOffset="1825"/>
+<Loc EndOffset="1877" SrcFileId="1" StartOffset="1853"/>
+<Loc EndOffset="1923" SrcFileId="1" StartOffset="1881"/>
+</LocList>
+<BasicStmnt CovItemId="S1" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="16">
+<LocList>
+<Loc EndOffset="309" SrcFileId="1" StartOffset="212"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S2" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="17">
+<LocList>
+<Loc EndOffset="386" SrcFileId="1" StartOffset="327"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S3" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="18">
+<LocList>
+<Loc EndOffset="414" SrcFileId="1" StartOffset="390"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S4" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="19">
+<LocList>
+<Loc EndOffset="442" SrcFileId="1" StartOffset="418"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S5" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="20">
+<LocList>
+<Loc EndOffset="470" SrcFileId="1" StartOffset="446"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S6" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="21">
+<LocList>
+<Loc EndOffset="516" SrcFileId="1" StartOffset="474"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S7" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="22">
+<LocList>
+<Loc EndOffset="579" SrcFileId="1" StartOffset="520"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S8" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="23">
+<LocList>
+<Loc EndOffset="607" SrcFileId="1" StartOffset="583"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S9" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="24">
+<LocList>
+<Loc EndOffset="635" SrcFileId="1" StartOffset="611"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S10" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="25">
+<LocList>
+<Loc EndOffset="663" SrcFileId="1" StartOffset="639"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S11" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="26">
+<LocList>
+<Loc EndOffset="709" SrcFileId="1" StartOffset="667"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S12" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="27">
+<LocList>
+<Loc EndOffset="772" SrcFileId="1" StartOffset="713"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S13" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="28">
+<LocList>
+<Loc EndOffset="800" SrcFileId="1" StartOffset="776"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S14" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="29">
+<LocList>
+<Loc EndOffset="828" SrcFileId="1" StartOffset="804"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S15" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="30">
+<LocList>
+<Loc EndOffset="856" SrcFileId="1" StartOffset="832"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S16" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="31">
+<LocList>
+<Loc EndOffset="902" SrcFileId="1" StartOffset="860"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S17" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="32">
+<LocList>
+<Loc EndOffset="965" SrcFileId="1" StartOffset="906"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S18" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="33">
+<LocList>
+<Loc EndOffset="993" SrcFileId="1" StartOffset="969"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S19" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="34">
+<LocList>
+<Loc EndOffset="1021" SrcFileId="1" StartOffset="997"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S20" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="35">
+<LocList>
+<Loc EndOffset="1049" SrcFileId="1" StartOffset="1025"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S21" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="36">
+<LocList>
+<Loc EndOffset="1095" SrcFileId="1" StartOffset="1053"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S22" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="37">
+<LocList>
+<Loc EndOffset="1158" SrcFileId="1" StartOffset="1099"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S23" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="38">
+<LocList>
+<Loc EndOffset="1186" SrcFileId="1" StartOffset="1162"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S24" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="39">
+<LocList>
+<Loc EndOffset="1214" SrcFileId="1" StartOffset="1190"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S25" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="40">
+<LocList>
+<Loc EndOffset="1242" SrcFileId="1" StartOffset="1218"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S26" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="41">
+<LocList>
+<Loc EndOffset="1288" SrcFileId="1" StartOffset="1246"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S27" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="42">
+<LocList>
+<Loc EndOffset="1351" SrcFileId="1" StartOffset="1292"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S28" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="43">
+<LocList>
+<Loc EndOffset="1379" SrcFileId="1" StartOffset="1355"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S29" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="44">
+<LocList>
+<Loc EndOffset="1407" SrcFileId="1" StartOffset="1383"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S30" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="45">
+<LocList>
+<Loc EndOffset="1435" SrcFileId="1" StartOffset="1411"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S31" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="46">
+<LocList>
+<Loc EndOffset="1463" SrcFileId="1" StartOffset="1439"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S32" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="47">
+<LocList>
+<Loc EndOffset="1509" SrcFileId="1" StartOffset="1467"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S33" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="48">
+<LocList>
+<Loc EndOffset="1572" SrcFileId="1" StartOffset="1513"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S34" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="49">
+<LocList>
+<Loc EndOffset="1600" SrcFileId="1" StartOffset="1576"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S35" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="50">
+<LocList>
+<Loc EndOffset="1628" SrcFileId="1" StartOffset="1604"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S36" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="51">
+<LocList>
+<Loc EndOffset="1656" SrcFileId="1" StartOffset="1632"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S37" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="52">
+<LocList>
+<Loc EndOffset="1702" SrcFileId="1" StartOffset="1660"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S38" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="53">
+<LocList>
+<Loc EndOffset="1765" SrcFileId="1" StartOffset="1706"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S39" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="54">
+<LocList>
+<Loc EndOffset="1793" SrcFileId="1" StartOffset="1769"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S40" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="55">
+<LocList>
+<Loc EndOffset="1821" SrcFileId="1" StartOffset="1797"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S41" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="56">
+<LocList>
+<Loc EndOffset="1849" SrcFileId="1" StartOffset="1825"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S42" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="57">
+<LocList>
+<Loc EndOffset="1877" SrcFileId="1" StartOffset="1853"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S43" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="58">
+<LocList>
+<Loc EndOffset="1923" SrcFileId="1" StartOffset="1881"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<HierarchyLvl HierarchyLvlId="661" HierarchyLvlTypeId="7" Intrnl_Id="59" Name="findLastDigitPosition">
+<Header>
+<Loc EndOffset="2000" SrcFileId="1" StartOffset="1936"/>
+</Header>
+<LocList>
+<Loc EndOffset="2327" SrcFileId="1" StartOffset="1936"/>
+</LocList>
+<StmntSeq Intrnl_Id="60">
+<LocList>
+<Loc EndOffset="2018" SrcFileId="1" StartOffset="2005"/>
+<Loc EndOffset="2040" SrcFileId="1" StartOffset="2022"/>
+<Loc EndOffset="2062" SrcFileId="1" StartOffset="2044"/>
+<Loc EndOffset="2304" SrcFileId="1" StartOffset="2066"/>
+<Loc EndOffset="2319" SrcFileId="1" StartOffset="2308"/>
+</LocList>
+<BasicStmnt CovItemId="S44" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="61">
+<LocList>
+<Loc EndOffset="2018" SrcFileId="1" StartOffset="2005"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S45" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="62">
+<LocList>
+<Loc EndOffset="2040" SrcFileId="1" StartOffset="2022"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S46" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="63">
+<LocList>
+<Loc EndOffset="2062" SrcFileId="1" StartOffset="2044"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S47" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="64" MltplExecId="L1-2" MltplExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" NvrExecId="L1-0" NvrExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OnceExecutedId="L1-1" OnceExecutedPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="65">
+<LocList>
+<Loc EndOffset="2177" SrcFileId="1" StartOffset="2130"/>
+<Loc EndOffset="2299" SrcFileId="1" StartOffset="2182"/>
+</LocList>
+<BasicStmnt CovItemId="S48" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="66">
+<LocList>
+<Loc EndOffset="2177" SrcFileId="1" StartOffset="2130"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S49" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="67">
+<Branch CovItemId="B1" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="68">
+<Cond/>
+<LocList>
+<Loc EndOffset="2249" SrcFileId="1" StartOffset="2224"/>
+</LocList>
+<StmntSeq Intrnl_Id="69">
+<LocList>
+<Loc EndOffset="2243" SrcFileId="1" StartOffset="2231"/>
+</LocList>
+<BasicStmnt CovItemId="S50" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="70">
+<LocList>
+<Loc EndOffset="2243" SrcFileId="1" StartOffset="2231"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B2" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="71">
+<Cond>
+<Loc EndOffset="2253" SrcFileId="1" StartOffset="2249"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2299" SrcFileId="1" StartOffset="2254"/>
+</LocList>
+<StmntSeq Intrnl_Id="72">
+<LocList>
+<Loc EndOffset="2299" SrcFileId="1" StartOffset="2254"/>
+</LocList>
+<CondStmnt CovItemId="S51" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="73">
+<Branch CovItemId="B3" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="74">
+<Cond/>
+<LocList>
+<Loc EndOffset="2299" SrcFileId="1" StartOffset="2274"/>
+</LocList>
+<StmntSeq Intrnl_Id="75">
+<LocList>
+<Loc EndOffset="2293" SrcFileId="1" StartOffset="2281"/>
+</LocList>
+<BasicStmnt CovItemId="S52" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="76">
+<LocList>
+<Loc EndOffset="2293" SrcFileId="1" StartOffset="2281"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B4" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="77">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="78">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2256" SrcFileId="1" StartOffset="2254"/>
+<LocList>
+<Loc EndOffset="2299" SrcFileId="1" StartOffset="2254"/>
+</LocList>
+<RootTerm CovItemId="C3" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="79">
+<BasicBoolTerm Intrnl_Id="80">
+<LocList>
+<Loc EndOffset="2273" SrcFileId="1" StartOffset="2257"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2184" SrcFileId="1" StartOffset="2182"/>
+<LocList>
+<Loc EndOffset="2299" SrcFileId="1" StartOffset="2182"/>
+</LocList>
+<RootTerm CovItemId="C2" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="81">
+<OpTerm BooleanOpId="3" Intrnl_Id="82">
+<BasicBoolTerm Intrnl_Id="83">
+<LocList>
+<Loc EndOffset="2202" SrcFileId="1" StartOffset="2185"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="84">
+<LocList>
+<Loc EndOffset="2223" SrcFileId="1" StartOffset="2206"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2205" SrcFileId="1" StartOffset="2203"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="2069" SrcFileId="1" StartOffset="2066"/>
+<LocList>
+<Loc EndOffset="2304" SrcFileId="1" StartOffset="2066"/>
+</LocList>
+<RootTerm CovItemId="C1" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="85">
+<BasicBoolTerm Intrnl_Id="86">
+<LocList>
+<Loc EndOffset="2115" SrcFileId="1" StartOffset="2085"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</LoopStmnt>
+<BasicStmnt CovItemId="S53" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="87">
+<LocList>
+<Loc EndOffset="2319" SrcFileId="1" StartOffset="2308"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="662" HierarchyLvlTypeId="7" Intrnl_Id="88" Name="alphaToDigit">
+<Header>
+<Loc EndOffset="2379" SrcFileId="1" StartOffset="2333"/>
+</Header>
+<LocList>
+<Loc EndOffset="2780" SrcFileId="1" StartOffset="2333"/>
+</LocList>
+<StmntSeq Intrnl_Id="89">
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2384"/>
+</LocList>
+<CondStmnt CovItemId="S54" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="90">
+<Branch CovItemId="B5" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="91">
+<Cond/>
+<LocList>
+<Loc EndOffset="2432" SrcFileId="1" StartOffset="2410"/>
+</LocList>
+<StmntSeq Intrnl_Id="92">
+<LocList>
+<Loc EndOffset="2427" SrcFileId="1" StartOffset="2416"/>
+</LocList>
+<BasicStmnt CovItemId="S55" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="93">
+<LocList>
+<Loc EndOffset="2427" SrcFileId="1" StartOffset="2416"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B6" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="94">
+<Cond>
+<Loc EndOffset="2436" SrcFileId="1" StartOffset="2432"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2437"/>
+</LocList>
+<StmntSeq Intrnl_Id="95">
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2437"/>
+</LocList>
+<CondStmnt CovItemId="S56" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="96">
+<Branch CovItemId="B7" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="97">
+<Cond/>
+<LocList>
+<Loc EndOffset="2485" SrcFileId="1" StartOffset="2463"/>
+</LocList>
+<StmntSeq Intrnl_Id="98">
+<LocList>
+<Loc EndOffset="2480" SrcFileId="1" StartOffset="2469"/>
+</LocList>
+<BasicStmnt CovItemId="S57" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="99">
+<LocList>
+<Loc EndOffset="2480" SrcFileId="1" StartOffset="2469"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B8" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="100">
+<Cond>
+<Loc EndOffset="2489" SrcFileId="1" StartOffset="2485"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2490"/>
+</LocList>
+<StmntSeq Intrnl_Id="101">
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2490"/>
+</LocList>
+<CondStmnt CovItemId="S58" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="102">
+<Branch CovItemId="B9" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="103">
+<Cond/>
+<LocList>
+<Loc EndOffset="2538" SrcFileId="1" StartOffset="2516"/>
+</LocList>
+<StmntSeq Intrnl_Id="104">
+<LocList>
+<Loc EndOffset="2533" SrcFileId="1" StartOffset="2522"/>
+</LocList>
+<BasicStmnt CovItemId="S59" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="105">
+<LocList>
+<Loc EndOffset="2533" SrcFileId="1" StartOffset="2522"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B10" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="106">
+<Cond>
+<Loc EndOffset="2542" SrcFileId="1" StartOffset="2538"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2543"/>
+</LocList>
+<StmntSeq Intrnl_Id="107">
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2543"/>
+</LocList>
+<CondStmnt CovItemId="S60" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="108">
+<Branch CovItemId="B11" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="109">
+<Cond/>
+<LocList>
+<Loc EndOffset="2591" SrcFileId="1" StartOffset="2569"/>
+</LocList>
+<StmntSeq Intrnl_Id="110">
+<LocList>
+<Loc EndOffset="2586" SrcFileId="1" StartOffset="2575"/>
+</LocList>
+<BasicStmnt CovItemId="S61" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="111">
+<LocList>
+<Loc EndOffset="2586" SrcFileId="1" StartOffset="2575"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B12" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="112">
+<Cond>
+<Loc EndOffset="2595" SrcFileId="1" StartOffset="2591"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2596"/>
+</LocList>
+<StmntSeq Intrnl_Id="113">
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2596"/>
+</LocList>
+<CondStmnt CovItemId="S62" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="114">
+<Branch CovItemId="B13" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="115">
+<Cond/>
+<LocList>
+<Loc EndOffset="2644" SrcFileId="1" StartOffset="2622"/>
+</LocList>
+<StmntSeq Intrnl_Id="116">
+<LocList>
+<Loc EndOffset="2639" SrcFileId="1" StartOffset="2628"/>
+</LocList>
+<BasicStmnt CovItemId="S63" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="117">
+<LocList>
+<Loc EndOffset="2639" SrcFileId="1" StartOffset="2628"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B14" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="118">
+<Cond>
+<Loc EndOffset="2648" SrcFileId="1" StartOffset="2644"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2649"/>
+</LocList>
+<StmntSeq Intrnl_Id="119">
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2649"/>
+</LocList>
+<CondStmnt CovItemId="S64" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="120">
+<Branch CovItemId="B15" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="121">
+<Cond/>
+<LocList>
+<Loc EndOffset="2697" SrcFileId="1" StartOffset="2675"/>
+</LocList>
+<StmntSeq Intrnl_Id="122">
+<LocList>
+<Loc EndOffset="2692" SrcFileId="1" StartOffset="2681"/>
+</LocList>
+<BasicStmnt CovItemId="S65" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="123">
+<LocList>
+<Loc EndOffset="2692" SrcFileId="1" StartOffset="2681"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B16" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="124">
+<Cond>
+<Loc EndOffset="2701" SrcFileId="1" StartOffset="2697"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2702"/>
+</LocList>
+<StmntSeq Intrnl_Id="125">
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2702"/>
+</LocList>
+<CondStmnt CovItemId="S66" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="126">
+<Branch CovItemId="B17" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="127">
+<Cond/>
+<LocList>
+<Loc EndOffset="2750" SrcFileId="1" StartOffset="2728"/>
+</LocList>
+<StmntSeq Intrnl_Id="128">
+<LocList>
+<Loc EndOffset="2745" SrcFileId="1" StartOffset="2734"/>
+</LocList>
+<BasicStmnt CovItemId="S67" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="129">
+<LocList>
+<Loc EndOffset="2745" SrcFileId="1" StartOffset="2734"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B18" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="130">
+<Cond>
+<Loc EndOffset="2754" SrcFileId="1" StartOffset="2750"/>
+</Cond>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2754"/>
+</LocList>
+<StmntSeq Intrnl_Id="131">
+<LocList>
+<Loc EndOffset="2771" SrcFileId="1" StartOffset="2760"/>
+</LocList>
+<BasicStmnt CovItemId="S68" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="132">
+<LocList>
+<Loc EndOffset="2771" SrcFileId="1" StartOffset="2760"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2704" SrcFileId="1" StartOffset="2702"/>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2702"/>
+</LocList>
+<RootTerm CovItemId="C10" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="133">
+<OpTerm BooleanOpId="3" Intrnl_Id="134">
+<BasicBoolTerm Intrnl_Id="135">
+<LocList>
+<Loc EndOffset="2715" SrcFileId="1" StartOffset="2705"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="136">
+<LocList>
+<Loc EndOffset="2727" SrcFileId="1" StartOffset="2717"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2717" SrcFileId="1" StartOffset="2715"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2651" SrcFileId="1" StartOffset="2649"/>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2649"/>
+</LocList>
+<RootTerm CovItemId="C9" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="137">
+<OpTerm BooleanOpId="3" Intrnl_Id="138">
+<BasicBoolTerm Intrnl_Id="139">
+<LocList>
+<Loc EndOffset="2662" SrcFileId="1" StartOffset="2652"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="140">
+<LocList>
+<Loc EndOffset="2674" SrcFileId="1" StartOffset="2664"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2664" SrcFileId="1" StartOffset="2662"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2598" SrcFileId="1" StartOffset="2596"/>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2596"/>
+</LocList>
+<RootTerm CovItemId="C8" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="141">
+<OpTerm BooleanOpId="3" Intrnl_Id="142">
+<BasicBoolTerm Intrnl_Id="143">
+<LocList>
+<Loc EndOffset="2609" SrcFileId="1" StartOffset="2599"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="144">
+<LocList>
+<Loc EndOffset="2621" SrcFileId="1" StartOffset="2611"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2611" SrcFileId="1" StartOffset="2609"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2545" SrcFileId="1" StartOffset="2543"/>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2543"/>
+</LocList>
+<RootTerm CovItemId="C7" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="145">
+<OpTerm BooleanOpId="3" Intrnl_Id="146">
+<BasicBoolTerm Intrnl_Id="147">
+<LocList>
+<Loc EndOffset="2556" SrcFileId="1" StartOffset="2546"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="148">
+<LocList>
+<Loc EndOffset="2568" SrcFileId="1" StartOffset="2558"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2558" SrcFileId="1" StartOffset="2556"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2492" SrcFileId="1" StartOffset="2490"/>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2490"/>
+</LocList>
+<RootTerm CovItemId="C6" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="149">
+<OpTerm BooleanOpId="3" Intrnl_Id="150">
+<BasicBoolTerm Intrnl_Id="151">
+<LocList>
+<Loc EndOffset="2503" SrcFileId="1" StartOffset="2493"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="152">
+<LocList>
+<Loc EndOffset="2515" SrcFileId="1" StartOffset="2505"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2505" SrcFileId="1" StartOffset="2503"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2439" SrcFileId="1" StartOffset="2437"/>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2437"/>
+</LocList>
+<RootTerm CovItemId="C5" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="153">
+<OpTerm BooleanOpId="3" Intrnl_Id="154">
+<BasicBoolTerm Intrnl_Id="155">
+<LocList>
+<Loc EndOffset="2450" SrcFileId="1" StartOffset="2440"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="156">
+<LocList>
+<Loc EndOffset="2462" SrcFileId="1" StartOffset="2452"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2452" SrcFileId="1" StartOffset="2450"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2386" SrcFileId="1" StartOffset="2384"/>
+<LocList>
+<Loc EndOffset="2776" SrcFileId="1" StartOffset="2384"/>
+</LocList>
+<RootTerm CovItemId="C4" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="157">
+<OpTerm BooleanOpId="3" Intrnl_Id="158">
+<BasicBoolTerm Intrnl_Id="159">
+<LocList>
+<Loc EndOffset="2397" SrcFileId="1" StartOffset="2387"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="160">
+<LocList>
+<Loc EndOffset="2409" SrcFileId="1" StartOffset="2399"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="2399" SrcFileId="1" StartOffset="2397"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="663" HierarchyLvlTypeId="7" Intrnl_Id="161" Name="replaceStringWithDigitAndCheckInDictionary">
+<Header>
+<Loc EndOffset="2870" SrcFileId="1" StartOffset="2789"/>
+</Header>
+<LocList>
+<Loc EndOffset="3650" SrcFileId="1" StartOffset="2789"/>
+</LocList>
+<StmntSeq Intrnl_Id="162">
+<LocList>
+<Loc EndOffset="2924" SrcFileId="1" StartOffset="2875"/>
+<Loc EndOffset="3622" SrcFileId="1" StartOffset="2928"/>
+<Loc EndOffset="3646" SrcFileId="1" StartOffset="3626"/>
+</LocList>
+<BasicStmnt CovItemId="S69" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="163">
+<LocList>
+<Loc EndOffset="2924" SrcFileId="1" StartOffset="2875"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S70" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="164" MltplExecId="L2-2" MltplExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" NvrExecId="L2-0" NvrExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OnceExecutedId="L2-1" OnceExecutedPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="165">
+<LocList>
+<Loc EndOffset="3617" SrcFileId="1" StartOffset="2967"/>
+</LocList>
+<CondStmnt CovItemId="S71" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="166">
+<Branch CovItemId="B19" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="167">
+<Cond/>
+<LocList>
+<Loc EndOffset="3238" SrcFileId="1" StartOffset="2975"/>
+</LocList>
+<StmntSeq Intrnl_Id="168">
+<LocList>
+<Loc EndOffset="3043" SrcFileId="1" StartOffset="2982"/>
+<Loc EndOffset="3232" SrcFileId="1" StartOffset="3049"/>
+</LocList>
+<BasicStmnt CovItemId="S72" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="169">
+<LocList>
+<Loc EndOffset="3043" SrcFileId="1" StartOffset="2982"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S73" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="170">
+<Branch CovItemId="B21" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="171">
+<Cond/>
+<LocList>
+<Loc EndOffset="3232" SrcFileId="1" StartOffset="3130"/>
+</LocList>
+<StmntSeq Intrnl_Id="172">
+<LocList>
+<Loc EndOffset="3225" SrcFileId="1" StartOffset="3138"/>
+</LocList>
+<BasicStmnt CovItemId="S74" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="173">
+<LocList>
+<Loc EndOffset="3225" SrcFileId="1" StartOffset="3138"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B22" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="174">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="175">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="3051" SrcFileId="1" StartOffset="3049"/>
+<LocList>
+<Loc EndOffset="3232" SrcFileId="1" StartOffset="3049"/>
+</LocList>
+<RootTerm CovItemId="C13" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="176">
+<BasicBoolTerm Intrnl_Id="177">
+<LocList>
+<Loc EndOffset="3129" SrcFileId="1" StartOffset="3052"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B20" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="178">
+<Cond>
+<Loc EndOffset="3247" SrcFileId="1" StartOffset="3243"/>
+</Cond>
+<LocList>
+<Loc EndOffset="3617" SrcFileId="1" StartOffset="3247"/>
+</LocList>
+<StmntSeq Intrnl_Id="179">
+<LocList>
+<Loc EndOffset="3300" SrcFileId="1" StartOffset="3254"/>
+<Loc EndOffset="3611" SrcFileId="1" StartOffset="3306"/>
+</LocList>
+<BasicStmnt CovItemId="S75" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="180">
+<LocList>
+<Loc EndOffset="3300" SrcFileId="1" StartOffset="3254"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S76" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="181">
+<Branch CovItemId="B23" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="182">
+<Cond/>
+<LocList>
+<Loc EndOffset="3611" SrcFileId="1" StartOffset="3365"/>
+</LocList>
+<StmntSeq Intrnl_Id="183">
+<LocList>
+<Loc EndOffset="3418" SrcFileId="1" StartOffset="3373"/>
+<Loc EndOffset="3604" SrcFileId="1" StartOffset="3425"/>
+</LocList>
+<BasicStmnt CovItemId="S77" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="184">
+<LocList>
+<Loc EndOffset="3418" SrcFileId="1" StartOffset="3373"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S78" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="185">
+<Branch CovItemId="B25" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="186">
+<Cond/>
+<LocList>
+<Loc EndOffset="3604" SrcFileId="1" StartOffset="3490"/>
+</LocList>
+<StmntSeq Intrnl_Id="187">
+<LocList>
+<Loc EndOffset="3596" SrcFileId="1" StartOffset="3499"/>
+</LocList>
+<BasicStmnt CovItemId="S79" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="188">
+<LocList>
+<Loc EndOffset="3596" SrcFileId="1" StartOffset="3499"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B26" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="189">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="190">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="3427" SrcFileId="1" StartOffset="3425"/>
+<LocList>
+<Loc EndOffset="3604" SrcFileId="1" StartOffset="3425"/>
+</LocList>
+<RootTerm CovItemId="C15" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="191">
+<BasicBoolTerm Intrnl_Id="192">
+<LocList>
+<Loc EndOffset="3489" SrcFileId="1" StartOffset="3428"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B24" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="193">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="194">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="3308" SrcFileId="1" StartOffset="3306"/>
+<LocList>
+<Loc EndOffset="3611" SrcFileId="1" StartOffset="3306"/>
+</LocList>
+<RootTerm CovItemId="C14" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="195">
+<BasicBoolTerm Intrnl_Id="196">
+<LocList>
+<Loc EndOffset="3364" SrcFileId="1" StartOffset="3309"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="2969" SrcFileId="1" StartOffset="2967"/>
+<LocList>
+<Loc EndOffset="3617" SrcFileId="1" StartOffset="2967"/>
+</LocList>
+<RootTerm CovItemId="C12" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="197">
+<BasicBoolTerm Intrnl_Id="198">
+<LocList>
+<Loc EndOffset="2974" SrcFileId="1" StartOffset="2970"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="2931" SrcFileId="1" StartOffset="2928"/>
+<LocList>
+<Loc EndOffset="3622" SrcFileId="1" StartOffset="2928"/>
+</LocList>
+<RootTerm CovItemId="C11" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="199">
+<BasicBoolTerm Intrnl_Id="200">
+<LocList>
+<Loc EndOffset="2956" SrcFileId="1" StartOffset="2940"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</LoopStmnt>
+<BasicStmnt CovItemId="S80" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="201">
+<LocList>
+<Loc EndOffset="3646" SrcFileId="1" StartOffset="3626"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="664" HierarchyLvlTypeId="7" Intrnl_Id="202" Name="addToSet">
+<Header>
+<Loc EndOffset="3784" SrcFileId="1" StartOffset="3656"/>
+</Header>
+<LocList>
+<Loc EndOffset="5859" SrcFileId="1" StartOffset="3656"/>
+</LocList>
+<StmntSeq Intrnl_Id="203">
+<LocList>
+<Loc EndOffset="3838" SrcFileId="1" StartOffset="3789"/>
+<Loc EndOffset="5831" SrcFileId="1" StartOffset="3842"/>
+<Loc EndOffset="5855" SrcFileId="1" StartOffset="5835"/>
+</LocList>
+<BasicStmnt CovItemId="S81" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="204">
+<LocList>
+<Loc EndOffset="3838" SrcFileId="1" StartOffset="3789"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S82" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="205">
+<Branch CovItemId="B27" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="206">
+<Cond/>
+<LocList>
+<Loc EndOffset="5710" SrcFileId="1" StartOffset="3864"/>
+</LocList>
+<StmntSeq Intrnl_Id="207">
+<LocList>
+<Loc EndOffset="5705" SrcFileId="1" StartOffset="3870"/>
+</LocList>
+<LoopStmnt CovItemId="S83" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="208" MltplExecId="L3-2" MltplExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" NvrExecId="L3-0" NvrExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OnceExecutedId="L3-1" OnceExecutedPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="209">
+<LocList>
+<Loc EndOffset="3974" SrcFileId="1" StartOffset="3913"/>
+<Loc EndOffset="4049" SrcFileId="1" StartOffset="3980"/>
+<Loc EndOffset="5699" SrcFileId="1" StartOffset="4055"/>
+</LocList>
+<BasicStmnt CovItemId="S84" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="210">
+<LocList>
+<Loc EndOffset="3974" SrcFileId="1" StartOffset="3913"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S85" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="211">
+<LocList>
+<Loc EndOffset="4049" SrcFileId="1" StartOffset="3980"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S86" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="212" MltplExecId="L4-2" MltplExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" NvrExecId="L4-0" NvrExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OnceExecutedId="L4-1" OnceExecutedPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="213">
+<LocList>
+<Loc EndOffset="4181" SrcFileId="1" StartOffset="4107"/>
+<Loc EndOffset="4893" SrcFileId="1" StartOffset="4188"/>
+<Loc EndOffset="5692" SrcFileId="1" StartOffset="4900"/>
+</LocList>
+<BasicStmnt CovItemId="S87" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="214">
+<LocList>
+<Loc EndOffset="4181" SrcFileId="1" StartOffset="4107"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S88" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="215">
+<Branch CovItemId="B29" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="216">
+<Cond/>
+<LocList>
+<Loc EndOffset="4322" SrcFileId="1" StartOffset="4252"/>
+</LocList>
+<StmntSeq Intrnl_Id="217">
+<LocList>
+<Loc EndOffset="4314" SrcFileId="1" StartOffset="4261"/>
+</LocList>
+<BasicStmnt CovItemId="S89" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="218">
+<LocList>
+<Loc EndOffset="4314" SrcFileId="1" StartOffset="4261"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B30" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="219">
+<Cond>
+<Loc EndOffset="4333" SrcFileId="1" StartOffset="4329"/>
+</Cond>
+<LocList>
+<Loc EndOffset="4893" SrcFileId="1" StartOffset="4333"/>
+</LocList>
+<StmntSeq Intrnl_Id="220">
+<LocList>
+<Loc EndOffset="4519" SrcFileId="1" StartOffset="4342"/>
+<Loc EndOffset="4615" SrcFileId="1" StartOffset="4527"/>
+<Loc EndOffset="4885" SrcFileId="1" StartOffset="4623"/>
+</LocList>
+<CondStmnt CovItemId="S90" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="221">
+<Branch CovItemId="B31" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="222">
+<Cond/>
+<LocList>
+<Loc EndOffset="4519" SrcFileId="1" StartOffset="4455"/>
+</LocList>
+<StmntSeq Intrnl_Id="223">
+<LocList>
+<Loc EndOffset="4510" SrcFileId="1" StartOffset="4465"/>
+</LocList>
+<BasicStmnt CovItemId="S91" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="224">
+<LocList>
+<Loc EndOffset="4510" SrcFileId="1" StartOffset="4465"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B32" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="225">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="226">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="4344" SrcFileId="1" StartOffset="4342"/>
+<LocList>
+<Loc EndOffset="4519" SrcFileId="1" StartOffset="4342"/>
+</LocList>
+<RootTerm CovItemId="C18" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="227">
+<OpTerm BooleanOpId="3" Intrnl_Id="228">
+<BasicBoolTerm Intrnl_Id="229">
+<LocList>
+<Loc EndOffset="4403" SrcFileId="1" StartOffset="4345"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="230">
+<LocList>
+<Loc EndOffset="4445" SrcFileId="1" StartOffset="4408"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="4406" SrcFileId="1" StartOffset="4404"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S92" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="231">
+<LocList>
+<Loc EndOffset="4615" SrcFileId="1" StartOffset="4527"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S93" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="232">
+<Branch CovItemId="B33" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="233">
+<Cond/>
+<LocList>
+<Loc EndOffset="4885" SrcFileId="1" StartOffset="4649"/>
+</LocList>
+<StmntSeq Intrnl_Id="234">
+<LocList>
+<Loc EndOffset="4876" SrcFileId="1" StartOffset="4659"/>
+</LocList>
+<LoopStmnt CovItemId="S94" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="235" MltplExecId="L5-2" MltplExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" NvrExecId="L5-0" NvrExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OnceExecutedId="L5-1" OnceExecutedPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="236">
+<LocList>
+<Loc EndOffset="4740" SrcFileId="1" StartOffset="4703"/>
+<Loc EndOffset="4866" SrcFileId="1" StartOffset="4750"/>
+</LocList>
+<BasicStmnt CovItemId="S95" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="237">
+<LocList>
+<Loc EndOffset="4740" SrcFileId="1" StartOffset="4703"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S96" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="238">
+<Branch CovItemId="B35" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="239">
+<Cond/>
+<LocList>
+<Loc EndOffset="4866" SrcFileId="1" StartOffset="4817"/>
+</LocList>
+<StmntSeq Intrnl_Id="240">
+<LocList>
+<Loc EndOffset="4855" SrcFileId="1" StartOffset="4829"/>
+</LocList>
+<BasicStmnt CovItemId="S97" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="241">
+<LocList>
+<Loc EndOffset="4855" SrcFileId="1" StartOffset="4829"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B36" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="242">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="243">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="4752" SrcFileId="1" StartOffset="4750"/>
+<LocList>
+<Loc EndOffset="4866" SrcFileId="1" StartOffset="4750"/>
+</LocList>
+<RootTerm CovItemId="C20" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="244">
+<OpTerm BooleanOpId="4" Intrnl_Id="245">
+<OpTerm BooleanOpId="2" Intrnl_Id="246">
+<OpTerm BooleanOpId="3" Intrnl_Id="247">
+<BasicBoolTerm Intrnl_Id="248">
+<LocList>
+<Loc EndOffset="4773" SrcFileId="1" StartOffset="4755"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="249">
+<LocList>
+<Loc EndOffset="4793" SrcFileId="1" StartOffset="4777"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="4776" SrcFileId="1" StartOffset="4774"/>
+</LocList>
+</OpTerm>
+<LocList>
+<Loc EndOffset="4754" SrcFileId="1" StartOffset="4753"/>
+</LocList>
+</OpTerm>
+<BasicBoolTerm Intrnl_Id="250">
+<LocList>
+<Loc EndOffset="4816" SrcFileId="1" StartOffset="4798"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="4797" SrcFileId="1" StartOffset="4795"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="4662" SrcFileId="1" StartOffset="4659"/>
+<LocList>
+<Loc EndOffset="4876" SrcFileId="1" StartOffset="4659"/>
+</LocList>
+</LoopStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B34" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="251">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="252">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="4625" SrcFileId="1" StartOffset="4623"/>
+<LocList>
+<Loc EndOffset="4885" SrcFileId="1" StartOffset="4623"/>
+</LocList>
+<RootTerm CovItemId="C19" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="253">
+<BasicBoolTerm Intrnl_Id="254">
+<LocList>
+<Loc EndOffset="4648" SrcFileId="1" StartOffset="4626"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="4190" SrcFileId="1" StartOffset="4188"/>
+<LocList>
+<Loc EndOffset="4893" SrcFileId="1" StartOffset="4188"/>
+</LocList>
+<RootTerm CovItemId="C17" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="255">
+<BasicBoolTerm Intrnl_Id="256">
+<LocList>
+<Loc EndOffset="4251" SrcFileId="1" StartOffset="4191"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S98" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="257">
+<Branch CovItemId="B37" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="258">
+<Cond/>
+<LocList>
+<Loc EndOffset="5692" SrcFileId="1" StartOffset="4920"/>
+</LocList>
+<StmntSeq Intrnl_Id="259">
+<LocList>
+<Loc EndOffset="5048" SrcFileId="1" StartOffset="4929"/>
+<Loc EndOffset="5684" SrcFileId="1" StartOffset="5056"/>
+</LocList>
+<BasicStmnt CovItemId="S99" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="260">
+<LocList>
+<Loc EndOffset="5048" SrcFileId="1" StartOffset="4929"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S100" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="261">
+<Branch CovItemId="B39" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="262">
+<Cond/>
+<LocList>
+<Loc EndOffset="5684" SrcFileId="1" StartOffset="5091"/>
+</LocList>
+<StmntSeq Intrnl_Id="263">
+<LocList>
+<Loc EndOffset="5675" SrcFileId="1" StartOffset="5101"/>
+</LocList>
+<LoopStmnt CovItemId="S101" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="264" MltplExecId="L6-2" MltplExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" NvrExecId="L6-0" NvrExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OnceExecutedId="L6-1" OnceExecutedPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="265">
+<LocList>
+<Loc EndOffset="5276" SrcFileId="1" StartOffset="5174"/>
+<Loc EndOffset="5665" SrcFileId="1" StartOffset="5286"/>
+</LocList>
+<BasicStmnt CovItemId="S102" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="266">
+<LocList>
+<Loc EndOffset="5276" SrcFileId="1" StartOffset="5174"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S103" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="267">
+<Branch CovItemId="B41" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="268">
+<Cond/>
+<LocList>
+<Loc EndOffset="5665" SrcFileId="1" StartOffset="5380"/>
+</LocList>
+<StmntSeq Intrnl_Id="269">
+<LocList>
+<Loc EndOffset="5654" SrcFileId="1" StartOffset="5392"/>
+</LocList>
+<CondStmnt CovItemId="S104" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="270">
+<Branch CovItemId="B43" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="271">
+<Cond/>
+<LocList>
+<Loc EndOffset="5561" SrcFileId="1" StartOffset="5413"/>
+</LocList>
+<StmntSeq Intrnl_Id="272">
+<LocList>
+<Loc EndOffset="5549" SrcFileId="1" StartOffset="5426"/>
+</LocList>
+<BasicStmnt CovItemId="S105" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="273">
+<LocList>
+<Loc EndOffset="5549" SrcFileId="1" StartOffset="5426"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B44" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="274">
+<Cond>
+<Loc EndOffset="5565" SrcFileId="1" StartOffset="5561"/>
+</Cond>
+<LocList>
+<Loc EndOffset="5654" SrcFileId="1" StartOffset="5565"/>
+</LocList>
+<StmntSeq Intrnl_Id="275">
+<LocList>
+<Loc EndOffset="5642" SrcFileId="1" StartOffset="5578"/>
+</LocList>
+<BasicStmnt CovItemId="S106" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="276">
+<LocList>
+<Loc EndOffset="5642" SrcFileId="1" StartOffset="5578"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="5394" SrcFileId="1" StartOffset="5392"/>
+<LocList>
+<Loc EndOffset="5654" SrcFileId="1" StartOffset="5392"/>
+</LocList>
+<RootTerm CovItemId="C24" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="277">
+<BasicBoolTerm Intrnl_Id="278">
+<LocList>
+<Loc EndOffset="5412" SrcFileId="1" StartOffset="5395"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B42" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="279">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="280">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="5288" SrcFileId="1" StartOffset="5286"/>
+<LocList>
+<Loc EndOffset="5665" SrcFileId="1" StartOffset="5286"/>
+</LocList>
+<RootTerm CovItemId="C23" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="281">
+<BasicBoolTerm Intrnl_Id="282">
+<LocList>
+<Loc EndOffset="5379" SrcFileId="1" StartOffset="5289"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="5104" SrcFileId="1" StartOffset="5101"/>
+<LocList>
+<Loc EndOffset="5675" SrcFileId="1" StartOffset="5101"/>
+</LocList>
+</LoopStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B40" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="283">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="284">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="5058" SrcFileId="1" StartOffset="5056"/>
+<LocList>
+<Loc EndOffset="5684" SrcFileId="1" StartOffset="5056"/>
+</LocList>
+<RootTerm CovItemId="C22" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="285">
+<BasicBoolTerm Intrnl_Id="286">
+<LocList>
+<Loc EndOffset="5090" SrcFileId="1" StartOffset="5059"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B38" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="287">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="288">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="4902" SrcFileId="1" StartOffset="4900"/>
+<LocList>
+<Loc EndOffset="5692" SrcFileId="1" StartOffset="4900"/>
+</LocList>
+<RootTerm CovItemId="C21" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="289">
+<BasicBoolTerm Intrnl_Id="290">
+<LocList>
+<Loc EndOffset="4919" SrcFileId="1" StartOffset="4903"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="4058" SrcFileId="1" StartOffset="4055"/>
+<LocList>
+<Loc EndOffset="5699" SrcFileId="1" StartOffset="4055"/>
+</LocList>
+</LoopStmnt>
+</StmntSeq>
+<Keyword EndOffset="3873" SrcFileId="1" StartOffset="3870"/>
+<LocList>
+<Loc EndOffset="5705" SrcFileId="1" StartOffset="3870"/>
+</LocList>
+</LoopStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B28" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="291">
+<Cond>
+<Loc EndOffset="5714" SrcFileId="1" StartOffset="5710"/>
+</Cond>
+<LocList>
+<Loc EndOffset="5831" SrcFileId="1" StartOffset="5715"/>
+</LocList>
+<StmntSeq Intrnl_Id="292">
+<LocList>
+<Loc EndOffset="5831" SrcFileId="1" StartOffset="5715"/>
+</LocList>
+<CondStmnt CovItemId="S107" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="293">
+<Branch CovItemId="B45" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="294">
+<Cond/>
+<LocList>
+<Loc EndOffset="5831" SrcFileId="1" StartOffset="5731"/>
+</LocList>
+<StmntSeq Intrnl_Id="295">
+<LocList>
+<Loc EndOffset="5826" SrcFileId="1" StartOffset="5737"/>
+</LocList>
+<LoopStmnt CovItemId="S108" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="296" MltplExecId="L7-2" MltplExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" NvrExecId="L7-0" NvrExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OnceExecutedId="L7-1" OnceExecutedPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="297">
+<LocList>
+<Loc EndOffset="5820" SrcFileId="1" StartOffset="5788"/>
+</LocList>
+<BasicStmnt CovItemId="S109" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="298">
+<LocList>
+<Loc EndOffset="5820" SrcFileId="1" StartOffset="5788"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<Keyword EndOffset="5740" SrcFileId="1" StartOffset="5737"/>
+<LocList>
+<Loc EndOffset="5826" SrcFileId="1" StartOffset="5737"/>
+</LocList>
+</LoopStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B46" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="299">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="300">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="5717" SrcFileId="1" StartOffset="5715"/>
+<LocList>
+<Loc EndOffset="5831" SrcFileId="1" StartOffset="5715"/>
+</LocList>
+<RootTerm CovItemId="C25" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="301">
+<BasicBoolTerm Intrnl_Id="302">
+<LocList>
+<Loc EndOffset="5730" SrcFileId="1" StartOffset="5718"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="3844" SrcFileId="1" StartOffset="3842"/>
+<LocList>
+<Loc EndOffset="5831" SrcFileId="1" StartOffset="3842"/>
+</LocList>
+<RootTerm CovItemId="C16" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="303">
+<BasicBoolTerm Intrnl_Id="304">
+<LocList>
+<Loc EndOffset="3863" SrcFileId="1" StartOffset="3845"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S110" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="305">
+<LocList>
+<Loc EndOffset="5855" SrcFileId="1" StartOffset="5835"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+<HierarchyLvl HierarchyLvlId="665" HierarchyLvlTypeId="7" Intrnl_Id="306" Name="convertToAlpha">
+<Header>
+<Loc EndOffset="5929" SrcFileId="1" StartOffset="5868"/>
+</Header>
+<LocList>
+<Loc EndOffset="7106" SrcFileId="1" StartOffset="5868"/>
+</LocList>
+<StmntSeq Intrnl_Id="307">
+<LocList>
+<Loc EndOffset="5980" SrcFileId="1" StartOffset="5934"/>
+<Loc EndOffset="6007" SrcFileId="1" StartOffset="5984"/>
+<Loc EndOffset="7081" SrcFileId="1" StartOffset="6011"/>
+<Loc EndOffset="7102" SrcFileId="1" StartOffset="7085"/>
+</LocList>
+<BasicStmnt CovItemId="S111" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="308">
+<LocList>
+<Loc EndOffset="5980" SrcFileId="1" StartOffset="5934"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S112" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="309">
+<LocList>
+<Loc EndOffset="6007" SrcFileId="1" StartOffset="5984"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S113" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="310" MltplExecId="L8-2" MltplExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" NvrExecId="L8-0" NvrExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OnceExecutedId="L8-1" OnceExecutedPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="311">
+<LocList>
+<Loc EndOffset="6099" SrcFileId="1" StartOffset="6065"/>
+<Loc EndOffset="7076" SrcFileId="1" StartOffset="6104"/>
+</LocList>
+<BasicStmnt CovItemId="S114" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="312">
+<LocList>
+<Loc EndOffset="6099" SrcFileId="1" StartOffset="6065"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S115" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="313">
+<Branch CovItemId="B47" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="314">
+<Cond/>
+<LocList>
+<Loc EndOffset="7076" SrcFileId="1" StartOffset="6176"/>
+</LocList>
+<StmntSeq Intrnl_Id="315">
+<LocList>
+<Loc EndOffset="6998" SrcFileId="1" StartOffset="6183"/>
+<Loc EndOffset="7048" SrcFileId="1" StartOffset="7004"/>
+<Loc EndOffset="7070" SrcFileId="1" StartOffset="7054"/>
+</LocList>
+<CondStmnt CovItemId="S116" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="316">
+<Branch CovItemId="B49" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="317">
+<Cond/>
+<LocList>
+<Loc EndOffset="6811" SrcFileId="1" StartOffset="6199"/>
+</LocList>
+<StmntSeq Intrnl_Id="318">
+<LocList>
+<Loc EndOffset="6259" SrcFileId="1" StartOffset="6207"/>
+<Loc EndOffset="6703" SrcFileId="1" StartOffset="6266"/>
+<Loc EndOffset="6728" SrcFileId="1" StartOffset="6710"/>
+<Loc EndOffset="6804" SrcFileId="1" StartOffset="6735"/>
+</LocList>
+<BasicStmnt CovItemId="S117" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="319">
+<LocList>
+<Loc EndOffset="6259" SrcFileId="1" StartOffset="6207"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S118" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="320">
+<Branch CovItemId="B51" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="321">
+<Cond/>
+<LocList>
+<Loc EndOffset="6319" SrcFileId="1" StartOffset="6277"/>
+</LocList>
+<StmntSeq Intrnl_Id="322">
+<LocList>
+<Loc EndOffset="6311" SrcFileId="1" StartOffset="6286"/>
+</LocList>
+<BasicStmnt CovItemId="S119" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="323">
+<LocList>
+<Loc EndOffset="6311" SrcFileId="1" StartOffset="6286"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B52" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="324">
+<Cond>
+<Loc EndOffset="6323" SrcFileId="1" StartOffset="6319"/>
+</Cond>
+<LocList>
+<Loc EndOffset="6703" SrcFileId="1" StartOffset="6323"/>
+</LocList>
+<StmntSeq Intrnl_Id="325">
+<LocList>
+<Loc EndOffset="6695" SrcFileId="1" StartOffset="6332"/>
+</LocList>
+<LoopStmnt CovItemId="S120" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="326" MltplExecId="L9-2" MltplExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" NvrExecId="L9-0" NvrExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OnceExecutedId="L9-1" OnceExecutedPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="327">
+<LocList>
+<Loc EndOffset="6437" SrcFileId="1" StartOffset="6376"/>
+<Loc EndOffset="6686" SrcFileId="1" StartOffset="6446"/>
+</LocList>
+<BasicStmnt CovItemId="S121" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="328">
+<LocList>
+<Loc EndOffset="6437" SrcFileId="1" StartOffset="6376"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S122" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="329">
+<Branch CovItemId="B53" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="330">
+<Cond/>
+<LocList>
+<Loc EndOffset="6686" SrcFileId="1" StartOffset="6489"/>
+</LocList>
+<StmntSeq Intrnl_Id="331">
+<LocList>
+<Loc EndOffset="6552" SrcFileId="1" StartOffset="6500"/>
+<Loc EndOffset="6676" SrcFileId="1" StartOffset="6562"/>
+</LocList>
+<BasicStmnt CovItemId="S123" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="332">
+<LocList>
+<Loc EndOffset="6552" SrcFileId="1" StartOffset="6500"/>
+</LocList>
+</BasicStmnt>
+<CondStmnt CovItemId="S124" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="333">
+<Branch CovItemId="B55" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="334">
+<Cond/>
+<LocList>
+<Loc EndOffset="6676" SrcFileId="1" StartOffset="6607"/>
+</LocList>
+<StmntSeq Intrnl_Id="335">
+<LocList>
+<Loc EndOffset="6665" SrcFileId="1" StartOffset="6619"/>
+</LocList>
+<BasicStmnt CovItemId="S125" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="336">
+<LocList>
+<Loc EndOffset="6665" SrcFileId="1" StartOffset="6619"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B56" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="337">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="338">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="6564" SrcFileId="1" StartOffset="6562"/>
+<LocList>
+<Loc EndOffset="6676" SrcFileId="1" StartOffset="6562"/>
+</LocList>
+<RootTerm CovItemId="C31" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="339">
+<BasicBoolTerm Intrnl_Id="340">
+<LocList>
+<Loc EndOffset="6606" SrcFileId="1" StartOffset="6565"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B54" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="341">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="342">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="6448" SrcFileId="1" StartOffset="6446"/>
+<LocList>
+<Loc EndOffset="6686" SrcFileId="1" StartOffset="6446"/>
+</LocList>
+<RootTerm CovItemId="C30" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="343">
+<BasicBoolTerm Intrnl_Id="344">
+<LocList>
+<Loc EndOffset="6488" SrcFileId="1" StartOffset="6449"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="6335" SrcFileId="1" StartOffset="6332"/>
+<LocList>
+<Loc EndOffset="6695" SrcFileId="1" StartOffset="6332"/>
+</LocList>
+</LoopStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="6268" SrcFileId="1" StartOffset="6266"/>
+<LocList>
+<Loc EndOffset="6703" SrcFileId="1" StartOffset="6266"/>
+</LocList>
+<RootTerm CovItemId="C29" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="345">
+<BasicBoolTerm Intrnl_Id="346">
+<LocList>
+<Loc EndOffset="6276" SrcFileId="1" StartOffset="6269"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S126" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="347">
+<LocList>
+<Loc EndOffset="6728" SrcFileId="1" StartOffset="6710"/>
+</LocList>
+</BasicStmnt>
+<LoopStmnt CovItemId="S127" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="348" MltplExecId="L10-2" MltplExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" NvrExecId="L10-0" NvrExecPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OnceExecutedId="L10-1" OnceExecutedPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" OptBodyExec="true">
+<StmntSeq Intrnl_Id="349">
+<LocList>
+<Loc EndOffset="6796" SrcFileId="1" StartOffset="6777"/>
+</LocList>
+<BasicStmnt CovItemId="S128" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="350">
+<LocList>
+<Loc EndOffset="6796" SrcFileId="1" StartOffset="6777"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+<Keyword EndOffset="6738" SrcFileId="1" StartOffset="6735"/>
+<LocList>
+<Loc EndOffset="6804" SrcFileId="1" StartOffset="6735"/>
+</LocList>
+</LoopStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B50" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="351">
+<Cond>
+<Loc EndOffset="6815" SrcFileId="1" StartOffset="6811"/>
+</Cond>
+<LocList>
+<Loc EndOffset="6998" SrcFileId="1" StartOffset="6815"/>
+</LocList>
+<StmntSeq Intrnl_Id="352">
+<LocList>
+<Loc EndOffset="6905" SrcFileId="1" StartOffset="6823"/>
+<Loc EndOffset="6991" SrcFileId="1" StartOffset="6912"/>
+</LocList>
+<BasicStmnt CovItemId="S129" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="353">
+<LocList>
+<Loc EndOffset="6905" SrcFileId="1" StartOffset="6823"/>
+</LocList>
+</BasicStmnt>
+<BasicStmnt CovItemId="S130" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="354">
+<LocList>
+<Loc EndOffset="6991" SrcFileId="1" StartOffset="6912"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="6185" SrcFileId="1" StartOffset="6183"/>
+<LocList>
+<Loc EndOffset="6998" SrcFileId="1" StartOffset="6183"/>
+</LocList>
+<RootTerm CovItemId="C28" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="355">
+<BasicBoolTerm Intrnl_Id="356">
+<LocList>
+<Loc EndOffset="6198" SrcFileId="1" StartOffset="6186"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<CondStmnt CovItemId="S131" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="357">
+<Branch CovItemId="B57" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="false" Intrnl_Id="358">
+<Cond/>
+<LocList>
+<Loc EndOffset="7048" SrcFileId="1" StartOffset="7027"/>
+</LocList>
+<StmntSeq Intrnl_Id="359">
+<LocList>
+<Loc EndOffset="7041" SrcFileId="1" StartOffset="7035"/>
+</LocList>
+<BasicStmnt CovItemId="S132" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="360">
+<LocList>
+<Loc EndOffset="7041" SrcFileId="1" StartOffset="7035"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B58" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="361">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="362">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="7006" SrcFileId="1" StartOffset="7004"/>
+<LocList>
+<Loc EndOffset="7048" SrcFileId="1" StartOffset="7004"/>
+</LocList>
+<RootTerm CovItemId="C32" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="363">
+<BasicBoolTerm Intrnl_Id="364">
+<LocList>
+<Loc EndOffset="7026" SrcFileId="1" StartOffset="7007"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</CondStmnt>
+<BasicStmnt CovItemId="S133" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="365">
+<LocList>
+<Loc EndOffset="7070" SrcFileId="1" StartOffset="7054"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</Branch>
+<Branch CovItemId="B48" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Implct="true" Intrnl_Id="366">
+<Cond/>
+<LocList/>
+<StmntSeq Intrnl_Id="367">
+<LocList/>
+</StmntSeq>
+</Branch>
+<Keyword EndOffset="6106" SrcFileId="1" StartOffset="6104"/>
+<LocList>
+<Loc EndOffset="7076" SrcFileId="1" StartOffset="6104"/>
+</LocList>
+<RootTerm CovItemId="C27" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="368">
+<OpTerm BooleanOpId="4" Intrnl_Id="369">
+<BasicBoolTerm Intrnl_Id="370">
+<LocList>
+<Loc EndOffset="6159" SrcFileId="1" StartOffset="6107"/>
+</LocList>
+</BasicBoolTerm>
+<BasicBoolTerm Intrnl_Id="371">
+<LocList>
+<Loc EndOffset="6175" SrcFileId="1" StartOffset="6163"/>
+</LocList>
+</BasicBoolTerm>
+<LocList>
+<Loc EndOffset="6162" SrcFileId="1" StartOffset="6160"/>
+</LocList>
+</OpTerm>
+</RootTerm>
+</CondStmnt>
+</StmntSeq>
+<Keyword EndOffset="6014" SrcFileId="1" StartOffset="6011"/>
+<LocList>
+<Loc EndOffset="7081" SrcFileId="1" StartOffset="6011"/>
+</LocList>
+<RootTerm CovItemId="C26" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="372">
+<BasicBoolTerm Intrnl_Id="373">
+<LocList>
+<Loc EndOffset="6050" SrcFileId="1" StartOffset="6029"/>
+</LocList>
+</BasicBoolTerm>
+</RootTerm>
+</LoopStmnt>
+<BasicStmnt CovItemId="S134" CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java" Intrnl_Id="374">
+<LocList>
+<Loc EndOffset="7102" SrcFileId="1" StartOffset="7085"/>
+</LocList>
+</BasicStmnt>
+</StmntSeq>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</HierarchyLvl>
+</MASTRoot>
+</TestSessionContainer>

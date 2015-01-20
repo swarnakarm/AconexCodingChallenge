@@ -22,7 +22,7 @@ public class TestNumberToAlphaConverter{
 	
 	/*Done Working*/
 	@Test
-	public void checkForSimpleConversionWithSingleResult(){
+	public void testSimpleConversion(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("9333");
 		boolean flag = false;
 		if(result.size()>0){
@@ -40,7 +40,7 @@ public class TestNumberToAlphaConverter{
 
 	/*Done Working*/
 	@Test
-	public void checkForSimpleConversionWithMultipleResult(){
+	public void testSimpleConversionForMultipleResult(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("626474");
 		boolean flag = false;
 		if(result.size()>0){
@@ -58,7 +58,7 @@ public class TestNumberToAlphaConverter{
 	
 	/*Done Working*/
 	@Test
-	public void testsSingleStringResultWithMultipleDictionaryWord(){
+	public void testForMultipleWordAsSingleResult(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("72##24@465673*(9");
 		boolean flag = false;
 		if(result.size()>0){
@@ -76,7 +76,7 @@ public class TestNumberToAlphaConverter{
 	
 	/*Done Working */
 	@Test
-	public void testsSingleStringResultWithMultipleDictionaryWordAndSingleNumbersInBetween(){
+	public void testMultipleWordWithNumberInBetweenAsResult(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("7^^22446.35673%9");
 		boolean flag = false;
 		if(result.size()>0){
@@ -94,7 +94,7 @@ public class TestNumberToAlphaConverter{
 	
 	/*Done Working */
 	@Test
-	public void testsSingleStringResultWithMultipleDictionaryWordAndMultipleNumbersInBetween(){
+	public void testMultipleWordWithMultipleNumberInBetweenAsResult(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("7224465.76626356739");
 		boolean flag = false;
 		if(result.size()>0){
@@ -112,7 +112,7 @@ public class TestNumberToAlphaConverter{
 	
 	/*Done Working*/
 	@Test
-	public void testsSingleStringResultWithMultipleDictionaryWordAndSingleNumbersAtLeftEnd(){
+	public void testNumberAtLeftEnd(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("52!742.676626");
 		boolean flag = false;
 		if(result.size()>0){
@@ -129,7 +129,7 @@ public class TestNumberToAlphaConverter{
 	
 	/*Done Working*/
 	@Test
-	public void testsSingleStringResultWithMultipleDictionaryWordAndSingleNumbersAtRightEnd(){
+	public void testNumberAtRightEnd(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("2!7426.7662.69");
 		boolean flag = false;
 		if(result.size()>0){
@@ -146,7 +146,7 @@ public class TestNumberToAlphaConverter{
 	
 	/*Done Working*/
 	@Test
-	public void testsSingleStringResultWithMultipleDictionaryWordAndNumbersAtBothEnds(){
+	public void testNumberAtBothEnd(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("5!!27426.76626%9");
 		boolean flag = false;
 		if(result.size()>0){
@@ -163,7 +163,7 @@ public class TestNumberToAlphaConverter{
 	
 	/*Done Working*/
 	@Test
-	public void testsSingleStringResultWithMultipleDictionaryWordAndNumbersAtEndsAndInBetween(){
+	public void testNumberAtBetweenAndEnd(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("52742.64.7662!!69567$39$$9");
 		boolean flag = false;
 		if(result.size()>0){
@@ -180,7 +180,7 @@ public class TestNumberToAlphaConverter{
 	
 	/*Done Working*/
 	@Test
-	public void testsResultWithMultipleDictionaryWordAndNumbersConsecutiveInResult(){
+	public void testConsecutiveNumber(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("5274264.27662.69.5673!!99");
 		boolean flag = true;
 		if(result.size()>0){
@@ -210,7 +210,7 @@ public class TestNumberToAlphaConverter{
 	 * In Dictionary Added - NIS,HA,HHA,AN,NISHHAN
 	 */
 	@Test
-	public void testPhoneNumberForAmbiguity(){
+	public void testForAmbiguity(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("$$647%%44^^2!6");
 		boolean flag = false;
 		if(result.size()>0){
@@ -231,7 +231,7 @@ public class TestNumberToAlphaConverter{
 	 * In Dictionary Added - SSW,SA
 	 */
 	@Test
-	public void testPhoneNumberForAlphaToDigitConversionAmbiguity(){
+	public void testAlphaToDigitConversionAmbiguity(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("6264747%%79");
 		boolean flag = false;
 		if(result.size()>0){
@@ -252,7 +252,7 @@ public class TestNumberToAlphaConverter{
 	 * In Dictionary Added - SSW,SA
 	 */
 	@Test
-	public void testPhoneNumberWith1(){
+	public void testPhoneNumberWithDigit1(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("62647417%%72");
 		boolean flag = false;
 		if(result.size()>0){
@@ -280,6 +280,9 @@ public class TestNumberToAlphaConverter{
 		assertFalse(flag);
 	}
 	
+	/**
+	 * DAZZ, ZEN, ENT available in dictionary.
+	 */
 	@Test
 	public void testThreeWordsInOneResult(){
 		Set<String> result = NumberToAlphaConverter.convertToAlpha("32999368");

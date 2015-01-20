@@ -11,7 +11,7 @@ import org.junit.Test;
 import com.aconex.coding.challenge.Dictionary;
 import com.aconex.coding.challenge.NumberToAlphaConverter;
 
-public class TestAconex{
+public class TestNumberToAlphaConverter{
 
 	Dictionary dictionary = Dictionary.getInstance();
 	
@@ -23,11 +23,11 @@ public class TestAconex{
 	/*Done Working*/
 	@Test
 	public void checkForSimpleConversionWithSingleResult(){
-		Set<String> result = NumberToAlphaConverter.convertToAlpha("27426");
+		Set<String> result = NumberToAlphaConverter.convertToAlpha("9333");
 		boolean flag = false;
 		if(result.size()>0){
 			for(String str:result){
-				if(!str.equals("BRIAN")){
+				if(!str.equals("ZEDD")){
 					flag = true;
 				}
 			}
@@ -268,16 +268,31 @@ public class TestAconex{
 			Set<String> result1 = NumberToAlphaConverter.convertToAlpha("1$$647^4426162647417%%72#1");
 			if(result1.size()>0){
 				for(String str:result1){
-//					System.out.println(str);
 					if(!str.equals("1NISHHAN1MANISH1SSA1") && !str.equals("1NISHHAN1MAMISH1SSA1") 
 							&& !str.equals("1NISHHAN1MAOISH1SSA1")){
 						flag = true;
 					}
 				}
 			}else{
-				System.out.println("No OP");
 				flag = true;
 			}
+		}
+		assertFalse(flag);
+	}
+	
+	@Test
+	public void testThreeWordsInOneResult(){
+		Set<String> result = NumberToAlphaConverter.convertToAlpha("32999368");
+		boolean flag = false;
+		if(result.size()>0){
+			for(String str:result){
+				System.out.println(str);
+				if(!str.equals("DAZZ-ZEN8") && !str.equals("DAZZ9ENT")){
+					flag = true;
+				}
+			}
+		}else{
+			flag = true;
 		}
 		assertFalse(flag);
 	}

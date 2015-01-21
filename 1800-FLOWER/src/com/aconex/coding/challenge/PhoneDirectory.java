@@ -30,7 +30,7 @@ public class PhoneDirectory {
 	/**
 	 * initialize phoneList from PHONE_DIRECTORY_FILE_PATH
 	 */
-	public void initializePhoneNumbers(){
+	public final void initializePhoneNumbers(){
 		phoneList = new ArrayList<Phone>();
 		File file = new File(directoryPath);
 		FileReader fread = null;

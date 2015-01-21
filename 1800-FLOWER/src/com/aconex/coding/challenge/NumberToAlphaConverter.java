@@ -73,7 +73,7 @@ static Map<String,ArrayList<String>> numberEncodingMap = new HashMap<String,Arra
 		char digit0 = '0';
 		char digit9 = '9';
 		for(int index = 0; index<convertedString.length();index++){
-			char charAtPos = convertedString.charAt(index);
+			final char charAtPos = convertedString.charAt(index);
 			if(charAtPos>=digit0 && charAtPos<=digit9){
 				pos = index;
 			}else if(charAtPos == '-'){

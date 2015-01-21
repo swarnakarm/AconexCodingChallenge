@@ -1,0 +1,307 @@
+src/com/aconex/coding/challenge/Dictionary.java:10:	Comment is too large: Line too long
+src/com/aconex/coding/challenge/Dictionary.java:14:	The class 'Dictionary' has a Cyclomatic Complexity of 4 (Highest = 10).
+src/com/aconex/coding/challenge/Dictionary.java:16:	fieldCommentRequirement Required
+src/com/aconex/coding/challenge/Dictionary.java:19:	Avoid using redundant field initializer for 'object'
+src/com/aconex/coding/challenge/Dictionary.java:19:	fieldCommentRequirement Required
+src/com/aconex/coding/challenge/Dictionary.java:26:	publicMethodCommentRequirement Required
+src/com/aconex/coding/challenge/Dictionary.java:27:	Singleton is not thread safe
+src/com/aconex/coding/challenge/Dictionary.java:37:	Parameter 'filePath' is not assigned and could be declared final
+src/com/aconex/coding/challenge/Dictionary.java:37:	The method 'init' has a Cyclomatic Complexity of 10.
+src/com/aconex/coding/challenge/Dictionary.java:38:	Found 'DD'-anomaly for variable 'file' (lines '38'-'42').
+src/com/aconex/coding/challenge/Dictionary.java:39:	Found 'DD'-anomaly for variable 'fread' (lines '39'-'43').
+src/com/aconex/coding/challenge/Dictionary.java:40:	Found 'DD'-anomaly for variable 'bfread' (lines '40'-'44').
+src/com/aconex/coding/challenge/Dictionary.java:45:	Found 'DD'-anomaly for variable 'line' (lines '45'-'46').
+src/com/aconex/coding/challenge/Dictionary.java:46:	Avoid assignments in operands
+src/com/aconex/coding/challenge/Dictionary.java:46:	Found 'DU'-anomaly for variable 'line' (lines '46'-'75').
+src/com/aconex/coding/challenge/Dictionary.java:46:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Dictionary.java:47:	Avoid instantiating new objects inside loops
+src/com/aconex/coding/challenge/Dictionary.java:47:	Local variable 'sbuf' could be declared final
+src/com/aconex/coding/challenge/Dictionary.java:48:	Local variable 'str' could be declared final
+src/com/aconex/coding/challenge/Dictionary.java:48:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Dictionary.java:48:	When doing a String.toLowerCase()/toUpperCase() call, use a Locale
+src/com/aconex/coding/challenge/Dictionary.java:49:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Dictionary.java:50:	Avoid variables with short names like c
+src/com/aconex/coding/challenge/Dictionary.java:50:	Local variable 'c' could be declared final
+src/com/aconex/coding/challenge/Dictionary.java:50:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Dictionary.java:57:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/com/aconex/coding/challenge/Dictionary.java:58:	Avoid printStackTrace(); use a logger call instead.
+src/com/aconex/coding/challenge/Dictionary.java:58:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Dictionary.java:62:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Dictionary.java:63:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/com/aconex/coding/challenge/Dictionary.java:64:	Avoid printStackTrace(); use a logger call instead.
+src/com/aconex/coding/challenge/Dictionary.java:64:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Dictionary.java:69:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Dictionary.java:70:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/com/aconex/coding/challenge/Dictionary.java:71:	Avoid printStackTrace(); use a logger call instead.
+src/com/aconex/coding/challenge/Dictionary.java:71:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Dictionary.java:78:	Comment is too large: Line too long
+src/com/aconex/coding/challenge/Dictionary.java:82:	Parameter 'str' is not assigned and could be declared final
+src/com/aconex/coding/challenge/Dictionary.java:83:	Found 'DD'-anomaly for variable 'flag' (lines '83'-'85').
+src/com/aconex/coding/challenge/Dictionary.java:91:	Comment is too large: Line too long
+src/com/aconex/coding/challenge/Dictionary.java:95:	Found 'UR'-anomaly for variable 'word' (lines '95'-'98').
+src/com/aconex/coding/challenge/Dictionary.java:95:	Parameter 'str' is not assigned and could be declared final
+src/com/aconex/coding/challenge/Dictionary.java:96:	Found 'DD'-anomaly for variable 'flag' (lines '96'-'99').
+src/com/aconex/coding/challenge/Dictionary.java:97:	Local variable 'word' could be declared final
+src/com/aconex/coding/challenge/Dictionary.java:98:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Main.java:13:	All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/com/aconex/coding/challenge/Main.java:13:	Avoid short class names like Main
+src/com/aconex/coding/challenge/Main.java:13:	The class 'Main' has a Cyclomatic Complexity of 7 (Highest = 11).
+src/com/aconex/coding/challenge/Main.java:23:	Consider using varargs for methods or constructors which take an array the last parameter.
+src/com/aconex/coding/challenge/Main.java:23:	Parameter 'args' is not assigned and could be declared final
+src/com/aconex/coding/challenge/Main.java:24:	Found 'DD'-anomaly for variable 'dictionaryPath' (lines '24'-'29').
+src/com/aconex/coding/challenge/Main.java:26:	Local variable 'arg' could be declared final
+src/com/aconex/coding/challenge/Main.java:27:	Position literals first in String comparisons
+src/com/aconex/coding/challenge/Main.java:27:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Main.java:31:	Avoid empty catch blocks
+src/com/aconex/coding/challenge/Main.java:31:	Avoid empty catch blocks
+src/com/aconex/coding/challenge/Main.java:34:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/com/aconex/coding/challenge/Main.java:35:	Avoid printStackTrace(); use a logger call instead.
+src/com/aconex/coding/challenge/Main.java:35:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Main.java:43:	Comment is too large: Line too long
+src/com/aconex/coding/challenge/Main.java:48:	Parameter 'args' is not assigned and could be declared final
+src/com/aconex/coding/challenge/Main.java:48:	Parameter 'dictionaryPath' is not assigned and could be declared final
+src/com/aconex/coding/challenge/Main.java:48:	The method 'readPhoneDirPath' has a Cyclomatic Complexity of 11.
+src/com/aconex/coding/challenge/Main.java:49:	Avoid excessively long variable names like phoneDirectoryPath
+src/com/aconex/coding/challenge/Main.java:49:	Found 'DD'-anomaly for variable 'phoneDirectoryPath' (lines '49'-'55').
+src/com/aconex/coding/challenge/Main.java:49:	Found 'DD'-anomaly for variable 'phoneDirectoryPath' (lines '49'-'57').
+src/com/aconex/coding/challenge/Main.java:49:	Found 'DD'-anomaly for variable 'phoneDirectoryPath' (lines '49'-'64').
+src/com/aconex/coding/challenge/Main.java:50:	Found 'DD'-anomaly for variable 'isr' (lines '50'-'62').
+src/com/aconex/coding/challenge/Main.java:50:	Found 'DU'-anomaly for variable 'isr' (lines '50'-'86').
+src/com/aconex/coding/challenge/Main.java:51:	Found 'DD'-anomaly for variable 'bfread' (lines '51'-'63').
+src/com/aconex/coding/challenge/Main.java:51:	Found 'DU'-anomaly for variable 'bfread' (lines '51'-'86').
+src/com/aconex/coding/challenge/Main.java:54:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/Main.java:54:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/Main.java:60:	System.out.println is used
+src/com/aconex/coding/challenge/Main.java:64:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Main.java:65:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/com/aconex/coding/challenge/Main.java:66:	Avoid printStackTrace(); use a logger call instead.
+src/com/aconex/coding/challenge/Main.java:66:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Main.java:70:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Main.java:71:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/com/aconex/coding/challenge/Main.java:72:	Avoid printStackTrace(); use a logger call instead.
+src/com/aconex/coding/challenge/Main.java:72:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Main.java:77:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Main.java:78:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/com/aconex/coding/challenge/Main.java:79:	Avoid printStackTrace(); use a logger call instead.
+src/com/aconex/coding/challenge/Main.java:79:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Main.java:94:	Consider using varargs for methods or constructors which take an array the last parameter.
+src/com/aconex/coding/challenge/Main.java:94:	Found 'UR'-anomaly for variable 'alpha' (lines '94'-'118').
+src/com/aconex/coding/challenge/Main.java:94:	Found 'UR'-anomaly for variable 'e' (lines '94'-'112').
+src/com/aconex/coding/challenge/Main.java:94:	Parameter 'args' is not assigned and could be declared final
+src/com/aconex/coding/challenge/Main.java:95:	Local variable 'dictionaryPath' could be declared final
+src/com/aconex/coding/challenge/Main.java:97:	System.out.println is used
+src/com/aconex/coding/challenge/Main.java:98:	System.out.println is used
+src/com/aconex/coding/challenge/Main.java:99:	System.out.println is used
+src/com/aconex/coding/challenge/Main.java:100:	System.exit() should not be used in J2EE/JEE apps
+src/com/aconex/coding/challenge/Main.java:103:	Avoid excessively long variable names like phoneDirectoryPath
+src/com/aconex/coding/challenge/Main.java:103:	Local variable 'phoneDirectoryPath' could be declared final
+src/com/aconex/coding/challenge/Main.java:105:	Local variable 'dictionary' could be declared final
+src/com/aconex/coding/challenge/Main.java:106:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Main.java:107:	Local variable 'dir' could be declared final
+src/com/aconex/coding/challenge/Main.java:109:	Local variable 'resultDir' could be declared final
+src/com/aconex/coding/challenge/Main.java:110:	Local variable 'entrySet' could be declared final
+src/com/aconex/coding/challenge/Main.java:110:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Main.java:111:	Local variable 'e' could be declared final
+src/com/aconex/coding/challenge/Main.java:112:	Local variable 'phoneNumber' could be declared final
+src/com/aconex/coding/challenge/Main.java:113:	System.out.println is used
+src/com/aconex/coding/challenge/Main.java:114:	Local variable 'set' could be declared final
+src/com/aconex/coding/challenge/Main.java:115:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/Main.java:115:	Substitute calls to size() == 0 (or size() != 0, size() > 0, size() < 1) with calls to isEmpty()
+src/com/aconex/coding/challenge/Main.java:116:	System.out.println is used
+src/com/aconex/coding/challenge/Main.java:117:	Local variable 'alpha' could be declared final
+src/com/aconex/coding/challenge/Main.java:118:	System.out.println is used
+src/com/aconex/coding/challenge/Main.java:121:	System.out.println is used
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:1:	Possible God class (WMC=56, ATFD=7, TCC=0.0)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:13:	Comment is too large: Line too long
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:14:	Comment is too large: Line too long
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:17:	All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:17:	The class 'NumberToAlphaConverter' has a Cyclomatic Complexity of 11 (Highest = 19).
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:17:	The class 'NumberToAlphaConverter' has a Modified Cyclomatic Complexity of 9 (Highest = 16).
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:17:	The class 'NumberToAlphaConverter' has a Standard Cyclomatic Complexity of 9 (Highest = 16).
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:19:	If you run in Java5 or newer and have concurrent access, you should use the ConcurrentHashMap implementation
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:19:	Use explicit scoping instead of the default package private level
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:19:	fieldCommentRequirement Required
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:22:	Local variable 'digit2Encoding' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:27:	Local variable 'digit3Encoding' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:32:	Local variable 'digit4Encoding' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:37:	Local variable 'digit5Encoding' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:42:	Local variable 'digit6Encoding' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:47:	Local variable 'digit7Encoding' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:53:	Local variable 'digit8Encoding' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:58:	Local variable 'digit9Encoding' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:71:	Parameter 'convertedString' is not assigned and could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:72:	Found 'DD'-anomaly for variable 'pos' (lines '72'-'78').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:72:	Found 'DD'-anomaly for variable 'pos' (lines '72'-'80').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:73:	Found 'DU'-anomaly for variable 'digit0' (lines '73'-'85').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:73:	Local variable 'digit0' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:74:	Found 'DU'-anomaly for variable 'digit9' (lines '74'-'85').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:74:	Local variable 'digit9' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:78:	Found 'DD'-anomaly for variable 'pos' (lines '78'-'78').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:78:	Found 'DD'-anomaly for variable 'pos' (lines '78'-'80').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:79:	Avoid using Literals in Conditional Statements
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:80:	Found 'DD'-anomaly for variable 'pos' (lines '80'-'78').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:80:	Found 'DD'-anomaly for variable 'pos' (lines '80'-'80').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:92:	Parameter 'alpha' is not assigned and could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:92:	The method 'alphaToDigit' has a Cyclomatic Complexity of 15.
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:94:	A method should have only one exit point, and that should be the last statement in the method
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:96:	A method should have only one exit point, and that should be the last statement in the method
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:98:	A method should have only one exit point, and that should be the last statement in the method
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:100:	A method should have only one exit point, and that should be the last statement in the method
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:102:	A method should have only one exit point, and that should be the last statement in the method
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:104:	A method should have only one exit point, and that should be the last statement in the method
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:106:	A method should have only one exit point, and that should be the last statement in the method
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:113:	Comment is too large: Line too long
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:114:	Comment is too large: Line too long
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:118:	Parameter 'str' is not assigned and could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:119:	Local variable 'newResultSet' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:122:	Avoid excessively long variable names like stringAfterFirstCharacterAsDigit
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:122:	Local variable 'stringAfterFirstCharacterAsDigit' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:124:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:124:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:128:	Local variable 'stringBeforeDigit' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:130:	Local variable 'stringAfterDigit' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:132:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:132:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:132:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:141:	Comment is too large: Too many lines
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:142:	Comment is too large: Line too long
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:143:	Comment is too large: Line too long
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:151:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:151:	Found 'UR'-anomaly for variable 'encodedString' (lines '151'-'158').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:151:	Found 'UR'-anomaly for variable 'lastDigitEncodedString' (lines '151'-'181').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:151:	Found 'UR'-anomaly for variable 'resultString' (lines '151'-'155').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:151:	Found 'UR'-anomaly for variable 'tempStr' (lines '151'-'170').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:151:	Parameter 'digit' is not assigned and could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:151:	Parameter 'encodedStringArr' is not assigned and could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:151:	Parameter 'isFirstIndex' is not assigned and could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:151:	Parameter 'resultSet' is not assigned and could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:151:	The method 'getResultSetAfterAddingEncodedString' has a Cyclomatic Complexity of 19.
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:151:	The method 'getResultSetAfterAddingEncodedString' has a Modified Cyclomatic Complexity of 16.
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:151:	The method 'getResultSetAfterAddingEncodedString' has a Standard Cyclomatic Complexity of 16.
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:152:	Local variable 'newResultSet' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:153:	Substitute calls to size() == 0 (or size() != 0, size() > 0, size() < 1) with calls to isEmpty()
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:154:	Local variable 'resultString' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:156:	Avoid excessively long variable names like stringAfterLastDigit
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:156:	Local variable 'stringAfterLastDigit' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:157:	Local variable 'encodedString' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:158:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:163:	Useless parentheses.
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:163:	Useless parentheses.
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:167:	Local variable 'tempResultSet' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:168:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:168:	Substitute calls to size() == 0 (or size() != 0, size() > 0, size() < 1) with calls to isEmpty()
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:169:	Local variable 'tempStr' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:170:	Local variable 'firstLetter' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:178:	Avoid excessively long variable names like lastDigitEncodedStringArr
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:178:	Local variable 'lastDigitEncodedStringArr' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:180:	Avoid excessively long variable names like lastDigitEncodedString
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:180:	Local variable 'lastDigitEncodedString' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:181:	Avoid excessively long variable names like resultStringAfterReplacingLastDigitWithString
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:181:	Local variable 'resultStringAfterReplacingLastDigitWithString' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:183:	Avoid if (x != y) ..; else ..;
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:184:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:184:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:184:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:184:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:195:	Local variable 'encodedString' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:203:	Comment is too large: Line too long
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:204:	Comment is too large: Line too long
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:209:	Found 'UR'-anomaly for variable 'convertedStr' (lines '209'-'221').
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:209:	The method 'convertToAlpha' has a Cyclomatic Complexity of 11.
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:209:	The method 'convertToAlpha' has a Modified Cyclomatic Complexity of 10.
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:209:	The method 'convertToAlpha' has a Standard Cyclomatic Complexity of 10.
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:213:	Local variable 'digit' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:215:	Avoid using Literals in Conditional Statements
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:216:	Avoid instantiating new objects inside loops
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:216:	Local variable 'newConvertedSet' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:218:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:220:	Local variable 'convertedStr' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:222:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:223:	Local variable 'str' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:223:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:225:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:225:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:230:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:231:	Local variable 'str' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:232:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:235:	Local variable 'encodedStringArr' could be declared final
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:238:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:238:	Substitute calls to size() == 0 (or size() != 0, size() > 0, size() < 1) with calls to isEmpty()
+src/com/aconex/coding/challenge/NumberToAlphaConverter.java:241:	Found 'DU'-anomaly for variable 'isFirst' (lines '241'-'245').
+src/com/aconex/coding/challenge/Phone.java:8:	Each class should declare at least one constructor
+src/com/aconex/coding/challenge/Phone.java:10:	Avoid using redundant field initializer for 'number'
+src/com/aconex/coding/challenge/Phone.java:10:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/aconex/coding/challenge/Phone.java:10:	fieldCommentRequirement Required
+src/com/aconex/coding/challenge/Phone.java:12:	Parameter 'number' is not assigned and could be declared final
+src/com/aconex/coding/challenge/Phone.java:12:	publicMethodCommentRequirement Required
+src/com/aconex/coding/challenge/Phone.java:16:	publicMethodCommentRequirement Required
+src/com/aconex/coding/challenge/PhoneDirectory.java:15:	Avoid using redundant field initializer for 'directoryPath'
+src/com/aconex/coding/challenge/PhoneDirectory.java:15:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/aconex/coding/challenge/PhoneDirectory.java:15:	fieldCommentRequirement Required
+src/com/aconex/coding/challenge/PhoneDirectory.java:16:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/aconex/coding/challenge/PhoneDirectory.java:16:	Avoid using redundant field initializer for 'phoneList'
+src/com/aconex/coding/challenge/PhoneDirectory.java:16:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/aconex/coding/challenge/PhoneDirectory.java:16:	Use explicit scoping instead of the default package private level
+src/com/aconex/coding/challenge/PhoneDirectory.java:16:	fieldCommentRequirement Required
+src/com/aconex/coding/challenge/PhoneDirectory.java:17:	Document empty constructor
+src/com/aconex/coding/challenge/PhoneDirectory.java:17:	publicMethodCommentRequirement Required
+src/com/aconex/coding/challenge/PhoneDirectory.java:20:	Parameter 'directoryPath' is not assigned and could be declared final
+src/com/aconex/coding/challenge/PhoneDirectory.java:20:	publicMethodCommentRequirement Required
+src/com/aconex/coding/challenge/PhoneDirectory.java:25:	Parameter 'directoryPath' is not assigned and could be declared final
+src/com/aconex/coding/challenge/PhoneDirectory.java:25:	publicMethodCommentRequirement Required
+src/com/aconex/coding/challenge/PhoneDirectory.java:35:	Local variable 'file' could be declared final
+src/com/aconex/coding/challenge/PhoneDirectory.java:36:	Found 'DD'-anomaly for variable 'fread' (lines '36'-'43').
+src/com/aconex/coding/challenge/PhoneDirectory.java:37:	Found 'DD'-anomaly for variable 'bfread' (lines '37'-'44').
+src/com/aconex/coding/challenge/PhoneDirectory.java:39:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/PhoneDirectory.java:40:	System.err.print is used
+src/com/aconex/coding/challenge/PhoneDirectory.java:41:	System.exit() should not be used in J2EE/JEE apps
+src/com/aconex/coding/challenge/PhoneDirectory.java:45:	Found 'DD'-anomaly for variable 'line' (lines '45'-'46').
+src/com/aconex/coding/challenge/PhoneDirectory.java:46:	Avoid assignments in operands
+src/com/aconex/coding/challenge/PhoneDirectory.java:46:	Found 'DU'-anomaly for variable 'line' (lines '46'-'69').
+src/com/aconex/coding/challenge/PhoneDirectory.java:46:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/PhoneDirectory.java:47:	Avoid instantiating new objects inside loops
+src/com/aconex/coding/challenge/PhoneDirectory.java:47:	Local variable 'phone' could be declared final
+src/com/aconex/coding/challenge/PhoneDirectory.java:51:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/com/aconex/coding/challenge/PhoneDirectory.java:52:	Avoid printStackTrace(); use a logger call instead.
+src/com/aconex/coding/challenge/PhoneDirectory.java:52:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/PhoneDirectory.java:56:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/PhoneDirectory.java:57:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/com/aconex/coding/challenge/PhoneDirectory.java:58:	Avoid printStackTrace(); use a logger call instead.
+src/com/aconex/coding/challenge/PhoneDirectory.java:58:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/PhoneDirectory.java:63:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/PhoneDirectory.java:64:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/com/aconex/coding/challenge/PhoneDirectory.java:65:	Avoid printStackTrace(); use a logger call instead.
+src/com/aconex/coding/challenge/PhoneDirectory.java:65:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/PhoneDirectory.java:75:	Found 'UR'-anomaly for variable 'phone' (lines '75'-'78').
+src/com/aconex/coding/challenge/PhoneDirectory.java:76:	If you run in Java5 or newer and have concurrent access, you should use the ConcurrentHashMap implementation
+src/com/aconex/coding/challenge/PhoneDirectory.java:76:	Local variable 'resultDir' could be declared final
+src/com/aconex/coding/challenge/PhoneDirectory.java:77:	Local variable 'phone' could be declared final
+src/com/aconex/coding/challenge/PhoneDirectory.java:78:	Local variable 'set' could be declared final
+src/com/aconex/coding/challenge/ResultFormatter.java:3:	All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/com/aconex/coding/challenge/ResultFormatter.java:3:	headerCommentRequirement Required
+src/com/aconex/coding/challenge/ResultFormatter.java:10:	Parameter 'word' is not assigned and could be declared final
+src/com/aconex/coding/challenge/ResultFormatter.java:12:	Avoid variables with short names like c
+src/com/aconex/coding/challenge/ResultFormatter.java:14:	A method should have only one exit point, and that should be the last statement in the method
+src/com/aconex/coding/challenge/ResultFormatter.java:26:	Local variable 'formattedResult' could be declared final
+src/com/aconex/coding/challenge/ResultFormatter.java:28:	Found 'DD'-anomaly for variable 'remainingString' (lines '28'-'39').
+src/com/aconex/coding/challenge/ResultFormatter.java:32:	Avoid if (x != y) ..; else ..;
+src/com/aconex/coding/challenge/ResultFormatter.java:33:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/ResultFormatter.java:33:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/ResultFormatter.java:33:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/ResultFormatter.java:33:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/ResultFormatter.java:33:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/ResultFormatter.java:34:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/ResultFormatter.java:36:	Potential violation of Law of Demeter (method chain calls)
+src/com/aconex/coding/challenge/ResultFormatter.java:36:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/ResultFormatter.java:36:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/ResultFormatter.java:39:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/ResultFormatter.java:42:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/ResultFormatter.java:43:	Avoid using Literals in Conditional Statements
+src/com/aconex/coding/challenge/ResultFormatter.java:43:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/ResultFormatter.java:43:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/ResultFormatter.java:44:	A method should have only one exit point, and that should be the last statement in the method
+src/com/aconex/coding/challenge/ResultFormatter.java:44:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/ResultFormatter.java:44:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/ResultFormatter.java:46:	Potential violation of Law of Demeter (object not created locally)
+src/com/aconex/coding/challenge/ResultFormatter.java:55:	Local variable 'sbuf' could be declared final
+src/com/aconex/coding/challenge/ResultFormatter.java:57:	Avoid variables with short names like c

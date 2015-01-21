@@ -299,4 +299,33 @@ public class TestNumberToAlphaConverter{
 		assertFalse(flag);
 	}
 	
+	
+	@Test
+	public void testSameNameMultipleTimes(){
+		Set<String> result = NumberToAlphaConverter.convertToAlpha("32993299");
+		boolean flag = false;
+		if(result.size()>0){
+			for(String str:result){
+				if(!str.equals("DAZZ-DAZZ")){
+					flag = true;
+				}
+			}
+		}else{
+			flag = true;
+		}
+		if(!flag){
+			Set<String> result1 = NumberToAlphaConverter.convertToAlpha("3299329953299");
+			if(result1.size()>0){
+				for(String str:result1){
+					if(!str.equals("DAZZ-DAZZ5DAZZ")){
+						flag = true;
+					}
+				}
+			}else{
+				flag = true;
+			}
+		}
+		assertFalse(flag);
+	}
+	
 }

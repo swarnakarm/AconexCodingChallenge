@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1421784694925" TestSessionContainerId="4e9e7fae-de9c-4685-b016-348ff3f490d2" version="1.0">
+<?xml version="1.0" encoding="UTF-8"?><TestSessionContainer xmlns="http://www.codecover.org/xml/testsession-container" Date="1421848678047" TestSessionContainerId="249c82f4-ec65-4151-9d21-a4816e48b9cf" version="1.0">
 <SrcFileList>
-<SrcFile Content="package com.aconex.coding.challenge;&#13;&#10;&#13;&#10;public class ResultFormatter {&#13;&#10;&#13;&#10;&#9;/**&#13;&#10;&#9; * finds the first index position of Digit in word. &#13;&#10;&#9; * @param word&#13;&#10;&#9; * @return&#13;&#10;&#9; */&#13;&#10;&#9;private static int findIndexOfDigit(String word){&#13;&#10;&#9;&#9;for(int i=0;i&lt;word.length();i++){&#13;&#10;&#9;&#9;&#9;char c = word.charAt(i);&#13;&#10;&#9;&#9;&#9;if(c&gt;='0' &amp;&amp; c&lt;='9'){&#13;&#10;&#9;&#9;&#9;&#9;return i;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return -1;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;/**&#13;&#10;&#9; * The result word will be formatted as required.&#13;&#10;&#9; * @param result&#13;&#10;&#9; * @return&#13;&#10;&#9; */&#13;&#10;&#9;public static String formatOutput(final String result){&#13;&#10;&#9;&#9;StringBuffer formattedResult = new StringBuffer();&#13;&#10;&#9;&#9;int digitPos = findIndexOfDigit(result);&#13;&#10;&#9;&#9;String remainingResultString =  result;&#13;&#10;&#9;&#9;while(digitPos != -1)&#13;&#10;&#9;&#9;{&#13;&#10;&#9;&#9;&#9;if(digitPos != -1){&#13;&#10;&#9;&#9;&#9;&#9;if(digitPos != 0){&#13;&#10;&#9;&#9;&#9;&#9;&#9;formattedResult.append(remainingResultString.substring(0,digitPos).concat(&quot;-&quot;)&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;.concat(String.valueOf(remainingResultString.charAt(digitPos))).concat(&quot;-&quot;));&#13;&#10;&#9;&#9;&#9;&#9;}else{&#13;&#10;&#9;&#9;&#9;&#9;&#9;formattedResult.append(String.valueOf(remainingResultString.charAt(digitPos)).concat(&quot;-&quot;));&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;remainingResultString = remainingResultString.substring(digitPos+1);&#13;&#10;&#9;&#9;&#9;digitPos = findIndexOfDigit(remainingResultString);&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;formattedResult.append(remainingResultString);&#13;&#10;&#9;&#9;if(formattedResult.toString().charAt(formattedResult.length()-1) == '-'){&#13;&#10;&#9;&#9;&#9;return formattedResult.toString().substring(0,formattedResult.length()-1);&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return formattedResult.toString();&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;/**&#13;&#10;&#9; * number is formatted by removing all punctuation or special characters.&#13;&#10;&#9; * @param number&#13;&#10;&#9; * @return&#13;&#10;&#9; */&#13;&#10;&#9;public static String formatPhoneNumber(final String number){&#13;&#10;&#9;&#9;StringBuffer sbuf = new StringBuffer();&#13;&#10;&#9;&#9;for(int i=0;i&lt;number.length();i++){&#13;&#10;&#9;&#9;&#9;char c = number.charAt(i);&#13;&#10;&#9;&#9;&#9;if(c&gt;='0'&amp;&amp;c&lt;='9'){&#13;&#10;&#9;&#9;&#9;&#9;sbuf.append(c);&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return sbuf.toString();&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;}&#13;&#10;" Filename="ResultFormatter.java" Intrnl_Id="1"/>
+<SrcFile Content="package com.aconex.coding.challenge;&#13;&#10;&#13;&#10;public class ResultFormatter {&#13;&#10;&#13;&#10;&#9;/**&#13;&#10;&#9; * finds the first index position of Digit in word. &#13;&#10;&#9; * @param word&#13;&#10;&#9; * @return&#13;&#10;&#9; */&#13;&#10;&#9;private static int findIndexOfDigit(String word){&#13;&#10;&#9;&#9;for(int i=0;i&lt;word.length();i++){&#13;&#10;&#9;&#9;&#9;final char c = word.charAt(i);&#13;&#10;&#9;&#9;&#9;if(c&gt;='0' &amp;&amp; c&lt;='9'){&#13;&#10;&#9;&#9;&#9;&#9;return i;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return -1;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;/**&#13;&#10;&#9; * The result word will be formatted as required.&#13;&#10;&#9; * @param result&#13;&#10;&#9; * @return&#13;&#10;&#9; */&#13;&#10;&#9;public static String formatOutput(final String result){&#13;&#10;&#9;&#9;StringBuffer formattedResult = new StringBuffer();&#13;&#10;&#9;&#9;int digitPos = findIndexOfDigit(result);&#13;&#10;&#9;&#9;String remainingString =  result;&#13;&#10;&#9;&#9;while(digitPos != -1)&#13;&#10;&#9;&#9;{&#13;&#10;&#9;&#9;&#9;if(digitPos != -1){&#13;&#10;&#9;&#9;&#9;&#9;if(digitPos != 0){&#13;&#10;&#9;&#9;&#9;&#9;&#9;formattedResult.append(remainingString.substring(0,digitPos).concat(&quot;-&quot;)&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;.concat(String.valueOf(remainingString.charAt(digitPos))).concat(&quot;-&quot;));&#13;&#10;&#9;&#9;&#9;&#9;}else{&#13;&#10;&#9;&#9;&#9;&#9;&#9;formattedResult.append(String.valueOf(remainingString.charAt(digitPos)).concat(&quot;-&quot;));&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;remainingString = remainingString.substring(digitPos+1);&#13;&#10;&#9;&#9;&#9;digitPos = findIndexOfDigit(remainingString);&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;formattedResult.append(remainingString);&#13;&#10;&#9;&#9;if(formattedResult.toString().charAt(formattedResult.length()-1) == '-'){&#13;&#10;&#9;&#9;&#9;return formattedResult.toString().substring(0,formattedResult.length()-1);&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return formattedResult.toString();&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;/**&#13;&#10;&#9; * number is formatted by removing all punctuation or special characters.&#13;&#10;&#9; * @param number&#13;&#10;&#9; * @return&#13;&#10;&#9; */&#13;&#10;&#9;public static String formatPhoneNumber(final String number){&#13;&#10;&#9;&#9;StringBuffer sbuf = new StringBuffer();&#13;&#10;&#9;&#9;for(int i=0;i&lt;number.length();i++){&#13;&#10;&#9;&#9;&#9;char c = number.charAt(i);&#13;&#10;&#9;&#9;&#9;if(c&gt;='0'&amp;&amp;c&lt;='9'){&#13;&#10;&#9;&#9;&#9;&#9;sbuf.append(c);&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return sbuf.toString();&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;}&#13;&#10;" Filename="ResultFormatter.java" Intrnl_Id="1"/>
 <SrcFile Content="package com.aconex.coding.challenge;&#13;&#10;&#13;&#10;import java.util.ArrayList;&#13;&#10;import java.util.HashMap;&#13;&#10;import java.util.HashSet;&#13;&#10;import java.util.Map;&#13;&#10;import java.util.Set;&#13;&#10;/**&#13;&#10; * &#13;&#10; * @author Manish S&#13;&#10; * This class NumberToAlphaConverter is used to convert the&#13;&#10; * phone number with the combination of multiple word available in dictionary.&#13;&#10; * The result for the number can be multiple set of words where each word can be comprised of multiple word from dictionary&#13;&#10; * e.g 6264743299 is the phone number provided and in Dictionary we have [MANISH, MAMISH, MAOISH, DAZZ]&#13;&#10; * result is MANISH-DAZZ, MAMISH-DAZZ, MAOISH-DAZZ&#13;&#10; */&#13;&#10;public class NumberToAlphaConverter {&#13;&#10;&#13;&#10;static Map&lt;String,ArrayList&lt;String&gt;&gt; numberEncodingMap = new HashMap&lt;String,ArrayList&lt;String&gt;&gt;();&#13;&#10;&#9;&#13;&#10;&#9;static {&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit2Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit2Encoding.add(&quot;A&quot;);&#13;&#10;&#9;&#9;digit2Encoding.add(&quot;B&quot;);&#13;&#10;&#9;&#9;digit2Encoding.add(&quot;C&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;2&quot;,digit2Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit3Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit3Encoding.add(&quot;D&quot;);&#13;&#10;&#9;&#9;digit3Encoding.add(&quot;E&quot;);&#13;&#10;&#9;&#9;digit3Encoding.add(&quot;F&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;3&quot;,digit3Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit4Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit4Encoding.add(&quot;G&quot;);&#13;&#10;&#9;&#9;digit4Encoding.add(&quot;H&quot;);&#13;&#10;&#9;&#9;digit4Encoding.add(&quot;I&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;4&quot;,digit4Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit5Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit5Encoding.add(&quot;J&quot;);&#13;&#10;&#9;&#9;digit5Encoding.add(&quot;K&quot;);&#13;&#10;&#9;&#9;digit5Encoding.add(&quot;L&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;5&quot;,digit5Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit6Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit6Encoding.add(&quot;M&quot;);&#13;&#10;&#9;&#9;digit6Encoding.add(&quot;N&quot;);&#13;&#10;&#9;&#9;digit6Encoding.add(&quot;O&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;6&quot;,digit6Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit7Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit7Encoding.add(&quot;P&quot;);&#13;&#10;&#9;&#9;digit7Encoding.add(&quot;Q&quot;);&#13;&#10;&#9;&#9;digit7Encoding.add(&quot;R&quot;);&#13;&#10;&#9;&#9;digit7Encoding.add(&quot;S&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;7&quot;,digit7Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit8Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit8Encoding.add(&quot;T&quot;);&#13;&#10;&#9;&#9;digit8Encoding.add(&quot;U&quot;);&#13;&#10;&#9;&#9;digit8Encoding.add(&quot;V&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;8&quot;,digit8Encoding);&#13;&#10;&#9;&#9;ArrayList&lt;String&gt; digit9Encoding = new ArrayList&lt;String&gt;();&#13;&#10;&#9;&#9;digit9Encoding.add(&quot;W&quot;);&#13;&#10;&#9;&#9;digit9Encoding.add(&quot;X&quot;);&#13;&#10;&#9;&#9;digit9Encoding.add(&quot;Y&quot;);&#13;&#10;&#9;&#9;digit9Encoding.add(&quot;Z&quot;);&#13;&#10;&#9;&#9;numberEncodingMap.put(&quot;9&quot;,digit9Encoding);&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;/**&#13;&#10;&#9; * Method is used to find the last digit position from the converString.&#13;&#10;&#9; * @param convertedString&#13;&#10;&#9; * @return&#13;&#10;&#9; */&#13;&#10;&#9;private static int findLastDigitPosition(String convertedString){&#13;&#10;&#9;&#9;int pos = -1;&#13;&#10;&#9;&#9;char digit0 = '0';&#13;&#10;&#9;&#9;char digit9 = '9';&#13;&#10;&#9;&#9;for(int index = 0; index&lt;convertedString.length();index++){&#13;&#10;&#9;&#9;&#9;char charAtPos = convertedString.charAt(index);&#13;&#10;&#9;&#9;&#9;if(charAtPos&gt;=digit0 &amp;&amp; charAtPos&lt;=digit9){&#13;&#10;&#9;&#9;&#9;&#9;pos = index;&#13;&#10;&#9;&#9;&#9;}else if(charAtPos == '-'){&#13;&#10;&#9;&#9;&#9;&#9;pos = index;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return pos;&#13;&#10;&#9;&#9;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;/**&#13;&#10;&#9; * Method is used to convert alpha character to its corresponding digit.&#13;&#10;&#9; * @param alpha&#13;&#10;&#9; * @return&#13;&#10;&#9; */&#13;&#10;&#9;private static String alphaToDigit(char alpha){&#13;&#10;&#9;&#9;if(alpha&gt;='A'&amp;&amp;alpha&lt;='C'){&#13;&#10;&#9;&#9;&#9;return &quot;2&quot;;&#13;&#10;&#9;&#9;}else if(alpha&gt;='D'&amp;&amp;alpha&lt;='F'){&#13;&#10;&#9;&#9;&#9;return &quot;3&quot;;&#13;&#10;&#9;&#9;}else if(alpha&gt;='G'&amp;&amp;alpha&lt;='I'){&#13;&#10;&#9;&#9;&#9;return &quot;4&quot;;&#13;&#10;&#9;&#9;}else if(alpha&gt;='J'&amp;&amp;alpha&lt;='L'){&#13;&#10;&#9;&#9;&#9;return &quot;5&quot;;&#13;&#10;&#9;&#9;}else if(alpha&gt;='M'&amp;&amp;alpha&lt;='O'){&#13;&#10;&#9;&#9;&#9;return &quot;6&quot;;&#13;&#10;&#9;&#9;}else if(alpha&gt;='P'&amp;&amp;alpha&lt;='S'){&#13;&#10;&#9;&#9;&#9;return &quot;7&quot;;&#13;&#10;&#9;&#9;}else if(alpha&gt;='T'&amp;&amp;alpha&lt;='V'){&#13;&#10;&#9;&#9;&#9;return &quot;8&quot;;&#13;&#10;&#9;&#9;}else{&#13;&#10;&#9;&#9;&#9;return &quot;9&quot;;&#13;&#10;&#9;&#9;}&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;/**&#13;&#10;&#9; * Method is used to convert each character of the string at a time and check the prefix and postfix string &#13;&#10;&#9; * available in dictionary. If the prefix and postfix matches the string is 1 of the result word and will be added in Set.&#13;&#10;&#9; * @param str&#13;&#10;&#9; * @return&#13;&#10;&#9; */&#13;&#10;&#9;private static Set&lt;String&gt; replaceWithDigitAndCheckInDictionary(String str){&#13;&#10;&#9;&#9;Set&lt;String&gt; newResultSet = new HashSet&lt;String&gt;();&#13;&#10;&#9;&#9;for(int i=0;i&lt;str.length()-1;i++){&#13;&#10;&#9;&#9;&#9;if(i==0){&#13;&#10;&#9;&#9;&#9;&#9;String stringAfterFirstCharacterAsDigit = str.substring(i+1);&#13;&#10;&#9;&#9;&#9;&#9;if(Dictionary.isStringPatternExistInDictionary(stringAfterFirstCharacterAsDigit)){&#13;&#10;&#9;&#9;&#9;&#9;&#9;newResultSet.add(alphaToDigit(str.charAt(i)).concat(stringAfterFirstCharacterAsDigit));&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;else{&#13;&#10;&#9;&#9;&#9;&#9;String stringBeforeDigit = str.substring(0,i);&#13;&#10;&#9;&#9;&#9;&#9;if(Dictionary.isStringExistInDictionary(stringBeforeDigit)){&#13;&#10;&#9;&#9;&#9;&#9;&#9;String stringAfterDigit = str.substring(i+1);&#13;&#10;&#9;&#9;&#9;&#9;&#9;if(Dictionary.isStringPatternExistInDictionary(stringAfterDigit)){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;newResultSet.add(stringBeforeDigit.concat(alphaToDigit(str.charAt(i))).concat(stringAfterDigit));&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return newResultSet;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;&#13;&#10;&#9;/**&#13;&#10;&#9; * Every encodedString from encodeStringArr is to be appended with resultWord available in resultSet.&#13;&#10;&#9; * If the newEncodedString or its pattern matches with the words available in dictionary &#13;&#10;&#9; * then the newEncodedString is added to newResultSet which returned. &#13;&#10;&#9; * @param resultSet&#13;&#10;&#9; * @param encodedStringArr&#13;&#10;&#9; * @param digit&#13;&#10;&#9; * @param isFirstIndex&#13;&#10;&#9; * @return&#13;&#10;&#9; */&#13;&#10;&#9;private static Set&lt;String&gt; getResultSetAfterAddingEncodedString(Set&lt;String&gt; resultSet,ArrayList&lt;String&gt; encodedStringArr, String digit,boolean isFirstIndex){&#13;&#10;&#9;&#9;Set&lt;String&gt; newResultSet = new HashSet&lt;String&gt;();&#13;&#10;&#9;&#9;if(resultSet.size()&gt;0){&#13;&#10;&#9;&#9;&#9;for(String resultString : resultSet){&#13;&#10;&#9;&#9;&#9;&#9;final int lastDigitPos = findLastDigitPosition(resultString);&#13;&#10;&#9;&#9;&#9;&#9;String stringAfterLastDigit = resultString.substring(lastDigitPos+1);&#13;&#10;&#9;&#9;&#9;&#9;for(String encodedString : encodedStringArr){&#13;&#10;&#9;&#9;&#9;&#9;&#9;final String newResultString = stringAfterLastDigit.concat(encodedString);&#13;&#10;&#9;&#9;&#9;&#9;&#9;if(Dictionary.isStringPatternExistInDictionary(newResultString)){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;newResultSet.add(resultString.concat(encodedString));&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;else{&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;if(Dictionary.isStringExistInDictionary(stringAfterLastDigit) &amp;&amp; (lastDigitPos!=resultString.length()-1))&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;{&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;newResultSet.add(resultString.concat(digit));&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;Set&lt;String&gt; tempResultSet = replaceWithDigitAndCheckInDictionary(newResultString);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;if(tempResultSet.size()&gt;0){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;for(String tempStr:tempResultSet){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;char firstLetter = tempStr.charAt(0);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;if(!(firstLetter &gt;= '0' &amp;&amp; firstLetter&lt;='9') || lastDigitPos == -1){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;newResultSet.add(tempStr);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;if(lastDigitPos!=-1){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;ArrayList&lt;String&gt; lastDigitEncodedStringArr = numberEncodingMap.get(String.valueOf(resultString.charAt(lastDigitPos)));&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;if(lastDigitEncodedStringArr!=null){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;for(String lastDigitEncodedString : lastDigitEncodedStringArr){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;String resultStringAfterReplacingLastDigitWithString = lastDigitEncodedString.concat(newResultString);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;if(Dictionary.isStringPatternExistInDictionary(resultStringAfterReplacingLastDigitWithString)){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;if(lastDigitPos != 0){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;newResultSet.add(resultString.substring(0,lastDigitPos).concat(&quot;-&quot;).concat(resultStringAfterReplacingLastDigitWithString));&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}else{&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;newResultSet.add(resultStringAfterReplacingLastDigitWithString);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}else if(isFirstIndex){&#13;&#10;&#9;&#9;&#9;for(String encodedString : encodedStringArr){&#13;&#10;&#9;&#9;&#9;&#9;newResultSet.add(encodedString);&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return newResultSet;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;&#9;/**&#13;&#10;&#9; * Method is used to convert the Number with all possible combination of word available in dictionary.&#13;&#10;&#9; * This is the actual method used to convert number to set of combination of available dictionary word.&#13;&#10;&#9; * And is called for conversion from outside. &#13;&#10;&#9; * @param number&#13;&#10;&#9; * @return&#13;&#10;&#9; */&#13;&#10;&#9;public static Set&lt;String&gt; convertToAlpha(final String number){&#13;&#10;&#9;&#9;Set&lt;String&gt; resultSet = new HashSet&lt;String&gt;();&#13;&#10;&#9;&#9;boolean isFirst = true;&#13;&#10;&#9;&#9;for(int index = 0;index&lt;number.length();index++){&#13;&#10;&#9;&#9;&#9;char digit = number.charAt(index);&#13;&#10;&#9;&#9;&#9;if(numberEncodingMap.containsKey(String.valueOf(digit)) || digit == '1'){&#13;&#10;&#9;&#9;&#9;&#9;if(digit == '1'){&#13;&#10;&#9;&#9;&#9;&#9;&#9;Set&lt;String&gt; newConvertedSet = new HashSet&lt;String&gt;();&#13;&#10;&#9;&#9;&#9;&#9;&#9;if(isFirst){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;newConvertedSet.add(&quot;1&quot;);&#13;&#10;&#9;&#9;&#9;&#9;&#9;}else{&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;for(String convertedStr:resultSet){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;final int lastDigitPos = findLastDigitPosition(convertedStr);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;if(lastDigitPos != convertedStr.length()-1){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;String str = convertedStr.substring(lastDigitPos+1);&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;if(Dictionary.isStringExistInDictionary(str)){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;newConvertedSet.add(convertedStr.concat(&quot;1&quot;));&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;&#9;resultSet.clear();&#13;&#10;&#9;&#9;&#9;&#9;&#9;for(String str : newConvertedSet){&#13;&#10;&#9;&#9;&#9;&#9;&#9;&#9;resultSet.add(str);&#13;&#10;&#9;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;}else{&#13;&#10;&#9;&#9;&#9;&#9;&#9;ArrayList&lt;String&gt; encodedStringArr = numberEncodingMap.get(String.valueOf(digit));&#13;&#10;&#9;&#9;&#9;&#9;&#9;resultSet = getResultSetAfterAddingEncodedString(resultSet,encodedStringArr,String.valueOf(digit),isFirst);&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;if(resultSet.size()==0){&#13;&#10;&#9;&#9;&#9;&#9;&#9;break;&#13;&#10;&#9;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;&#9;&#9;isFirst = false;&#13;&#10;&#9;&#9;&#9;}&#13;&#10;&#9;&#9;}&#13;&#10;&#9;&#9;return resultSet;&#13;&#10;&#9;}&#13;&#10;&#9;&#13;&#10;}&#13;&#10;" Filename="NumberToAlphaConverter.java" Intrnl_Id="2"/>
 </SrcFileList>
 <CritList>
@@ -40,64 +40,64 @@
 <HierarchyLvlType EnglishName="default package" IntrnlName="default package" Intrnl_Id="9"/>
 </HierarchyLvlTypeList>
 <MASTRoot>
-<HierarchyLvl HierarchyLvlId="1747" HierarchyLvlTypeId="9" Intrnl_Id="10" Name="default package">
+<HierarchyLvl HierarchyLvlId="30" HierarchyLvlTypeId="9" Intrnl_Id="10" Name="default package">
 <Header/>
 <LocList/>
-<HierarchyLvl HierarchyLvlId="1746" HierarchyLvlTypeId="6" Intrnl_Id="11" Name="com">
+<HierarchyLvl HierarchyLvlId="29" HierarchyLvlTypeId="6" Intrnl_Id="11" Name="com">
 <Header/>
 <LocList/>
-<HierarchyLvl HierarchyLvlId="1745" HierarchyLvlTypeId="6" Intrnl_Id="12" Name="aconex">
+<HierarchyLvl HierarchyLvlId="28" HierarchyLvlTypeId="6" Intrnl_Id="12" Name="aconex">
 <Header/>
 <LocList/>
-<HierarchyLvl HierarchyLvlId="1744" HierarchyLvlTypeId="6" Intrnl_Id="13" Name="coding">
+<HierarchyLvl HierarchyLvlId="27" HierarchyLvlTypeId="6" Intrnl_Id="13" Name="coding">
 <Header/>
 <LocList/>
-<HierarchyLvl HierarchyLvlId="1743" HierarchyLvlTypeId="6" Intrnl_Id="14" Name="challenge">
+<HierarchyLvl HierarchyLvlId="26" HierarchyLvlTypeId="6" Intrnl_Id="14" Name="challenge">
 <Header/>
 <LocList/>
-<HierarchyLvl HierarchyLvlId="1736" HierarchyLvlTypeId="7" Intrnl_Id="15" Name="ResultFormatter">
+<HierarchyLvl HierarchyLvlId="19" HierarchyLvlTypeId="7" Intrnl_Id="15" Name="ResultFormatter">
 <Header>
 <Loc EndOffset="68" SrcFileId="1" StartOffset="40"/>
 </Header>
 <LocList>
-<Loc EndOffset="1806" SrcFileId="1" StartOffset="40"/>
+<Loc EndOffset="1764" SrcFileId="1" StartOffset="40"/>
 </LocList>
-<HierarchyLvl HierarchyLvlId="1733" HierarchyLvlTypeId="8" Intrnl_Id="16" Name="findIndexOfDigit">
+<HierarchyLvl HierarchyLvlId="16" HierarchyLvlTypeId="8" Intrnl_Id="16" Name="findIndexOfDigit">
 <Header>
 <Loc EndOffset="220" SrcFileId="1" StartOffset="172"/>
 </Header>
 <LocList>
-<Loc EndOffset="357" SrcFileId="1" StartOffset="172"/>
+<Loc EndOffset="363" SrcFileId="1" StartOffset="172"/>
 </LocList>
 <StmntSeq Intrnl_Id="17">
 <LocList>
-<Loc EndOffset="339" SrcFileId="1" StartOffset="225"/>
-<Loc EndOffset="353" SrcFileId="1" StartOffset="343"/>
+<Loc EndOffset="345" SrcFileId="1" StartOffset="225"/>
+<Loc EndOffset="359" SrcFileId="1" StartOffset="349"/>
 </LocList>
 <LoopStmnt CovItemId="S1" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="18" MltplExecId="L1-2" MltplExecPrefix="com.aconex.coding.challenge.ResultFormatter.java" NvrExecId="L1-0" NvrExecPrefix="com.aconex.coding.challenge.ResultFormatter.java" OnceExecutedId="L1-1" OnceExecutedPrefix="com.aconex.coding.challenge.ResultFormatter.java" OptBodyExec="true">
 <StmntSeq Intrnl_Id="19">
 <LocList>
-<Loc EndOffset="287" SrcFileId="1" StartOffset="263"/>
-<Loc EndOffset="334" SrcFileId="1" StartOffset="292"/>
+<Loc EndOffset="293" SrcFileId="1" StartOffset="263"/>
+<Loc EndOffset="340" SrcFileId="1" StartOffset="298"/>
 </LocList>
 <BasicStmnt CovItemId="S2" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="20">
 <LocList>
-<Loc EndOffset="287" SrcFileId="1" StartOffset="263"/>
+<Loc EndOffset="293" SrcFileId="1" StartOffset="263"/>
 </LocList>
 </BasicStmnt>
 <CondStmnt CovItemId="S3" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="21">
 <Branch CovItemId="B1" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Implct="false" Intrnl_Id="22">
 <Cond/>
 <LocList>
-<Loc EndOffset="334" SrcFileId="1" StartOffset="312"/>
+<Loc EndOffset="340" SrcFileId="1" StartOffset="318"/>
 </LocList>
 <StmntSeq Intrnl_Id="23">
 <LocList>
-<Loc EndOffset="328" SrcFileId="1" StartOffset="319"/>
+<Loc EndOffset="334" SrcFileId="1" StartOffset="325"/>
 </LocList>
 <BasicStmnt CovItemId="S4" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="24">
 <LocList>
-<Loc EndOffset="328" SrcFileId="1" StartOffset="319"/>
+<Loc EndOffset="334" SrcFileId="1" StartOffset="325"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
@@ -109,24 +109,24 @@
 <LocList/>
 </StmntSeq>
 </Branch>
-<Keyword EndOffset="294" SrcFileId="1" StartOffset="292"/>
+<Keyword EndOffset="300" SrcFileId="1" StartOffset="298"/>
 <LocList>
-<Loc EndOffset="334" SrcFileId="1" StartOffset="292"/>
+<Loc EndOffset="340" SrcFileId="1" StartOffset="298"/>
 </LocList>
 <RootTerm CovItemId="C2" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="27">
 <OpTerm BooleanOpId="4" Intrnl_Id="28">
 <BasicBoolTerm Intrnl_Id="29">
 <LocList>
-<Loc EndOffset="301" SrcFileId="1" StartOffset="295"/>
+<Loc EndOffset="307" SrcFileId="1" StartOffset="301"/>
 </LocList>
 </BasicBoolTerm>
 <BasicBoolTerm Intrnl_Id="30">
 <LocList>
-<Loc EndOffset="311" SrcFileId="1" StartOffset="305"/>
+<Loc EndOffset="317" SrcFileId="1" StartOffset="311"/>
 </LocList>
 </BasicBoolTerm>
 <LocList>
-<Loc EndOffset="304" SrcFileId="1" StartOffset="302"/>
+<Loc EndOffset="310" SrcFileId="1" StartOffset="308"/>
 </LocList>
 </OpTerm>
 </RootTerm>
@@ -134,7 +134,7 @@
 </StmntSeq>
 <Keyword EndOffset="228" SrcFileId="1" StartOffset="225"/>
 <LocList>
-<Loc EndOffset="339" SrcFileId="1" StartOffset="225"/>
+<Loc EndOffset="345" SrcFileId="1" StartOffset="225"/>
 </LocList>
 <RootTerm CovItemId="C1" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="31">
 <BasicBoolTerm Intrnl_Id="32">
@@ -146,98 +146,98 @@
 </LoopStmnt>
 <BasicStmnt CovItemId="S5" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="33">
 <LocList>
-<Loc EndOffset="353" SrcFileId="1" StartOffset="343"/>
+<Loc EndOffset="359" SrcFileId="1" StartOffset="349"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="1734" HierarchyLvlTypeId="8" Intrnl_Id="34" Name="formatOutput">
+<HierarchyLvl HierarchyLvlId="17" HierarchyLvlTypeId="8" Intrnl_Id="34" Name="formatOutput">
 <Header>
-<Loc EndOffset="513" SrcFileId="1" StartOffset="459"/>
+<Loc EndOffset="519" SrcFileId="1" StartOffset="465"/>
 </Header>
 <LocList>
-<Loc EndOffset="1414" SrcFileId="1" StartOffset="459"/>
+<Loc EndOffset="1372" SrcFileId="1" StartOffset="465"/>
 </LocList>
 <StmntSeq Intrnl_Id="35">
 <LocList>
-<Loc EndOffset="568" SrcFileId="1" StartOffset="518"/>
-<Loc EndOffset="612" SrcFileId="1" StartOffset="572"/>
-<Loc EndOffset="655" SrcFileId="1" StartOffset="616"/>
-<Loc EndOffset="1161" SrcFileId="1" StartOffset="659"/>
-<Loc EndOffset="1211" SrcFileId="1" StartOffset="1165"/>
-<Loc EndOffset="1372" SrcFileId="1" StartOffset="1215"/>
-<Loc EndOffset="1410" SrcFileId="1" StartOffset="1376"/>
+<Loc EndOffset="574" SrcFileId="1" StartOffset="524"/>
+<Loc EndOffset="618" SrcFileId="1" StartOffset="578"/>
+<Loc EndOffset="655" SrcFileId="1" StartOffset="622"/>
+<Loc EndOffset="1125" SrcFileId="1" StartOffset="659"/>
+<Loc EndOffset="1169" SrcFileId="1" StartOffset="1129"/>
+<Loc EndOffset="1330" SrcFileId="1" StartOffset="1173"/>
+<Loc EndOffset="1368" SrcFileId="1" StartOffset="1334"/>
 </LocList>
 <BasicStmnt CovItemId="S6" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="36">
 <LocList>
-<Loc EndOffset="568" SrcFileId="1" StartOffset="518"/>
+<Loc EndOffset="574" SrcFileId="1" StartOffset="524"/>
 </LocList>
 </BasicStmnt>
 <BasicStmnt CovItemId="S7" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="37">
 <LocList>
-<Loc EndOffset="612" SrcFileId="1" StartOffset="572"/>
+<Loc EndOffset="618" SrcFileId="1" StartOffset="578"/>
 </LocList>
 </BasicStmnt>
 <BasicStmnt CovItemId="S8" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="38">
 <LocList>
-<Loc EndOffset="655" SrcFileId="1" StartOffset="616"/>
+<Loc EndOffset="655" SrcFileId="1" StartOffset="622"/>
 </LocList>
 </BasicStmnt>
 <LoopStmnt CovItemId="S9" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="39" MltplExecId="L2-2" MltplExecPrefix="com.aconex.coding.challenge.ResultFormatter.java" NvrExecId="L2-0" NvrExecPrefix="com.aconex.coding.challenge.ResultFormatter.java" OnceExecutedId="L2-1" OnceExecutedPrefix="com.aconex.coding.challenge.ResultFormatter.java" OptBodyExec="true">
 <StmntSeq Intrnl_Id="40">
 <LocList>
-<Loc EndOffset="1027" SrcFileId="1" StartOffset="690"/>
-<Loc EndOffset="1100" SrcFileId="1" StartOffset="1032"/>
-<Loc EndOffset="1156" SrcFileId="1" StartOffset="1105"/>
+<Loc EndOffset="1009" SrcFileId="1" StartOffset="690"/>
+<Loc EndOffset="1070" SrcFileId="1" StartOffset="1014"/>
+<Loc EndOffset="1120" SrcFileId="1" StartOffset="1075"/>
 </LocList>
 <CondStmnt CovItemId="S10" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="41">
 <Branch CovItemId="B3" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Implct="false" Intrnl_Id="42">
 <Cond/>
 <LocList>
-<Loc EndOffset="1027" SrcFileId="1" StartOffset="708"/>
+<Loc EndOffset="1009" SrcFileId="1" StartOffset="708"/>
 </LocList>
 <StmntSeq Intrnl_Id="43">
 <LocList>
-<Loc EndOffset="1021" SrcFileId="1" StartOffset="715"/>
+<Loc EndOffset="1003" SrcFileId="1" StartOffset="715"/>
 </LocList>
 <CondStmnt CovItemId="S11" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="44">
 <Branch CovItemId="B5" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Implct="false" Intrnl_Id="45">
 <Cond/>
 <LocList>
-<Loc EndOffset="911" SrcFileId="1" StartOffset="732"/>
+<Loc EndOffset="899" SrcFileId="1" StartOffset="732"/>
 </LocList>
 <StmntSeq Intrnl_Id="46">
 <LocList>
-<Loc EndOffset="904" SrcFileId="1" StartOffset="740"/>
+<Loc EndOffset="892" SrcFileId="1" StartOffset="740"/>
 </LocList>
 <BasicStmnt CovItemId="S12" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="47">
 <LocList>
-<Loc EndOffset="904" SrcFileId="1" StartOffset="740"/>
+<Loc EndOffset="892" SrcFileId="1" StartOffset="740"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
 </Branch>
 <Branch CovItemId="B6" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Implct="false" Intrnl_Id="48">
 <Cond>
-<Loc EndOffset="915" SrcFileId="1" StartOffset="911"/>
+<Loc EndOffset="903" SrcFileId="1" StartOffset="899"/>
 </Cond>
 <LocList>
-<Loc EndOffset="1021" SrcFileId="1" StartOffset="915"/>
+<Loc EndOffset="1003" SrcFileId="1" StartOffset="903"/>
 </LocList>
 <StmntSeq Intrnl_Id="49">
 <LocList>
-<Loc EndOffset="1014" SrcFileId="1" StartOffset="923"/>
+<Loc EndOffset="996" SrcFileId="1" StartOffset="911"/>
 </LocList>
 <BasicStmnt CovItemId="S13" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="50">
 <LocList>
-<Loc EndOffset="1014" SrcFileId="1" StartOffset="923"/>
+<Loc EndOffset="996" SrcFileId="1" StartOffset="911"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
 </Branch>
 <Keyword EndOffset="717" SrcFileId="1" StartOffset="715"/>
 <LocList>
-<Loc EndOffset="1021" SrcFileId="1" StartOffset="715"/>
+<Loc EndOffset="1003" SrcFileId="1" StartOffset="715"/>
 </LocList>
 <RootTerm CovItemId="C5" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="51">
 <BasicBoolTerm Intrnl_Id="52">
@@ -258,7 +258,7 @@
 </Branch>
 <Keyword EndOffset="692" SrcFileId="1" StartOffset="690"/>
 <LocList>
-<Loc EndOffset="1027" SrcFileId="1" StartOffset="690"/>
+<Loc EndOffset="1009" SrcFileId="1" StartOffset="690"/>
 </LocList>
 <RootTerm CovItemId="C4" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="55">
 <BasicBoolTerm Intrnl_Id="56">
@@ -270,18 +270,18 @@
 </CondStmnt>
 <BasicStmnt CovItemId="S14" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="57">
 <LocList>
-<Loc EndOffset="1100" SrcFileId="1" StartOffset="1032"/>
+<Loc EndOffset="1070" SrcFileId="1" StartOffset="1014"/>
 </LocList>
 </BasicStmnt>
 <BasicStmnt CovItemId="S15" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="58">
 <LocList>
-<Loc EndOffset="1156" SrcFileId="1" StartOffset="1105"/>
+<Loc EndOffset="1120" SrcFileId="1" StartOffset="1075"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
 <Keyword EndOffset="664" SrcFileId="1" StartOffset="659"/>
 <LocList>
-<Loc EndOffset="1161" SrcFileId="1" StartOffset="659"/>
+<Loc EndOffset="1125" SrcFileId="1" StartOffset="659"/>
 </LocList>
 <RootTerm CovItemId="C3" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="59">
 <BasicBoolTerm Intrnl_Id="60">
@@ -293,22 +293,22 @@
 </LoopStmnt>
 <BasicStmnt CovItemId="S16" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="61">
 <LocList>
-<Loc EndOffset="1211" SrcFileId="1" StartOffset="1165"/>
+<Loc EndOffset="1169" SrcFileId="1" StartOffset="1129"/>
 </LocList>
 </BasicStmnt>
 <CondStmnt CovItemId="S17" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="62">
 <Branch CovItemId="B7" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Implct="false" Intrnl_Id="63">
 <Cond/>
 <LocList>
-<Loc EndOffset="1372" SrcFileId="1" StartOffset="1287"/>
+<Loc EndOffset="1330" SrcFileId="1" StartOffset="1245"/>
 </LocList>
 <StmntSeq Intrnl_Id="64">
 <LocList>
-<Loc EndOffset="1367" SrcFileId="1" StartOffset="1293"/>
+<Loc EndOffset="1325" SrcFileId="1" StartOffset="1251"/>
 </LocList>
 <BasicStmnt CovItemId="S18" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="65">
 <LocList>
-<Loc EndOffset="1367" SrcFileId="1" StartOffset="1293"/>
+<Loc EndOffset="1325" SrcFileId="1" StartOffset="1251"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
@@ -320,67 +320,67 @@
 <LocList/>
 </StmntSeq>
 </Branch>
-<Keyword EndOffset="1217" SrcFileId="1" StartOffset="1215"/>
+<Keyword EndOffset="1175" SrcFileId="1" StartOffset="1173"/>
 <LocList>
-<Loc EndOffset="1372" SrcFileId="1" StartOffset="1215"/>
+<Loc EndOffset="1330" SrcFileId="1" StartOffset="1173"/>
 </LocList>
 <RootTerm CovItemId="C6" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="68">
 <BasicBoolTerm Intrnl_Id="69">
 <LocList>
-<Loc EndOffset="1286" SrcFileId="1" StartOffset="1218"/>
+<Loc EndOffset="1244" SrcFileId="1" StartOffset="1176"/>
 </LocList>
 </BasicBoolTerm>
 </RootTerm>
 </CondStmnt>
 <BasicStmnt CovItemId="S19" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="70">
 <LocList>
-<Loc EndOffset="1410" SrcFileId="1" StartOffset="1376"/>
+<Loc EndOffset="1368" SrcFileId="1" StartOffset="1334"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="1735" HierarchyLvlTypeId="8" Intrnl_Id="71" Name="formatPhoneNumber">
+<HierarchyLvl HierarchyLvlId="18" HierarchyLvlTypeId="8" Intrnl_Id="71" Name="formatPhoneNumber">
 <Header>
-<Loc EndOffset="1599" SrcFileId="1" StartOffset="1540"/>
+<Loc EndOffset="1557" SrcFileId="1" StartOffset="1498"/>
 </Header>
 <LocList>
-<Loc EndOffset="1800" SrcFileId="1" StartOffset="1540"/>
+<Loc EndOffset="1758" SrcFileId="1" StartOffset="1498"/>
 </LocList>
 <StmntSeq Intrnl_Id="72">
 <LocList>
-<Loc EndOffset="1643" SrcFileId="1" StartOffset="1604"/>
-<Loc EndOffset="1769" SrcFileId="1" StartOffset="1647"/>
-<Loc EndOffset="1796" SrcFileId="1" StartOffset="1773"/>
+<Loc EndOffset="1601" SrcFileId="1" StartOffset="1562"/>
+<Loc EndOffset="1727" SrcFileId="1" StartOffset="1605"/>
+<Loc EndOffset="1754" SrcFileId="1" StartOffset="1731"/>
 </LocList>
 <BasicStmnt CovItemId="S20" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="73">
 <LocList>
-<Loc EndOffset="1643" SrcFileId="1" StartOffset="1604"/>
+<Loc EndOffset="1601" SrcFileId="1" StartOffset="1562"/>
 </LocList>
 </BasicStmnt>
 <LoopStmnt CovItemId="S21" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="74" MltplExecId="L3-2" MltplExecPrefix="com.aconex.coding.challenge.ResultFormatter.java" NvrExecId="L3-0" NvrExecPrefix="com.aconex.coding.challenge.ResultFormatter.java" OnceExecutedId="L3-1" OnceExecutedPrefix="com.aconex.coding.challenge.ResultFormatter.java" OptBodyExec="true">
 <StmntSeq Intrnl_Id="75">
 <LocList>
-<Loc EndOffset="1713" SrcFileId="1" StartOffset="1687"/>
-<Loc EndOffset="1764" SrcFileId="1" StartOffset="1718"/>
+<Loc EndOffset="1671" SrcFileId="1" StartOffset="1645"/>
+<Loc EndOffset="1722" SrcFileId="1" StartOffset="1676"/>
 </LocList>
 <BasicStmnt CovItemId="S22" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="76">
 <LocList>
-<Loc EndOffset="1713" SrcFileId="1" StartOffset="1687"/>
+<Loc EndOffset="1671" SrcFileId="1" StartOffset="1645"/>
 </LocList>
 </BasicStmnt>
 <CondStmnt CovItemId="S23" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="77">
 <Branch CovItemId="B9" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Implct="false" Intrnl_Id="78">
 <Cond/>
 <LocList>
-<Loc EndOffset="1764" SrcFileId="1" StartOffset="1736"/>
+<Loc EndOffset="1722" SrcFileId="1" StartOffset="1694"/>
 </LocList>
 <StmntSeq Intrnl_Id="79">
 <LocList>
-<Loc EndOffset="1758" SrcFileId="1" StartOffset="1743"/>
+<Loc EndOffset="1716" SrcFileId="1" StartOffset="1701"/>
 </LocList>
 <BasicStmnt CovItemId="S24" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="80">
 <LocList>
-<Loc EndOffset="1758" SrcFileId="1" StartOffset="1743"/>
+<Loc EndOffset="1716" SrcFileId="1" StartOffset="1701"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
@@ -392,50 +392,50 @@
 <LocList/>
 </StmntSeq>
 </Branch>
-<Keyword EndOffset="1720" SrcFileId="1" StartOffset="1718"/>
+<Keyword EndOffset="1678" SrcFileId="1" StartOffset="1676"/>
 <LocList>
-<Loc EndOffset="1764" SrcFileId="1" StartOffset="1718"/>
+<Loc EndOffset="1722" SrcFileId="1" StartOffset="1676"/>
 </LocList>
 <RootTerm CovItemId="C8" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="83">
 <OpTerm BooleanOpId="4" Intrnl_Id="84">
 <BasicBoolTerm Intrnl_Id="85">
 <LocList>
-<Loc EndOffset="1727" SrcFileId="1" StartOffset="1721"/>
+<Loc EndOffset="1685" SrcFileId="1" StartOffset="1679"/>
 </LocList>
 </BasicBoolTerm>
 <BasicBoolTerm Intrnl_Id="86">
 <LocList>
-<Loc EndOffset="1735" SrcFileId="1" StartOffset="1729"/>
+<Loc EndOffset="1693" SrcFileId="1" StartOffset="1687"/>
 </LocList>
 </BasicBoolTerm>
 <LocList>
-<Loc EndOffset="1729" SrcFileId="1" StartOffset="1727"/>
+<Loc EndOffset="1687" SrcFileId="1" StartOffset="1685"/>
 </LocList>
 </OpTerm>
 </RootTerm>
 </CondStmnt>
 </StmntSeq>
-<Keyword EndOffset="1650" SrcFileId="1" StartOffset="1647"/>
+<Keyword EndOffset="1608" SrcFileId="1" StartOffset="1605"/>
 <LocList>
-<Loc EndOffset="1769" SrcFileId="1" StartOffset="1647"/>
+<Loc EndOffset="1727" SrcFileId="1" StartOffset="1605"/>
 </LocList>
 <RootTerm CovItemId="C7" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="87">
 <BasicBoolTerm Intrnl_Id="88">
 <LocList>
-<Loc EndOffset="1676" SrcFileId="1" StartOffset="1659"/>
+<Loc EndOffset="1634" SrcFileId="1" StartOffset="1617"/>
 </LocList>
 </BasicBoolTerm>
 </RootTerm>
 </LoopStmnt>
 <BasicStmnt CovItemId="S25" CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java" Intrnl_Id="89">
 <LocList>
-<Loc EndOffset="1796" SrcFileId="1" StartOffset="1773"/>
+<Loc EndOffset="1754" SrcFileId="1" StartOffset="1731"/>
 </LocList>
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="1742" HierarchyLvlTypeId="7" Intrnl_Id="90" Name="NumberToAlphaConverter">
+<HierarchyLvl HierarchyLvlId="25" HierarchyLvlTypeId="7" Intrnl_Id="90" Name="NumberToAlphaConverter">
 <Header>
 <Loc EndOffset="663" SrcFileId="2" StartOffset="628"/>
 </Header>
@@ -704,7 +704,7 @@
 </LocList>
 </BasicStmnt>
 </StmntSeq>
-<HierarchyLvl HierarchyLvlId="1737" HierarchyLvlTypeId="8" Intrnl_Id="135" Name="findLastDigitPosition">
+<HierarchyLvl HierarchyLvlId="20" HierarchyLvlTypeId="8" Intrnl_Id="135" Name="findLastDigitPosition">
 <Header>
 <Loc EndOffset="2582" SrcFileId="2" StartOffset="2518"/>
 </Header>
@@ -853,7 +853,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="1738" HierarchyLvlTypeId="8" Intrnl_Id="164" Name="alphaToDigit">
+<HierarchyLvl HierarchyLvlId="21" HierarchyLvlTypeId="8" Intrnl_Id="164" Name="alphaToDigit">
 <Header>
 <Loc EndOffset="3079" SrcFileId="2" StartOffset="3033"/>
 </Header>
@@ -1235,7 +1235,7 @@
 </CondStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="1739" HierarchyLvlTypeId="8" Intrnl_Id="237" Name="replaceWithDigitAndCheckInDictionary">
+<HierarchyLvl HierarchyLvlId="22" HierarchyLvlTypeId="8" Intrnl_Id="237" Name="replaceWithDigitAndCheckInDictionary">
 <Header>
 <Loc EndOffset="3838" SrcFileId="2" StartOffset="3763"/>
 </Header>
@@ -1436,7 +1436,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="1740" HierarchyLvlTypeId="8" Intrnl_Id="278" Name="getResultSetAfterAddingEncodedString">
+<HierarchyLvl HierarchyLvlId="23" HierarchyLvlTypeId="8" Intrnl_Id="278" Name="getResultSetAfterAddingEncodedString">
 <Header>
 <Loc EndOffset="5171" SrcFileId="2" StartOffset="5015"/>
 </Header>
@@ -1953,7 +1953,7 @@
 </BasicStmnt>
 </StmntSeq>
 </HierarchyLvl>
-<HierarchyLvl HierarchyLvlId="1741" HierarchyLvlTypeId="8" Intrnl_Id="382" Name="convertToAlpha">
+<HierarchyLvl HierarchyLvlId="24" HierarchyLvlTypeId="8" Intrnl_Id="382" Name="convertToAlpha">
 <Header>
 <Loc EndOffset="7611" SrcFileId="2" StartOffset="7550"/>
 </Header>
@@ -2308,799 +2308,4 @@
 </HierarchyLvl>
 </HierarchyLvl>
 </MASTRoot>
-<TestSession Comment="" Date="1421784702160" Name="21 Jan, 2015 1:41:41 AM">
-<TestCase Comment="This is a test case containing all coverage results cause no startTestCase methods where captured." Date="1421784701753" Name="UNNAMED TESTCASE">
-<CovList>
-<CovPrefix CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java">
-<Cov CovItemId="B1" Value="305"/>
-<Cov CovItemId="B10" Value="127"/>
-<Cov CovItemId="B11" Value="38"/>
-<Cov CovItemId="B12" Value="89"/>
-<Cov CovItemId="B13" Value="45"/>
-<Cov CovItemId="B14" Value="44"/>
-<Cov CovItemId="B15" Value="35"/>
-<Cov CovItemId="B16" Value="9"/>
-<Cov CovItemId="B18" Value="9"/>
-<Cov CovItemId="B19" Value="756"/>
-<Cov CovItemId="B2" Value="1849"/>
-<Cov CovItemId="B20" Value="1029"/>
-<Cov CovItemId="B21" Value="187"/>
-<Cov CovItemId="B22" Value="569"/>
-<Cov CovItemId="B23" Value="12"/>
-<Cov CovItemId="B24" Value="1017"/>
-<Cov CovItemId="B26" Value="12"/>
-<Cov CovItemId="B27" Value="174"/>
-<Cov CovItemId="B28" Value="15"/>
-<Cov CovItemId="B29" Value="221"/>
-<Cov CovItemId="B3" Value="64"/>
-<Cov CovItemId="B30" Value="824"/>
-<Cov CovItemId="B31" Value="113"/>
-<Cov CovItemId="B32" Value="711"/>
-<Cov CovItemId="B33" Value="187"/>
-<Cov CovItemId="B34" Value="637"/>
-<Cov CovItemId="B35" Value="84"/>
-<Cov CovItemId="B36" Value="103"/>
-<Cov CovItemId="B37" Value="692"/>
-<Cov CovItemId="B38" Value="353"/>
-<Cov CovItemId="B39" Value="449"/>
-<Cov CovItemId="B4" Value="1785"/>
-<Cov CovItemId="B40" Value="243"/>
-<Cov CovItemId="B41" Value="34"/>
-<Cov CovItemId="B42" Value="1467"/>
-<Cov CovItemId="B43" Value="17"/>
-<Cov CovItemId="B44" Value="17"/>
-<Cov CovItemId="B45" Value="15"/>
-<Cov CovItemId="B47" Value="194"/>
-<Cov CovItemId="B48" Value="53"/>
-<Cov CovItemId="B49" Value="5"/>
-<Cov CovItemId="B5" Value="43"/>
-<Cov CovItemId="B50" Value="189"/>
-<Cov CovItemId="B51" Value="1"/>
-<Cov CovItemId="B52" Value="4"/>
-<Cov CovItemId="B53" Value="10"/>
-<Cov CovItemId="B54" Value="2"/>
-<Cov CovItemId="B55" Value="10"/>
-<Cov CovItemId="B57" Value="1"/>
-<Cov CovItemId="B58" Value="193"/>
-<Cov CovItemId="B6" Value="144"/>
-<Cov CovItemId="B7" Value="12"/>
-<Cov CovItemId="B8" Value="132"/>
-<Cov CovItemId="B9" Value="5"/>
-<Cov CovItemId="L1-1" Value="50"/>
-<Cov CovItemId="L1-2" Value="280"/>
-<Cov CovItemId="L10-1" Value="2"/>
-<Cov CovItemId="L10-2" Value="3"/>
-<Cov CovItemId="L2-0" Value="68"/>
-<Cov CovItemId="L2-1" Value="351"/>
-<Cov CovItemId="L2-2" Value="405"/>
-<Cov CovItemId="L3-1" Value="103"/>
-<Cov CovItemId="L3-2" Value="71"/>
-<Cov CovItemId="L4-2" Value="318"/>
-<Cov CovItemId="L5-1" Value="187"/>
-<Cov CovItemId="L6-2" Value="449"/>
-<Cov CovItemId="L7-2" Value="15"/>
-<Cov CovItemId="L8-2" Value="16"/>
-<Cov CovItemId="L9-2" Value="4"/>
-<Cov CovItemId="S1" Value="1"/>
-<Cov CovItemId="S10" Value="1"/>
-<Cov CovItemId="S100" Value="692"/>
-<Cov CovItemId="S101" Value="449"/>
-<Cov CovItemId="S102" Value="1501"/>
-<Cov CovItemId="S103" Value="1501"/>
-<Cov CovItemId="S104" Value="34"/>
-<Cov CovItemId="S105" Value="17"/>
-<Cov CovItemId="S106" Value="17"/>
-<Cov CovItemId="S107" Value="15"/>
-<Cov CovItemId="S108" Value="15"/>
-<Cov CovItemId="S109" Value="49"/>
-<Cov CovItemId="S11" Value="1"/>
-<Cov CovItemId="S110" Value="189"/>
-<Cov CovItemId="S111" Value="16"/>
-<Cov CovItemId="S112" Value="16"/>
-<Cov CovItemId="S113" Value="16"/>
-<Cov CovItemId="S114" Value="247"/>
-<Cov CovItemId="S115" Value="247"/>
-<Cov CovItemId="S116" Value="194"/>
-<Cov CovItemId="S117" Value="5"/>
-<Cov CovItemId="S118" Value="5"/>
-<Cov CovItemId="S119" Value="1"/>
-<Cov CovItemId="S12" Value="1"/>
-<Cov CovItemId="S120" Value="4"/>
-<Cov CovItemId="S121" Value="12"/>
-<Cov CovItemId="S122" Value="12"/>
-<Cov CovItemId="S123" Value="10"/>
-<Cov CovItemId="S124" Value="10"/>
-<Cov CovItemId="S125" Value="10"/>
-<Cov CovItemId="S126" Value="5"/>
-<Cov CovItemId="S127" Value="5"/>
-<Cov CovItemId="S128" Value="11"/>
-<Cov CovItemId="S129" Value="189"/>
-<Cov CovItemId="S13" Value="1"/>
-<Cov CovItemId="S130" Value="189"/>
-<Cov CovItemId="S131" Value="194"/>
-<Cov CovItemId="S132" Value="1"/>
-<Cov CovItemId="S133" Value="193"/>
-<Cov CovItemId="S134" Value="16"/>
-<Cov CovItemId="S14" Value="1"/>
-<Cov CovItemId="S15" Value="1"/>
-<Cov CovItemId="S16" Value="1"/>
-<Cov CovItemId="S17" Value="1"/>
-<Cov CovItemId="S18" Value="1"/>
-<Cov CovItemId="S19" Value="1"/>
-<Cov CovItemId="S2" Value="1"/>
-<Cov CovItemId="S20" Value="1"/>
-<Cov CovItemId="S21" Value="1"/>
-<Cov CovItemId="S22" Value="1"/>
-<Cov CovItemId="S23" Value="1"/>
-<Cov CovItemId="S24" Value="1"/>
-<Cov CovItemId="S25" Value="1"/>
-<Cov CovItemId="S26" Value="1"/>
-<Cov CovItemId="S27" Value="1"/>
-<Cov CovItemId="S28" Value="1"/>
-<Cov CovItemId="S29" Value="1"/>
-<Cov CovItemId="S3" Value="1"/>
-<Cov CovItemId="S30" Value="1"/>
-<Cov CovItemId="S31" Value="1"/>
-<Cov CovItemId="S32" Value="1"/>
-<Cov CovItemId="S33" Value="1"/>
-<Cov CovItemId="S34" Value="1"/>
-<Cov CovItemId="S35" Value="1"/>
-<Cov CovItemId="S36" Value="1"/>
-<Cov CovItemId="S37" Value="1"/>
-<Cov CovItemId="S38" Value="1"/>
-<Cov CovItemId="S39" Value="1"/>
-<Cov CovItemId="S4" Value="1"/>
-<Cov CovItemId="S40" Value="1"/>
-<Cov CovItemId="S41" Value="1"/>
-<Cov CovItemId="S42" Value="1"/>
-<Cov CovItemId="S43" Value="1"/>
-<Cov CovItemId="S44" Value="330"/>
-<Cov CovItemId="S45" Value="330"/>
-<Cov CovItemId="S46" Value="330"/>
-<Cov CovItemId="S47" Value="330"/>
-<Cov CovItemId="S48" Value="2154"/>
-<Cov CovItemId="S49" Value="2154"/>
-<Cov CovItemId="S5" Value="1"/>
-<Cov CovItemId="S50" Value="305"/>
-<Cov CovItemId="S51" Value="1849"/>
-<Cov CovItemId="S52" Value="64"/>
-<Cov CovItemId="S53" Value="330"/>
-<Cov CovItemId="S54" Value="187"/>
-<Cov CovItemId="S55" Value="43"/>
-<Cov CovItemId="S56" Value="144"/>
-<Cov CovItemId="S57" Value="12"/>
-<Cov CovItemId="S58" Value="132"/>
-<Cov CovItemId="S59" Value="5"/>
-<Cov CovItemId="S6" Value="1"/>
-<Cov CovItemId="S60" Value="127"/>
-<Cov CovItemId="S61" Value="38"/>
-<Cov CovItemId="S62" Value="89"/>
-<Cov CovItemId="S63" Value="45"/>
-<Cov CovItemId="S64" Value="44"/>
-<Cov CovItemId="S65" Value="35"/>
-<Cov CovItemId="S66" Value="9"/>
-<Cov CovItemId="S68" Value="9"/>
-<Cov CovItemId="S69" Value="824"/>
-<Cov CovItemId="S7" Value="1"/>
-<Cov CovItemId="S70" Value="824"/>
-<Cov CovItemId="S71" Value="1785"/>
-<Cov CovItemId="S72" Value="756"/>
-<Cov CovItemId="S73" Value="756"/>
-<Cov CovItemId="S74" Value="187"/>
-<Cov CovItemId="S75" Value="1029"/>
-<Cov CovItemId="S76" Value="1029"/>
-<Cov CovItemId="S77" Value="12"/>
-<Cov CovItemId="S78" Value="12"/>
-<Cov CovItemId="S8" Value="1"/>
-<Cov CovItemId="S80" Value="824"/>
-<Cov CovItemId="S81" Value="189"/>
-<Cov CovItemId="S82" Value="189"/>
-<Cov CovItemId="S83" Value="174"/>
-<Cov CovItemId="S84" Value="318"/>
-<Cov CovItemId="S85" Value="318"/>
-<Cov CovItemId="S86" Value="318"/>
-<Cov CovItemId="S87" Value="1045"/>
-<Cov CovItemId="S88" Value="1045"/>
-<Cov CovItemId="S89" Value="221"/>
-<Cov CovItemId="S9" Value="1"/>
-<Cov CovItemId="S90" Value="824"/>
-<Cov CovItemId="S91" Value="113"/>
-<Cov CovItemId="S92" Value="824"/>
-<Cov CovItemId="S93" Value="824"/>
-<Cov CovItemId="S94" Value="187"/>
-<Cov CovItemId="S95" Value="187"/>
-<Cov CovItemId="S96" Value="187"/>
-<Cov CovItemId="S97" Value="84"/>
-<Cov CovItemId="S98" Value="1045"/>
-<Cov CovItemId="S99" Value="692"/>
-</CovPrefix>
-<CovPrefix CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java">
-<Cov CovItemId="B1" Value="8"/>
-<Cov CovItemId="B10" Value="7"/>
-<Cov CovItemId="B2" Value="60"/>
-<Cov CovItemId="B3" Value="8"/>
-<Cov CovItemId="B5" Value="6"/>
-<Cov CovItemId="B6" Value="2"/>
-<Cov CovItemId="B7" Value="2"/>
-<Cov CovItemId="B8" Value="3"/>
-<Cov CovItemId="B9" Value="11"/>
-<Cov CovItemId="L1-0" Value="2"/>
-<Cov CovItemId="L1-1" Value="2"/>
-<Cov CovItemId="L1-2" Value="9"/>
-<Cov CovItemId="L2-0" Value="1"/>
-<Cov CovItemId="L2-1" Value="1"/>
-<Cov CovItemId="L2-2" Value="3"/>
-<Cov CovItemId="L3-2" Value="1"/>
-<Cov CovItemId="S1" Value="13"/>
-<Cov CovItemId="S10" Value="8"/>
-<Cov CovItemId="S11" Value="8"/>
-<Cov CovItemId="S12" Value="6"/>
-<Cov CovItemId="S13" Value="2"/>
-<Cov CovItemId="S14" Value="8"/>
-<Cov CovItemId="S15" Value="8"/>
-<Cov CovItemId="S16" Value="5"/>
-<Cov CovItemId="S17" Value="5"/>
-<Cov CovItemId="S18" Value="2"/>
-<Cov CovItemId="S19" Value="3"/>
-<Cov CovItemId="S2" Value="68"/>
-<Cov CovItemId="S20" Value="1"/>
-<Cov CovItemId="S21" Value="1"/>
-<Cov CovItemId="S22" Value="18"/>
-<Cov CovItemId="S23" Value="18"/>
-<Cov CovItemId="S24" Value="11"/>
-<Cov CovItemId="S25" Value="1"/>
-<Cov CovItemId="S3" Value="68"/>
-<Cov CovItemId="S4" Value="8"/>
-<Cov CovItemId="S5" Value="5"/>
-<Cov CovItemId="S6" Value="5"/>
-<Cov CovItemId="S7" Value="5"/>
-<Cov CovItemId="S8" Value="5"/>
-<Cov CovItemId="S9" Value="5"/>
-</CovPrefix>
-</CovList>
-<AssgnmntList>
-<AssgnmntPrefix RootTermCovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java">
-<AssgnmntListEntry Length="1" RootTermCovItemId="C1">
-<MapEntry BoolAssgnmnt="0" Value="330"/>
-<MapEntry BoolAssgnmnt="1" Value="2154"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C10">
-<MapEntry BoolAssgnmnt="10" Value="9"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C11">
-<MapEntry BoolAssgnmnt="0" Value="824"/>
-<MapEntry BoolAssgnmnt="1" Value="1785"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C12">
-<MapEntry BoolAssgnmnt="0" Value="1029"/>
-<MapEntry BoolAssgnmnt="1" Value="756"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C13">
-<MapEntry BoolAssgnmnt="0" Value="569"/>
-<MapEntry BoolAssgnmnt="1" Value="187"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C14">
-<MapEntry BoolAssgnmnt="0" Value="1017"/>
-<MapEntry BoolAssgnmnt="1" Value="12"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C15">
-<MapEntry BoolAssgnmnt="0" Value="12"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C16">
-<MapEntry BoolAssgnmnt="0" Value="15"/>
-<MapEntry BoolAssgnmnt="1" Value="174"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C17">
-<MapEntry BoolAssgnmnt="0" Value="824"/>
-<MapEntry BoolAssgnmnt="1" Value="221"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C18">
-<MapEntry BoolAssgnmnt="02" Value="711"/>
-<MapEntry BoolAssgnmnt="11" Value="113"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C19">
-<MapEntry BoolAssgnmnt="0" Value="637"/>
-<MapEntry BoolAssgnmnt="1" Value="187"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C2">
-<MapEntry BoolAssgnmnt="10" Value="1785"/>
-<MapEntry BoolAssgnmnt="02" Value="64"/>
-<MapEntry BoolAssgnmnt="11" Value="305"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="3" RootTermCovItemId="C20">
-<MapEntry BoolAssgnmnt="110" Value="103"/>
-<MapEntry BoolAssgnmnt="111" Value="84"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C21">
-<MapEntry BoolAssgnmnt="0" Value="353"/>
-<MapEntry BoolAssgnmnt="1" Value="692"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C22">
-<MapEntry BoolAssgnmnt="0" Value="243"/>
-<MapEntry BoolAssgnmnt="1" Value="449"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C23">
-<MapEntry BoolAssgnmnt="0" Value="1467"/>
-<MapEntry BoolAssgnmnt="1" Value="34"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C24">
-<MapEntry BoolAssgnmnt="0" Value="17"/>
-<MapEntry BoolAssgnmnt="1" Value="17"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C25">
-<MapEntry BoolAssgnmnt="1" Value="15"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C26">
-<MapEntry BoolAssgnmnt="0" Value="15"/>
-<MapEntry BoolAssgnmnt="1" Value="247"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C27">
-<MapEntry BoolAssgnmnt="01" Value="5"/>
-<MapEntry BoolAssgnmnt="00" Value="53"/>
-<MapEntry BoolAssgnmnt="12" Value="189"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C28">
-<MapEntry BoolAssgnmnt="0" Value="189"/>
-<MapEntry BoolAssgnmnt="1" Value="5"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C29">
-<MapEntry BoolAssgnmnt="0" Value="4"/>
-<MapEntry BoolAssgnmnt="1" Value="1"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C3">
-<MapEntry BoolAssgnmnt="0" Value="1785"/>
-<MapEntry BoolAssgnmnt="1" Value="64"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C30">
-<MapEntry BoolAssgnmnt="0" Value="2"/>
-<MapEntry BoolAssgnmnt="1" Value="10"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C31">
-<MapEntry BoolAssgnmnt="1" Value="10"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C32">
-<MapEntry BoolAssgnmnt="0" Value="193"/>
-<MapEntry BoolAssgnmnt="1" Value="1"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C4">
-<MapEntry BoolAssgnmnt="10" Value="144"/>
-<MapEntry BoolAssgnmnt="11" Value="43"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C5">
-<MapEntry BoolAssgnmnt="10" Value="132"/>
-<MapEntry BoolAssgnmnt="11" Value="12"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C6">
-<MapEntry BoolAssgnmnt="10" Value="127"/>
-<MapEntry BoolAssgnmnt="11" Value="5"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C7">
-<MapEntry BoolAssgnmnt="10" Value="89"/>
-<MapEntry BoolAssgnmnt="11" Value="38"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C8">
-<MapEntry BoolAssgnmnt="10" Value="44"/>
-<MapEntry BoolAssgnmnt="11" Value="45"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C9">
-<MapEntry BoolAssgnmnt="10" Value="9"/>
-<MapEntry BoolAssgnmnt="11" Value="35"/>
-</AssgnmntListEntry>
-</AssgnmntPrefix>
-<AssgnmntPrefix RootTermCovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java">
-<AssgnmntListEntry Length="1" RootTermCovItemId="C1">
-<MapEntry BoolAssgnmnt="0" Value="5"/>
-<MapEntry BoolAssgnmnt="1" Value="68"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C2">
-<MapEntry BoolAssgnmnt="10" Value="56"/>
-<MapEntry BoolAssgnmnt="02" Value="4"/>
-<MapEntry BoolAssgnmnt="11" Value="8"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C3">
-<MapEntry BoolAssgnmnt="0" Value="5"/>
-<MapEntry BoolAssgnmnt="1" Value="8"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C4">
-<MapEntry BoolAssgnmnt="1" Value="8"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C5">
-<MapEntry BoolAssgnmnt="0" Value="2"/>
-<MapEntry BoolAssgnmnt="1" Value="6"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C6">
-<MapEntry BoolAssgnmnt="0" Value="3"/>
-<MapEntry BoolAssgnmnt="1" Value="2"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C7">
-<MapEntry BoolAssgnmnt="0" Value="1"/>
-<MapEntry BoolAssgnmnt="1" Value="18"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C8">
-<MapEntry BoolAssgnmnt="02" Value="7"/>
-<MapEntry BoolAssgnmnt="11" Value="11"/>
-</AssgnmntListEntry>
-</AssgnmntPrefix>
-</AssgnmntList>
-<ObjMetaDataList/>
-<MetaDataList/>
-</TestCase>
-<MetaDataList/>
-</TestSession>
-<TestSession Comment="" Date="1421785441547" Name="21 Jan, 2015 1:54:01 AM">
-<TestCase Comment="This is a test case containing all coverage results cause no startTestCase methods where captured." Date="1421785441453" Name="UNNAMED TESTCASE">
-<CovList>
-<CovPrefix CovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java">
-<Cov CovItemId="B1" Value="48"/>
-<Cov CovItemId="B10" Value="13"/>
-<Cov CovItemId="B12" Value="13"/>
-<Cov CovItemId="B13" Value="3"/>
-<Cov CovItemId="B14" Value="10"/>
-<Cov CovItemId="B15" Value="8"/>
-<Cov CovItemId="B16" Value="2"/>
-<Cov CovItemId="B17" Value="2"/>
-<Cov CovItemId="B19" Value="162"/>
-<Cov CovItemId="B2" Value="322"/>
-<Cov CovItemId="B20" Value="147"/>
-<Cov CovItemId="B21" Value="31"/>
-<Cov CovItemId="B22" Value="131"/>
-<Cov CovItemId="B23" Value="7"/>
-<Cov CovItemId="B24" Value="140"/>
-<Cov CovItemId="B25" Value="2"/>
-<Cov CovItemId="B26" Value="5"/>
-<Cov CovItemId="B27" Value="28"/>
-<Cov CovItemId="B28" Value="5"/>
-<Cov CovItemId="B29" Value="40"/>
-<Cov CovItemId="B3" Value="11"/>
-<Cov CovItemId="B30" Value="172"/>
-<Cov CovItemId="B31" Value="16"/>
-<Cov CovItemId="B32" Value="156"/>
-<Cov CovItemId="B33" Value="33"/>
-<Cov CovItemId="B34" Value="139"/>
-<Cov CovItemId="B35" Value="21"/>
-<Cov CovItemId="B36" Value="12"/>
-<Cov CovItemId="B37" Value="121"/>
-<Cov CovItemId="B38" Value="91"/>
-<Cov CovItemId="B39" Value="85"/>
-<Cov CovItemId="B4" Value="311"/>
-<Cov CovItemId="B40" Value="36"/>
-<Cov CovItemId="B41" Value="8"/>
-<Cov CovItemId="B42" Value="255"/>
-<Cov CovItemId="B43" Value="7"/>
-<Cov CovItemId="B44" Value="1"/>
-<Cov CovItemId="B45" Value="5"/>
-<Cov CovItemId="B47" Value="33"/>
-<Cov CovItemId="B5" Value="13"/>
-<Cov CovItemId="B50" Value="33"/>
-<Cov CovItemId="B57" Value="1"/>
-<Cov CovItemId="B58" Value="32"/>
-<Cov CovItemId="B6" Value="20"/>
-<Cov CovItemId="B8" Value="20"/>
-<Cov CovItemId="B9" Value="7"/>
-<Cov CovItemId="L1-1" Value="17"/>
-<Cov CovItemId="L1-2" Value="48"/>
-<Cov CovItemId="L2-0" Value="10"/>
-<Cov CovItemId="L2-1" Value="97"/>
-<Cov CovItemId="L2-2" Value="65"/>
-<Cov CovItemId="L3-1" Value="10"/>
-<Cov CovItemId="L3-2" Value="18"/>
-<Cov CovItemId="L4-2" Value="65"/>
-<Cov CovItemId="L5-1" Value="33"/>
-<Cov CovItemId="L6-2" Value="85"/>
-<Cov CovItemId="L7-2" Value="5"/>
-<Cov CovItemId="L8-2" Value="5"/>
-<Cov CovItemId="S1" Value="1"/>
-<Cov CovItemId="S10" Value="1"/>
-<Cov CovItemId="S100" Value="121"/>
-<Cov CovItemId="S101" Value="85"/>
-<Cov CovItemId="S102" Value="263"/>
-<Cov CovItemId="S103" Value="263"/>
-<Cov CovItemId="S104" Value="8"/>
-<Cov CovItemId="S105" Value="7"/>
-<Cov CovItemId="S106" Value="1"/>
-<Cov CovItemId="S107" Value="5"/>
-<Cov CovItemId="S108" Value="5"/>
-<Cov CovItemId="S109" Value="17"/>
-<Cov CovItemId="S11" Value="1"/>
-<Cov CovItemId="S110" Value="33"/>
-<Cov CovItemId="S111" Value="5"/>
-<Cov CovItemId="S112" Value="5"/>
-<Cov CovItemId="S113" Value="5"/>
-<Cov CovItemId="S114" Value="33"/>
-<Cov CovItemId="S115" Value="33"/>
-<Cov CovItemId="S116" Value="33"/>
-<Cov CovItemId="S12" Value="1"/>
-<Cov CovItemId="S129" Value="33"/>
-<Cov CovItemId="S13" Value="1"/>
-<Cov CovItemId="S130" Value="33"/>
-<Cov CovItemId="S131" Value="33"/>
-<Cov CovItemId="S132" Value="1"/>
-<Cov CovItemId="S133" Value="32"/>
-<Cov CovItemId="S134" Value="5"/>
-<Cov CovItemId="S14" Value="1"/>
-<Cov CovItemId="S15" Value="1"/>
-<Cov CovItemId="S16" Value="1"/>
-<Cov CovItemId="S17" Value="1"/>
-<Cov CovItemId="S18" Value="1"/>
-<Cov CovItemId="S19" Value="1"/>
-<Cov CovItemId="S2" Value="1"/>
-<Cov CovItemId="S20" Value="1"/>
-<Cov CovItemId="S21" Value="1"/>
-<Cov CovItemId="S22" Value="1"/>
-<Cov CovItemId="S23" Value="1"/>
-<Cov CovItemId="S24" Value="1"/>
-<Cov CovItemId="S25" Value="1"/>
-<Cov CovItemId="S26" Value="1"/>
-<Cov CovItemId="S27" Value="1"/>
-<Cov CovItemId="S28" Value="1"/>
-<Cov CovItemId="S29" Value="1"/>
-<Cov CovItemId="S3" Value="1"/>
-<Cov CovItemId="S30" Value="1"/>
-<Cov CovItemId="S31" Value="1"/>
-<Cov CovItemId="S32" Value="1"/>
-<Cov CovItemId="S33" Value="1"/>
-<Cov CovItemId="S34" Value="1"/>
-<Cov CovItemId="S35" Value="1"/>
-<Cov CovItemId="S36" Value="1"/>
-<Cov CovItemId="S37" Value="1"/>
-<Cov CovItemId="S38" Value="1"/>
-<Cov CovItemId="S39" Value="1"/>
-<Cov CovItemId="S4" Value="1"/>
-<Cov CovItemId="S40" Value="1"/>
-<Cov CovItemId="S41" Value="1"/>
-<Cov CovItemId="S42" Value="1"/>
-<Cov CovItemId="S43" Value="1"/>
-<Cov CovItemId="S44" Value="65"/>
-<Cov CovItemId="S45" Value="65"/>
-<Cov CovItemId="S46" Value="65"/>
-<Cov CovItemId="S47" Value="65"/>
-<Cov CovItemId="S48" Value="370"/>
-<Cov CovItemId="S49" Value="370"/>
-<Cov CovItemId="S5" Value="1"/>
-<Cov CovItemId="S50" Value="48"/>
-<Cov CovItemId="S51" Value="322"/>
-<Cov CovItemId="S52" Value="11"/>
-<Cov CovItemId="S53" Value="65"/>
-<Cov CovItemId="S54" Value="33"/>
-<Cov CovItemId="S55" Value="13"/>
-<Cov CovItemId="S56" Value="20"/>
-<Cov CovItemId="S58" Value="20"/>
-<Cov CovItemId="S59" Value="7"/>
-<Cov CovItemId="S6" Value="1"/>
-<Cov CovItemId="S60" Value="13"/>
-<Cov CovItemId="S62" Value="13"/>
-<Cov CovItemId="S63" Value="3"/>
-<Cov CovItemId="S64" Value="10"/>
-<Cov CovItemId="S65" Value="8"/>
-<Cov CovItemId="S66" Value="2"/>
-<Cov CovItemId="S67" Value="2"/>
-<Cov CovItemId="S69" Value="172"/>
-<Cov CovItemId="S7" Value="1"/>
-<Cov CovItemId="S70" Value="172"/>
-<Cov CovItemId="S71" Value="309"/>
-<Cov CovItemId="S72" Value="162"/>
-<Cov CovItemId="S73" Value="162"/>
-<Cov CovItemId="S74" Value="31"/>
-<Cov CovItemId="S75" Value="147"/>
-<Cov CovItemId="S76" Value="147"/>
-<Cov CovItemId="S77" Value="7"/>
-<Cov CovItemId="S78" Value="7"/>
-<Cov CovItemId="S79" Value="2"/>
-<Cov CovItemId="S8" Value="1"/>
-<Cov CovItemId="S80" Value="172"/>
-<Cov CovItemId="S81" Value="33"/>
-<Cov CovItemId="S82" Value="33"/>
-<Cov CovItemId="S83" Value="28"/>
-<Cov CovItemId="S84" Value="65"/>
-<Cov CovItemId="S85" Value="65"/>
-<Cov CovItemId="S86" Value="65"/>
-<Cov CovItemId="S87" Value="212"/>
-<Cov CovItemId="S88" Value="212"/>
-<Cov CovItemId="S89" Value="40"/>
-<Cov CovItemId="S9" Value="1"/>
-<Cov CovItemId="S90" Value="172"/>
-<Cov CovItemId="S91" Value="16"/>
-<Cov CovItemId="S92" Value="172"/>
-<Cov CovItemId="S93" Value="172"/>
-<Cov CovItemId="S94" Value="33"/>
-<Cov CovItemId="S95" Value="33"/>
-<Cov CovItemId="S96" Value="33"/>
-<Cov CovItemId="S97" Value="21"/>
-<Cov CovItemId="S98" Value="212"/>
-<Cov CovItemId="S99" Value="121"/>
-</CovPrefix>
-<CovPrefix CovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java">
-<Cov CovItemId="B1" Value="5"/>
-<Cov CovItemId="B10" Value="4"/>
-<Cov CovItemId="B2" Value="65"/>
-<Cov CovItemId="B3" Value="5"/>
-<Cov CovItemId="B5" Value="4"/>
-<Cov CovItemId="B6" Value="1"/>
-<Cov CovItemId="B8" Value="7"/>
-<Cov CovItemId="B9" Value="66"/>
-<Cov CovItemId="L1-1" Value="1"/>
-<Cov CovItemId="L1-2" Value="11"/>
-<Cov CovItemId="L2-0" Value="2"/>
-<Cov CovItemId="L2-1" Value="5"/>
-<Cov CovItemId="L3-2" Value="10"/>
-<Cov CovItemId="S1" Value="12"/>
-<Cov CovItemId="S10" Value="5"/>
-<Cov CovItemId="S11" Value="5"/>
-<Cov CovItemId="S12" Value="4"/>
-<Cov CovItemId="S13" Value="1"/>
-<Cov CovItemId="S14" Value="5"/>
-<Cov CovItemId="S15" Value="5"/>
-<Cov CovItemId="S16" Value="7"/>
-<Cov CovItemId="S17" Value="7"/>
-<Cov CovItemId="S19" Value="7"/>
-<Cov CovItemId="S2" Value="70"/>
-<Cov CovItemId="S20" Value="10"/>
-<Cov CovItemId="S21" Value="10"/>
-<Cov CovItemId="S22" Value="70"/>
-<Cov CovItemId="S23" Value="70"/>
-<Cov CovItemId="S24" Value="66"/>
-<Cov CovItemId="S25" Value="10"/>
-<Cov CovItemId="S3" Value="70"/>
-<Cov CovItemId="S4" Value="5"/>
-<Cov CovItemId="S5" Value="7"/>
-<Cov CovItemId="S6" Value="7"/>
-<Cov CovItemId="S7" Value="7"/>
-<Cov CovItemId="S8" Value="7"/>
-<Cov CovItemId="S9" Value="7"/>
-</CovPrefix>
-</CovList>
-<AssgnmntList>
-<AssgnmntPrefix RootTermCovItemPrefix="com.aconex.coding.challenge.NumberToAlphaConverter.java">
-<AssgnmntListEntry Length="1" RootTermCovItemId="C1">
-<MapEntry BoolAssgnmnt="0" Value="65"/>
-<MapEntry BoolAssgnmnt="1" Value="370"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C10">
-<MapEntry BoolAssgnmnt="11" Value="2"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C11">
-<MapEntry BoolAssgnmnt="0" Value="172"/>
-<MapEntry BoolAssgnmnt="1" Value="309"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C12">
-<MapEntry BoolAssgnmnt="0" Value="147"/>
-<MapEntry BoolAssgnmnt="1" Value="162"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C13">
-<MapEntry BoolAssgnmnt="0" Value="131"/>
-<MapEntry BoolAssgnmnt="1" Value="31"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C14">
-<MapEntry BoolAssgnmnt="0" Value="140"/>
-<MapEntry BoolAssgnmnt="1" Value="7"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C15">
-<MapEntry BoolAssgnmnt="0" Value="5"/>
-<MapEntry BoolAssgnmnt="1" Value="2"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C16">
-<MapEntry BoolAssgnmnt="0" Value="5"/>
-<MapEntry BoolAssgnmnt="1" Value="28"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C17">
-<MapEntry BoolAssgnmnt="0" Value="172"/>
-<MapEntry BoolAssgnmnt="1" Value="40"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C18">
-<MapEntry BoolAssgnmnt="02" Value="156"/>
-<MapEntry BoolAssgnmnt="11" Value="16"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C19">
-<MapEntry BoolAssgnmnt="0" Value="139"/>
-<MapEntry BoolAssgnmnt="1" Value="33"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C2">
-<MapEntry BoolAssgnmnt="10" Value="311"/>
-<MapEntry BoolAssgnmnt="02" Value="11"/>
-<MapEntry BoolAssgnmnt="11" Value="48"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="3" RootTermCovItemId="C20">
-<MapEntry BoolAssgnmnt="110" Value="12"/>
-<MapEntry BoolAssgnmnt="102" Value="2"/>
-<MapEntry BoolAssgnmnt="111" Value="19"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C21">
-<MapEntry BoolAssgnmnt="0" Value="91"/>
-<MapEntry BoolAssgnmnt="1" Value="121"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C22">
-<MapEntry BoolAssgnmnt="0" Value="36"/>
-<MapEntry BoolAssgnmnt="1" Value="85"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C23">
-<MapEntry BoolAssgnmnt="0" Value="255"/>
-<MapEntry BoolAssgnmnt="1" Value="8"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C24">
-<MapEntry BoolAssgnmnt="0" Value="1"/>
-<MapEntry BoolAssgnmnt="1" Value="7"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C25">
-<MapEntry BoolAssgnmnt="1" Value="5"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C26">
-<MapEntry BoolAssgnmnt="0" Value="4"/>
-<MapEntry BoolAssgnmnt="1" Value="33"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C27">
-<MapEntry BoolAssgnmnt="12" Value="33"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C28">
-<MapEntry BoolAssgnmnt="0" Value="33"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C3">
-<MapEntry BoolAssgnmnt="0" Value="311"/>
-<MapEntry BoolAssgnmnt="1" Value="11"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C32">
-<MapEntry BoolAssgnmnt="0" Value="32"/>
-<MapEntry BoolAssgnmnt="1" Value="1"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C4">
-<MapEntry BoolAssgnmnt="10" Value="20"/>
-<MapEntry BoolAssgnmnt="11" Value="13"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C5">
-<MapEntry BoolAssgnmnt="10" Value="20"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C6">
-<MapEntry BoolAssgnmnt="10" Value="13"/>
-<MapEntry BoolAssgnmnt="11" Value="7"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C7">
-<MapEntry BoolAssgnmnt="10" Value="13"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C8">
-<MapEntry BoolAssgnmnt="10" Value="10"/>
-<MapEntry BoolAssgnmnt="11" Value="3"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C9">
-<MapEntry BoolAssgnmnt="10" Value="2"/>
-<MapEntry BoolAssgnmnt="11" Value="8"/>
-</AssgnmntListEntry>
-</AssgnmntPrefix>
-<AssgnmntPrefix RootTermCovItemPrefix="com.aconex.coding.challenge.ResultFormatter.java">
-<AssgnmntListEntry Length="1" RootTermCovItemId="C1">
-<MapEntry BoolAssgnmnt="0" Value="7"/>
-<MapEntry BoolAssgnmnt="1" Value="70"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C2">
-<MapEntry BoolAssgnmnt="10" Value="61"/>
-<MapEntry BoolAssgnmnt="02" Value="4"/>
-<MapEntry BoolAssgnmnt="11" Value="5"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C3">
-<MapEntry BoolAssgnmnt="0" Value="7"/>
-<MapEntry BoolAssgnmnt="1" Value="5"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C4">
-<MapEntry BoolAssgnmnt="1" Value="5"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C5">
-<MapEntry BoolAssgnmnt="0" Value="1"/>
-<MapEntry BoolAssgnmnt="1" Value="4"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C6">
-<MapEntry BoolAssgnmnt="0" Value="7"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="1" RootTermCovItemId="C7">
-<MapEntry BoolAssgnmnt="0" Value="10"/>
-<MapEntry BoolAssgnmnt="1" Value="70"/>
-</AssgnmntListEntry>
-<AssgnmntListEntry Length="2" RootTermCovItemId="C8">
-<MapEntry BoolAssgnmnt="02" Value="4"/>
-<MapEntry BoolAssgnmnt="11" Value="66"/>
-</AssgnmntListEntry>
-</AssgnmntPrefix>
-</AssgnmntList>
-<ObjMetaDataList/>
-<MetaDataList/>
-</TestCase>
-<MetaDataList/>
-</TestSession>
 </TestSessionContainer>

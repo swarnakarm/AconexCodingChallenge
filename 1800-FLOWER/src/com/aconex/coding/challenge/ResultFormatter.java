@@ -9,7 +9,7 @@ public class ResultFormatter {
 	 */
 	private static int findIndexOfDigit(String word){
 		for(int i=0;i<word.length();i++){
-			char c = word.charAt(i);
+			final char c = word.charAt(i);
 			if(c>='0' && c<='9'){
 				return i;
 			}
@@ -25,21 +25,21 @@ public class ResultFormatter {
 	public static String formatOutput(final String result){
 		StringBuffer formattedResult = new StringBuffer();
 		int digitPos = findIndexOfDigit(result);
-		String remainingResultString =  result;
+		String remainingString =  result;
 		while(digitPos != -1)
 		{
 			if(digitPos != -1){
 				if(digitPos != 0){
-					formattedResult.append(remainingResultString.substring(0,digitPos).concat("-")
-							.concat(String.valueOf(remainingResultString.charAt(digitPos))).concat("-"));
+					formattedResult.append(remainingString.substring(0,digitPos).concat("-")
+							.concat(String.valueOf(remainingString.charAt(digitPos))).concat("-"));
 				}else{
-					formattedResult.append(String.valueOf(remainingResultString.charAt(digitPos)).concat("-"));
+					formattedResult.append(String.valueOf(remainingString.charAt(digitPos)).concat("-"));
 				}
 			}
-			remainingResultString = remainingResultString.substring(digitPos+1);
-			digitPos = findIndexOfDigit(remainingResultString);
+			remainingString = remainingString.substring(digitPos+1);
+			digitPos = findIndexOfDigit(remainingString);
 		}
-		formattedResult.append(remainingResultString);
+		formattedResult.append(remainingString);
 		if(formattedResult.toString().charAt(formattedResult.length()-1) == '-'){
 			return formattedResult.toString().substring(0,formattedResult.length()-1);
 		}
@@ -54,7 +54,7 @@ public class ResultFormatter {
 	public static String formatPhoneNumber(final String number){
 		StringBuffer sbuf = new StringBuffer();
 		for(int i=0;i<number.length();i++){
-			char c = number.charAt(i);
+			final char c = number.charAt(i);
 			if(c>='0'&&c<='9'){
 				sbuf.append(c);
 			}

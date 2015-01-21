@@ -11,7 +11,7 @@ import java.util.Set;
  * @author Manish S
  *
  */
-public class Dictionary {
+public final class Dictionary {
 
 	private static Set<String> words = new HashSet<String>();
 	

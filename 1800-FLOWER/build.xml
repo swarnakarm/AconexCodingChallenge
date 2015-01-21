@@ -25,9 +25,8 @@
 	</target>
 	
 	<target name="createJar" depends="compile">
-		<jar includes="${outputDir}" 
-			includesfile="*.java" 
-			destfile="${buildDir}/${jarName}">
+		<jar destfile="${buildDir}/${jarName}">
+			<fileset dir="${outputDir}" includes="**/*.class"/>
 		</jar>
 	</target>
 	

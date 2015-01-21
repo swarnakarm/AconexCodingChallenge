@@ -1,5 +1,4 @@
-I have used this problem out of the three provided one's because as soon 
-as I read about the problem I started thinking about it.
+I have used this problem out of the three provided one's because as soon as I read about the problem I started thinking about it.
 
 Also, I daily use this on my phone for calling someone. 
 So, it generated some curiosity on my mind and I started applying logic on my mind before checking other problems.
@@ -16,7 +15,11 @@ To Run -
 2. Execute Ant script - 
 	ant createJar
 
-3. Running the Application:
+3. Providing Access
+	chmod 777 run.sh
+	Note: In Windows Admin needs to provide the access to user.
+
+4. Running the Application:
 	For Linux or Mac-
 		run.sh -d DICTIONARY_FILE_PATH DIRECTORY_FILE_PATH
 	For Windows-

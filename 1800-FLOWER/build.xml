@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<project default="main" basedir=".">
+	
+	<property name="outputDir" value="output" />
+	<property name="srcFolder" value="src" />
+	<property name="buildDir" value="build" />
+	<property name="jarName" value="aconex.jar" />
+	
+	<target name="clean">
+		<delete dir="${outputDir}"/>
+		<delete dir="${buildDir}"/>
+	</target>
+	
+	<target name="createDir" depends="clean">
+		<mkdir dir="${outputDir}" />
+		<mkdir dir="${buildDir}" />
+	</target>
+
+	<target name="compile" depends="createDir">
+		<javac srcdir="${srcFolder}" 
+			destdir="${outputDir}" 
+			includes="**/*.java">
+		</javac>
+	</target>
+	
+	<target name="createJar" depends="compile">
+		<jar includes="${outputDir}" 
+			includesfile="*.java" 
+			destfile="${buildDir}/${jarName}">
+		</jar>
+	</target>
+	
+	 <target name="main" 
+	 	depends="createJar">
+	  </target>
+  
+</project>

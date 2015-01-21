@@ -17,7 +17,7 @@ To Run -
 
 3. Providing Access
 	chmod 777 run.sh
-	Note: In Windows Admin needs to provide the access to user.
+	Note: In Windows, user needs to have access for execution.
 
 4. Running the Application:
 	For Linux or Mac-
